@@ -164,14 +164,11 @@ SELECT * FROM games;
 SELECT * FROM reviews;
 
 -- Выбор всех элементов пользовательских коллекций
-SELECT * FROM user_collections;
+SELECT * FROM user_game_collections;
 
 -- Выбор всех уведомлений
 SELECT * FROM notifications;
 
 -- Выбор всех предложенных игр
-SELECT * FROM game_suggestions;
-
--- Выбор всех заблокированных сообщений
-SELECT * FROM blocked_messages;
+SELECT * FROM games_suggestions;
 

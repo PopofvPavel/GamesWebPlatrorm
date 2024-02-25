@@ -1,14 +1,26 @@
-package com.example.webprojectgames.model;
+package com.example.webprojectgames.model.entities;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "games")
 public class Game {
+    @Id
+    @GeneratedValue
+    @Column(name = "game_id")
     private int gameId;
+    @Column(name = "title")
     private String title;
+    @Column(name = "description")
     private String description;
+    @Column(name = "release_date")
     private Date releaseDate;
+    @Column(name = "platform")
     private String platform;
+    @Column(name = "developer")
     private String developer;
+    @Column(name = "editor_id")
     private int editorId;
 
     public int getGameId() {

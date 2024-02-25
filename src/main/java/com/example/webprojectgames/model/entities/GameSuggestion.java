@@ -1,4 +1,4 @@
-package com.example.webprojectgames.model;
+package com.example.webprojectgames.model.entities;
 
 public class GameSuggestion {
     private int suggestionId;

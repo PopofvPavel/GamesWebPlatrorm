@@ -1,7 +1,10 @@
 package com.example.webprojectgames.controller;
 
 
+import com.example.webprojectgames.repositories.GamesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,9 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/games")
 public class GamesController {
 
-    @GetMapping()
-    public String showGamesPage() {
+    private GamesRepository gamesRepository;
 
+    @Autowired
+    public void setGamesRepository(GamesRepository gamesRepository) {
+        this.gamesRepository = gamesRepository;
+    }
+
+
+    @GetMapping()
+    public String showGamesPage(Model model) {
+        model.addAttribute("games", gamesRepository.findAll());
         return "games";
     }
 
