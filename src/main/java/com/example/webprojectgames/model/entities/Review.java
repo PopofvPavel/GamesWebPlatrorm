@@ -1,13 +1,25 @@
 package com.example.webprojectgames.model.entities;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "reviews")
 public class Review {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "review_id")
     private int reviewId;
-    private int gameId; // Используется для связи с игрой
-    private int userId; // Используется для связи с пользователем
+    @Column(name = "game_id")
+    private int gameId;
+    @Column(name = "user_id")
+    private int userId;
+    @Column(name = "comment")
     private String comment;
+    @Column(name = "date")
     private Date date;
+    @Column(name = "is_blocked")
     private boolean isBlocked;
 
     public boolean isBlocked() {

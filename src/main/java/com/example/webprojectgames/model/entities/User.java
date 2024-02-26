@@ -1,10 +1,21 @@
 package com.example.webprojectgames.model.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue
+    @Column(name = "user_id")
     private int userId;
+    @Column(name = "username")
     private String username;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
+    @Column(name = "role_id")
     private int roleId;
 
     public int getUserId() {

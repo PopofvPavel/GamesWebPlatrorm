@@ -1,10 +1,21 @@
 package com.example.webprojectgames.model.entities;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "notifications")
 public class Notification {
+    @Id
+    @GeneratedValue
+    @Column(name = "notification_id")
     private int notificationId;
+    @Column(name = "user_id")
     private int userId;
+    @Column(name = "game_id")
     private int gameId;
+    @Column(name = "notification_type")
     private String notificationType;
+    @Column(name = "is_notified")
     private boolean isNotified;
 
     public int getNotificationId() {
