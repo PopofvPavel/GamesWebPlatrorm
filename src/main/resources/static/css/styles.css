@@ -1,0 +1,48 @@
+.container {
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: royalblue;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.game-item {
+    position: sticky;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.game-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: auto;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.game-title {
+    font-weight: bold;
+}
+.game-developer{
+    color: mediumpurple;
+
+}
+.game-platform-and-date{
+    font-size: 14px;
+}
+.game-description {
+    margin-top: 5px;
+    color: #666;
+}

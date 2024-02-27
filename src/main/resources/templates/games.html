@@ -1,42 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ru">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 <div class="container">
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>ID_Game</th>
-            <th>Title</th>
-            <th>description</th>
-            <th>release date</th>
-            <th>platform</th>
-            <th>developer</th>
-            <th>editor_id</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="game : ${games}">
-            <td th:text="${game.gameId}"/>
-            <td th:text="${game.title}"/>
-            <td th:text="${game.description}"/>
-            <td th:text="${game.releaseDate}"/>
-            <td th:text="${game.platform}"/>
-            <td th:text="${game.developer}"/>
-            <td th:text="${game.editorId}"/>
-            <td>
-                <a th:href="@{'/games/show/' + ${game.gameId}}" th:text="Просмотреть"/>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <span th:text="${'Games amount ' + games.size()}"/>
+    <h1>List of Games</h1>
+    <ul class="game-list">
+        <li th:each="game : ${games}" class="game-item">
+            <div class="game-title" th:text="${game.title}">Game Title</div>
+            <div class="game-developer" th:text="${game.developer}">Game Title</div>
+            <div class="game-platform-and-date" th:text="${#dates.format(game.releaseDate, 'dd-MM-yyyy')}
+            + '•' + ${game.platform}">Release Date & Platform</div>
+            <div class="game-description" th:text="${game.description}">Game Description</div>
+            <img class="game-image" th:src="@{${game.imageUrl}}" alt="">
 
+        </li>
+    </ul>
 </div>
 </body>
 </html>

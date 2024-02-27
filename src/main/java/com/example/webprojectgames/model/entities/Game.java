@@ -22,6 +22,8 @@ public class Game {
     private String developer;
     @Column(name = "editor_id")
     private int editorId;
+    @Column(name = "image_url")
+    private String imageUrl;
 
     public int getGameId() {
         return gameId;
@@ -77,5 +79,13 @@ public class Game {
 
     public void setEditorId(int editorId) {
         this.editorId = editorId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

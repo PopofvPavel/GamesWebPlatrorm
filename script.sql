@@ -21,8 +21,11 @@ DROP TABLE IF EXISTS users CASCADE;
 -- Удаление таблицы roles
 DROP TABLE IF EXISTS roles CASCADE;
 
+-- Удаление таблицы ratings
+DROP TABLE IF EXISTS ratings CASCADE;
 
-CREATE DATABASE "GamesPlatform"
+
+/*CREATE DATABASE "GamesPlatform"
     WITH
     OWNER = postgres
     ENCODING = 'UTF8'
@@ -32,7 +35,7 @@ CREATE DATABASE "GamesPlatform"
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1
     IS_TEMPLATE = False;
-
+*/
 
 CREATE TABLE roles
 (
@@ -59,6 +62,7 @@ CREATE TABLE games
     platform     VARCHAR(50),
     developer    VARCHAR(100),
     editor_id    INT,
+    image_url    varchar(100),
     FOREIGN KEY (editor_id) REFERENCES users (user_id)
 );
 
@@ -133,10 +137,10 @@ VALUES ('user1', 'user1@example.com', 'password1', 1),
        ('moderator1', 'moderator1@example.com', 'password4', 3);
 
 -- Заполнение таблицы games
-INSERT INTO games (title, description, release_date, platform, developer, editor_id)
-VALUES ('Game1', 'Description for Game1', '2022-01-01', 'Platform1', 'Developer1', 3),
-       ('Game2', 'Description for Game2', '2022-02-01', 'Platform2', 'Developer2', 3),
-       ('Game3', 'Description for Game3', '2022-03-01', 'Platform3', 'Developer3', 3);
+INSERT INTO games (title, description, release_date, platform, developer, editor_id,image_url)
+VALUES ('Witcher 3', 'Final game in witcher series', '2015-01-01', 'Windows, Linux', 'CD Project RED', 3,'/images/witcher-3.jpg'),
+       ('Quake Champions', 'FPS multiplayer game', '2019-02-01', 'Windows', 'idSoftware', 3,null),
+       ('Counter-strike 1.6', 'Tactical FPS game', '1999-03-01', 'Windows', 'Valve', 3,null);
 
 -- Заполнение таблицы reviews
 INSERT INTO reviews (game_id, user_id, comment, date, is_blocked)
@@ -190,4 +194,8 @@ FROM notifications;
 -- Выбор всех предложенных игр
 SELECT *
 FROM games_suggestions;
+
+-- Выбор всех рейтингов
+SELECT *
+FROM ratings;
 
