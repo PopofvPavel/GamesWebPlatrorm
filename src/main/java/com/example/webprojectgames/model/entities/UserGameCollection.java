@@ -1,14 +1,12 @@
 package com.example.webprojectgames.model.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "user_game_collections")
+@IdClass(UserGameCollectionKey.class)
 public class UserGameCollection implements Serializable {
     //private int collectionId;
     @Id

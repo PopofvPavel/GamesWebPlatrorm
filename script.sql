@@ -140,7 +140,10 @@ VALUES ('user1', 'user1@example.com', 'password1', 1),
 INSERT INTO games (title, description, release_date, platform, developer, editor_id,image_url)
 VALUES ('Witcher 3', 'Final game in witcher series', '2015-01-01', 'Windows, Linux', 'CD Project RED', 3,'/images/witcher-3.jpg'),
        ('Quake Champions', 'FPS multiplayer game', '2019-02-01', 'Windows', 'idSoftware', 3,null),
-       ('Counter-strike 1.6', 'Tactical FPS game', '1999-03-01', 'Windows', 'Valve', 3,null);
+       ('Counter-strike 1.6', 'Tactical FPS game', '1999-03-01', 'Windows', 'Valve', 3,null),
+       ('Counter-strike : Global Offensive', 'Tactical FPS game', '2012-03-01', 'Windows', 'Valve', 3,null),
+       ('Counter-strike 2', 'Tactical FPS game', '1999-03-01', 'Windows', 'Valve', 3,null),
+       ('Fallout: New Vegas', 'RPG game', '2011-03-01', 'Windows', 'Bethesda', 3,null);
 
 -- Заполнение таблицы reviews
 INSERT INTO reviews (game_id, user_id, comment, date, is_blocked)

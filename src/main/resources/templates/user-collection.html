@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
+    <title>User Collection</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
 <div class="container">
-    <h1>List of Games</h1>
+    <h1>User Collection</h1>
     <ul class="game-list">
-        <li th:each="game : ${games}" class="game-item">
+        <li th:each="game : ${userCollection}" class="game-item">
             <div class="game-title" th:text="${game.title}">Game Title</div>
             <div class="game-developer" th:text="${game.developer}">Game Title</div>
             <div class="game-platform-and-date" th:text="${#dates.format(game.releaseDate, 'dd-MM-yyyy')}
