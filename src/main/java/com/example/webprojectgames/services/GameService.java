@@ -11,4 +11,6 @@ public interface GameService {
     List<Game> getAllGames();
     List<Game> getUserGamesCollection(int userId);
 
+    Game findById(int id);
+
 }

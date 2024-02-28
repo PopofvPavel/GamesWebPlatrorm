@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Detail</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${game.title}">Game Title</h1>
+    <p>Ratings: <span th:text="${averageRating}"></span></p>
+    <p>Description: <span th:text="${game.description}"></span></p>
+    <p>Release Date: <span th:text="${#dates.format(game.releaseDate, 'dd-MM-yyyy')}"></span></p>
+    <p>Platform: <span th:text="${game.platform}"></span></p>
+    <p>Developer: <span th:text="${game.developer}"></span></p>
+    <img th:src="@{${game.imageUrl}}" alt="Game Image">
+
+    <h2>Reviews:</h2>
+    <ul>
+        <li th:each="review : ${reviews}">
+            <p>User: <span th:text="${review.userId}"></span></p>
+            <p>Date: <span th:text="${#dates.format(review.date, 'dd-MM-yyyy')}"></span></p>
+            <p>Comment: <span th:text="${review.comment}"></span></p>
+        </li>
+    </ul>
+
+</div>
+</body>
+</html>

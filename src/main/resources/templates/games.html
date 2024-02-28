@@ -11,8 +11,10 @@
     <h1>List of Games</h1>
     <ul class="game-list">
         <li th:each="game : ${games}" class="game-item">
-            <div class="game-title" th:text="${game.title}">Game Title</div>
-            <div class="game-developer" th:text="${game.developer}">Game Title</div>
+            <div class="game-title">
+                <a th:href="@{'/games/' + ${game.gameId}}" th:text="${game.title}"></a>
+            </div>
+            <div class="game-developer" th:text="${game.developer}">Game dev</div>
             <div class="game-platform-and-date" th:text="${#dates.format(game.releaseDate, 'dd-MM-yyyy')}
             + ' • ' + ${game.platform}">Release Date & Platform</div>
             <div class="game-description" th:text="${game.description}">Game Description</div>
