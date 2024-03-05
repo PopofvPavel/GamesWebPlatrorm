@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Game</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Add New Game</h1>
+    <form method="post" th:action="@{/games/add}" th:object="${game}">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" th:field="*{title}" required><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" th:field="*{description}"></textarea><br><br>
+
+        <label for="releaseDate">Release Date:</label><br>
+        <input type="date" id="releaseDate" th:field="*{releaseDate}"><br><br>
+
+        <label for="platform">Platform:</label><br>
+        <input type="text" id="platform" th:field="*{platform}"><br><br>
+
+        <label for="developer">Developer:</label><br>
+        <input type="text" id="developer" th:field="*{developer}"><br><br>
+
+       <!-- <label for="imageUrl">Image URL:</label><br>
+        <input type="text" id="imageUrl" th:field="*{imageUrl}"><br><br>-->
+
+        <button type="submit">Submit</button>
+    </form>
+    <p th:if="${error}" th:text="${error}" class="error-message"></p>
+</div>
+</body>
+</html>

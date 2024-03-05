@@ -1,5 +1,7 @@
 package com.example.webprojectgames.model.entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -7,7 +9,6 @@ import java.util.Date;
 @Table(name = "games")
 public class Game {
     @Id
-    @GeneratedValue
     @Column(name = "game_id")
     private int gameId;
     @Column(name = "title")
@@ -15,6 +16,7 @@ public class Game {
     @Column(name = "description")
     private String description;
     @Column(name = "release_date")
+    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
     private Date releaseDate;
     @Column(name = "platform")
     private String platform;

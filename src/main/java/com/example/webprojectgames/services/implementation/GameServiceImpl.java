@@ -45,4 +45,9 @@ public class GameServiceImpl implements GameService {
         return gamesRepository.findAllById(List.of(id)).get(0);
     }
 
+    @Override
+    public void saveGame(Game game) {
+        gamesRepository.save(game);
+    }
+
 }

@@ -13,4 +13,6 @@ public interface GameService {
 
     Game findById(int id);
 
+    void saveGame(Game game);
+
 }

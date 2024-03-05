@@ -5,7 +5,6 @@ import com.example.webprojectgames.model.entities.Game;
 import com.example.webprojectgames.model.entities.Rating;
 import com.example.webprojectgames.model.entities.Review;
 import com.example.webprojectgames.model.entities.User;
-import com.example.webprojectgames.repositories.GamesRepository;
 import com.example.webprojectgames.services.GameService;
 import com.example.webprojectgames.services.RatingService;
 import com.example.webprojectgames.services.ReviewService;
@@ -16,9 +15,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -89,7 +88,7 @@ public class GamesController {
         String userName = userDetails.getUsername();
 
 
-        User currentUser = userService.getCurrentUser(userName);
+        User currentUser = userService.findByUsername(userName);
         List<Game> userCollection = gameService.getUserGamesCollection(currentUser.getUserId());
         model.addAttribute("userCollection", userCollection);
         return "user-collection";
@@ -97,9 +96,42 @@ public class GamesController {
     }
 
     @GetMapping("/add")
-    public String showAddGamePage() {
-
+    public String showAddGamePage(Model model) {
+        Game game = new Game();
+        model.addAttribute("game", game);
         return "add-game";
+    }
+
+    @PostMapping("/add")
+    public String addGame(@ModelAttribute("game") Game game, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("error", "Some fields are invalid");
+
+            List<ObjectError> errors = result.getAllErrors();
+            for (ObjectError error : errors) {
+                System.out.println(error.getDefaultMessage());
+            }
+
+            return "add-game";
+        }
+
+        if (game.getTitle() == null || game.getTitle().isEmpty()) {
+            model.addAttribute("error", "Title is required");
+            return "add-game";
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String editorUsername = authentication.getName();
+
+        // Получение идентификатора пользователя (editorId) по его имени
+        User editor = userService.findByUsername(editorUsername);
+        //System.out.println("editor: " + editor);
+        // Установка editorId в объекте game
+        game.setEditorId(editor.getUserId());
+        //System.out.println("User id : " + editor.getUserId());
+
+        gameService.saveGame(game);
+        return "redirect:/games";
     }
 
 }
