@@ -107,6 +107,7 @@ public class GamesController {
         if (result.hasErrors()) {
             model.addAttribute("error", "Some fields are invalid");
 
+            //sout the error message
             List<ObjectError> errors = result.getAllErrors();
             for (ObjectError error : errors) {
                 System.out.println(error.getDefaultMessage());
@@ -133,5 +134,45 @@ public class GamesController {
         gameService.saveGame(game);
         return "redirect:/games";
     }
+
+    @GetMapping("/{id}/edit")
+    public String showEditGameForm(@PathVariable("id") int id, Model model) {
+        Game game = gameService.findById(id);
+        if (game == null) {
+            return "not-found";
+        }
+        model.addAttribute("game", game);
+        return "edit-game";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String editGame(@ModelAttribute("game") Game game, @PathVariable("id") int id, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("error", "Some fields are invalid");
+            return "edit-game";
+        }
+
+        if (game.getTitle() == null || game.getTitle().isEmpty()) {
+            model.addAttribute("error", "Title is required");
+            return "edit-game";
+        }
+
+        Game existingGame = gameService.findById(id);
+        if (existingGame == null) {
+            return "not-found";
+        }
+
+        existingGame.setTitle(game.getTitle());
+        existingGame.setDescription(game.getDescription());
+        existingGame.setReleaseDate(game.getReleaseDate());
+        existingGame.setPlatform(game.getPlatform());
+        existingGame.setDeveloper(game.getDeveloper());
+        existingGame.setImageUrl(game.getImageUrl());
+
+        gameService.saveGame(existingGame);
+        return "redirect:/games/" + id;
+    }
+
+
 
 }

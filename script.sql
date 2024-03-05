@@ -202,3 +202,4 @@ FROM games_suggestions;
 SELECT *
 FROM ratings;
 
+DELETE FROM GAMES WHERE game_id = 0

@@ -9,6 +9,7 @@ import java.util.Date;
 @Table(name = "games")
 public class Game {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id")
     private int gameId;
     @Column(name = "title")
@@ -20,6 +21,7 @@ public class Game {
     private Date releaseDate;
     @Column(name = "platform")
     private String platform;
+
     @Column(name = "developer")
     private String developer;
     @Column(name = "editor_id")
@@ -31,7 +33,7 @@ public class Game {
         return gameId;
     }
 
-    public void setGameId(int gameId) {
+    public void setGameId(Integer gameId) {
         this.gameId = gameId;
     }
 
@@ -75,11 +77,11 @@ public class Game {
         this.developer = developer;
     }
 
-    public int getEditorId() {
+    public Integer getEditorId() {
         return editorId;
     }
 
-    public void setEditorId(int editorId) {
+    public void setEditorId(Integer editorId) {
         this.editorId = editorId;
     }
 
