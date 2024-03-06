@@ -27,15 +27,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(NoOpPasswordEncoder.getInstance())
-                .usersByUsernameQuery("SELECT username, password, true FROM users WHERE username=?")
+                .usersByUsernameQuery("SELECT username, password, 1 as enabled FROM users WHERE username=?")
                 .authoritiesByUsernameQuery("SELECT username, role_name FROM users INNER JOIN roles ON users.role_id = roles.role_id WHERE username=?");
 
-        ;
-
-    /*    auth
-                .inMemoryAuthentication()
-                .withUser("user").password("{noop}password").roles("USER");*/
+    /* auth
+            .inMemoryAuthentication()
+            .withUser("user").password("{noop}password").roles("USER"); */
     }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

@@ -50,8 +50,17 @@ CREATE TABLE users
     email    VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
     role_id  INT,
+    enabled  BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (role_id) REFERENCES roles (role_id)
 );
+
+
+/*ALTER TABLE users
+    ADD COLUMN enabled BOOLEAN DEFAULT TRUE;
+
+UPDATE users
+SET enabled = TRUE;
+*/
 
 CREATE TABLE games
 (
