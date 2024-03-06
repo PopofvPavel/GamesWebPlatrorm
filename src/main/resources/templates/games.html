@@ -7,21 +7,53 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="container">
-    <h1>List of Games</h1>
-    <ul class="game-list">
-        <li th:each="game : ${games}" class="game-item">
-            <div class="game-title">
-                <a th:href="@{'/games/' + ${game.gameId}}" th:text="${game.title}"></a>
-            </div>
-            <div class="game-developer" th:text="${game.developer}">Game dev</div>
-            <div class="game-platform-and-date" th:text="${#dates.format(game.releaseDate, 'dd-MM-yyyy')}
-            + ' • ' + ${game.platform}">Release Date & Platform</div>
-            <div class="game-description" th:text="${game.description}">Game Description</div>
-            <img class="game-image" th:src="@{${game.imageUrl}}" alt="">
 
-        </li>
-    </ul>
+<header>
+    <div class="wrap">
+        <div class="header">
+            <div class="logo">
+                <a href=""><img src="logo.png" alt=""/></a>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li class="active"><a href="/games" class="header-link">Главная</a></li>
+                    <li ><a href="/games/collection" class="header-link">Моя коллекция</a></li>
+                    <li><a href="/games/add" class="header-link">Добавить игру</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</header>
+<!--<header class="header">
+    <div class="container">
+        &lt;!&ndash; Ссылка на главную страницу /games &ndash;&gt;
+        <a href="/games" class="header-link">Главная</a>
+        &lt;!&ndash; Ссылка на страницу коллекции игр /games/collection &ndash;&gt;
+        <a href="/games/collection" class="header-link">Моя коллекция</a>
+        &lt;!&ndash; Имя пользователя и роль &ndash;&gt;
+        <span class="header-user-info" th:text="'Пользователь: ' + ${username} + ' (' + ${role} + ')'"></span>
+    </div>
+</header>-->
+
+<div class="content-container">
+    <div class="container">
+        <h1>List of Games</h1>
+        <ul class="game-list">
+            <li th:each="game : ${games}" class="game-item">
+                <div class="game-title">
+                    <a th:href="@{'/games/' + ${game.gameId}}" th:text="${game.title}"></a>
+                </div>
+                <div class="game-developer" th:text="${game.developer}">Game dev</div>
+                <div class="game-platform-and-date" th:text="${#dates.format(game.releaseDate, 'dd-MM-yyyy')}
+            + ' • ' + ${game.platform}">Release Date & Platform
+                </div>
+                <div class="game-description" th:text="${game.description}">Game Description</div>
+                <img class="game-image" th:src="@{${game.imageUrl}}" alt="">
+
+            </li>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
