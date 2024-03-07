@@ -2,10 +2,7 @@ package com.example.webprojectgames.controller;
 
 
 import com.example.webprojectgames.api.steam.model.SteamGame;
-import com.example.webprojectgames.model.entities.Game;
-import com.example.webprojectgames.model.entities.Rating;
-import com.example.webprojectgames.model.entities.Review;
-import com.example.webprojectgames.model.entities.User;
+import com.example.webprojectgames.model.entities.*;
 import com.example.webprojectgames.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -31,9 +28,17 @@ public class GamesController {
 
     private ReviewService reviewService;
 
-    @Autowired
+
     private SteamApiService steamApiService;
 
+    private PlatformService platformService;
+
+    @Autowired
+    public void setPlatformService(PlatformService platformService) {
+        this.platformService = platformService;
+    }
+
+    @Autowired
     public void setSteamApiService(SteamApiService steamApiService) {
         this.steamApiService = steamApiService;
     }
@@ -149,8 +154,10 @@ public class GamesController {
             return "add-game";
         }
 
+        List<Platform> platforms = platformService.getPlatformsByNames(steamGame.getPlatform());
         Game game = new Game(steamGame.getTitle(), steamGame.getDescription(), steamGame.getReleaseDate(),
-                steamGame.getPlatform().get(0), steamGame.getDeveloper());
+                platforms, steamGame.getDeveloper());
+                //steamGame.getPlatform().get(0), steamGame.getDeveloper());
         model.addAttribute("game", game);
         return "add-game";
     }
@@ -188,7 +195,11 @@ public class GamesController {
             game.setReleaseDate(steamGame.getReleaseDate());
         }
         if (usePlatform) {
-            game.setPlatform(String.join(",", steamGame.getPlatform()));
+            //game.setPlatform(String.join(",", steamGame.getPlatform()));///fix
+            /*List<Platform> platforms = steamGame.getPlatform().stream().map(new)*/
+            List<Platform> platforms = platformService.getPlatformsByNames(steamGame.getPlatform());
+            System.out.println("platforms: " + platforms);
+            game.setPlatform(platforms);///fix
         }
         if (useDeveloper) {
             game.setDeveloper(steamGame.getDeveloper());

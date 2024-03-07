@@ -12,6 +12,9 @@ DROP TABLE IF EXISTS games_suggestions CASCADE;
 -- Удаление таблицы reviews
 DROP TABLE IF EXISTS reviews CASCADE;
 
+-- Удаление таблицы game_platforms
+DROP TABLE IF EXISTS game_platforms CASCADE;
+
 -- Удаление таблицы games
 DROP TABLE IF EXISTS games CASCADE;
 
@@ -21,8 +24,12 @@ DROP TABLE IF EXISTS users CASCADE;
 -- Удаление таблицы roles
 DROP TABLE IF EXISTS roles CASCADE;
 
+-- Удаление таблицы platforms
+DROP TABLE IF EXISTS platforms CASCADE;
+
 -- Удаление таблицы ratings
 DROP TABLE IF EXISTS ratings CASCADE;
+
 
 
 /*CREATE DATABASE "GamesPlatform"
@@ -61,6 +68,12 @@ CREATE TABLE users
 UPDATE users
 SET enabled = TRUE;
 */
+CREATE TABLE platforms
+(
+    platform_id SERIAL PRIMARY KEY,
+    name        VARCHAR(50) NOT NULL
+);
+
 
 CREATE TABLE games
 (
@@ -68,11 +81,19 @@ CREATE TABLE games
     title        VARCHAR(100) NOT NULL,
     description  TEXT,
     release_date DATE,
-    platform     VARCHAR(50),
     developer    VARCHAR(100),
     editor_id    INT,
     image_url    varchar(100),
     FOREIGN KEY (editor_id) REFERENCES users (user_id)
+);
+
+CREATE TABLE game_platforms
+(
+    game_id     INT,
+    platform_id INT,
+    PRIMARY KEY (game_id, platform_id),
+    FOREIGN KEY (game_id) REFERENCES games (game_id),
+    FOREIGN KEY (platform_id) REFERENCES platforms (platform_id)
 );
 
 CREATE TABLE ratings
@@ -138,6 +159,11 @@ VALUES ('user'),
        ('editor'),
        ('moderator');
 
+INSERT INTO platforms (name)
+VALUES ('windows'),
+       ('mac'),
+       ('linux');
+
 -- Заполнение таблицы users
 INSERT INTO users (username, email, password, role_id)
 VALUES ('user1', 'user1@example.com', 'password1', 1),
@@ -146,13 +172,22 @@ VALUES ('user1', 'user1@example.com', 'password1', 1),
        ('moderator1', 'moderator1@example.com', 'password4', 3);
 
 -- Заполнение таблицы games
-INSERT INTO games (title, description, release_date, platform, developer, editor_id,image_url)
-VALUES ('Witcher 3', 'Final game in witcher series', '2015-01-01', 'Windows, Linux', 'CD Project RED', 3,'/images/witcher-3.jpg'),
-       ('Quake Champions', 'FPS multiplayer game', '2019-02-01', 'Windows', 'idSoftware', 3,null),
-       ('Counter-strike 1.6', 'Tactical FPS game', '1999-03-01', 'Windows', 'Valve', 3,null),
-       ('Counter-strike : Global Offensive', 'Tactical FPS game', '2012-03-01', 'Windows', 'Valve', 3,null),
-       ('Counter-strike 2', 'Tactical FPS game', '1999-03-01', 'Windows', 'Valve', 3,null),
-       ('Fallout: New Vegas', 'RPG game', '2011-03-01', 'Windows', 'Bethesda', 3,null);
+INSERT INTO games (title, description, release_date, developer, editor_id,image_url)
+VALUES ('Witcher 3', 'Final game in witcher series', '2015-01-01', 'CD Project RED', 3,'/images/witcher-3.jpg'),
+       ('Quake Champions', 'FPS multiplayer game', '2019-02-01','idSoftware', 3,null),
+       ('Counter-strike 1.6', 'Tactical FPS game', '1999-03-01', 'Valve', 3,null),
+       ('Counter-strike : Global Offensive', 'Tactical FPS game', '2012-03-01', 'Valve', 3,null),
+       ('Counter-strike 2', 'Tactical FPS game', '1999-03-01', 'Valve', 3,null),
+       ('Fallout: New Vegas', 'RPG game', '2011-03-01', 'Bethesda', 3,null);
+
+INSERT INTO game_platforms (game_id, platform_id)
+VALUES (1, 1), -- Windows
+       (1, 2), -- MacOS
+       (1, 3), -- Linux
+       (2, 1),
+       (3, 1),
+       (4, 1),
+       (5, 1); -- Linux
 
 -- Заполнение таблицы reviews
 INSERT INTO reviews (game_id, user_id, comment, date, is_blocked)
@@ -211,4 +246,7 @@ FROM games_suggestions;
 SELECT *
 FROM ratings;
 
-DELETE FROM GAMES WHERE game_id = 0
+SELECT *
+FROM platforms;
+
+/*DELETE FROM GAMES WHERE game_id = 0*/

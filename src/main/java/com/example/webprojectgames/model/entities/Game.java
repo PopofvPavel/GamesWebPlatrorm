@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "games")
@@ -21,8 +22,13 @@ public class Game {
     @Column(name = "release_date")
     @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
     private Date releaseDate;
-    @Column(name = "platform")
-    private String platform;
+    @ManyToMany
+    @JoinTable(
+            name = "game_platforms",
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "platform_id")
+    )
+    private List<Platform> platforms;
 
     @Column(name = "developer")
     private String developer;
@@ -31,11 +37,11 @@ public class Game {
     @Column(name = "image_url")
     private String imageUrl;
 
-    public Game(String title, String description, Date releaseDate, String platform, String developer) {
+    public Game(String title, String description, Date releaseDate, List<Platform> platform, String developer) {
         this.title = title;
         this.description = description;
         this.releaseDate = releaseDate;
-        this.platform = platform;
+        this.platforms = platform;
         this.developer = developer;
     }
 
@@ -74,12 +80,12 @@ public class Game {
         this.releaseDate = releaseDate;
     }
 
-    public String getPlatform() {
-        return platform;
+    public List<Platform> getPlatform() {
+        return platforms;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setPlatform(List<Platform> platforms) {
+        this.platforms = platforms;
     }
 
     public String getDeveloper() {
