@@ -31,5 +31,22 @@
     </form>
     <p th:if="${error}" th:text="${error}" class="error-message"></p>
 </div>
+
+<div class="container">
+    <form method="post" th:action="@{/games/{id}/edit/load(id=${game.gameId})}" >
+        <label for="steamId">Enter Steam Game ID:</label><br>
+        <input type="number" id="steamId" name="steamId" required><br><br>
+
+        <label><input type="checkbox" name="useTitle" value="true"> Use Steam Title</label><br>
+        <label><input type="checkbox" name="useDescription" value="true"> Use Steam Description</label><br>
+        <label><input type="checkbox" name="useReleaseDate" value="true"> Use Steam Release Date</label><br>
+        <label><input type="checkbox" name="usePlatform" value="true"> Use Steam Platform</label><br>
+        <label><input type="checkbox" name="useDeveloper" value="true"> Use Steam Developer</label><br>
+        <label><input type="checkbox" name="useImageUrl" value="true"> Use Steam Image URL</label><br><br>
+
+        <button type="submit">Search</button>
+    </form>
+</div>
+
 </body>
 </html>

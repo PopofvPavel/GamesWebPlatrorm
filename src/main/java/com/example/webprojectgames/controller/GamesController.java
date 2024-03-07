@@ -155,6 +155,55 @@ public class GamesController {
         return "add-game";
     }
 
+    @PostMapping("/{id}/edit/load")
+    public String searchSteamGameForEditPage(@PathVariable("id") int id, @RequestParam("steamId") long steamId,
+                                             @RequestParam(value = "useTitle", required = false) boolean useTitle,
+                                             @RequestParam(value = "useDescription", required = false) boolean useDescription,
+                                             @RequestParam(value = "useReleaseDate", required = false) boolean useReleaseDate,
+                                             @RequestParam(value = "usePlatform", required = false) boolean usePlatform,
+                                             @RequestParam(value = "useDeveloper", required = false) boolean useDeveloper,
+                                             @RequestParam(value = "useImageUrl", required = false) boolean useImageUrl,
+                                             Model model) {
+        SteamGame steamGame = steamApiService.getSteamGame(steamId);
+
+        String returnUrl = "forward:/games/" + id + "/edit";
+
+        Game game = new Game();
+        game.setGameId(id);
+        if (steamGame == null) {
+
+            model.addAttribute("error", "Game not found on Steam");
+            //model.addAttribute("game", ne);
+            return "edit-game";
+        }
+
+
+        if (useTitle) {
+            game.setTitle(steamGame.getTitle());
+        }
+        if (useDescription) {
+            game.setDescription(steamGame.getDescription());
+        }
+        if (useReleaseDate) {
+            game.setReleaseDate(steamGame.getReleaseDate());
+        }
+        if (usePlatform) {
+            game.setPlatform(String.join(",", steamGame.getPlatform()));
+        }
+        if (useDeveloper) {
+            game.setDeveloper(steamGame.getDeveloper());
+        }
+        if (useImageUrl) {
+            // Обработка изображения
+        }
+
+
+        model.addAttribute("game", game);
+
+        model.addAttribute("game", game);
+        return "edit-game";
+    }
+
     @GetMapping("/{id}/edit")
     public String showEditGameForm(@PathVariable("id") int id, Model model) {
         Game game = gameService.findById(id);
