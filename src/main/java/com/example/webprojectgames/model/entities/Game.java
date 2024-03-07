@@ -8,6 +8,8 @@ import java.util.Date;
 @Entity
 @Table(name = "games")
 public class Game {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id")
@@ -29,6 +31,17 @@ public class Game {
     @Column(name = "image_url")
     private String imageUrl;
 
+    public Game(String title, String description, Date releaseDate, String platform, String developer) {
+        this.title = title;
+        this.description = description;
+        this.releaseDate = releaseDate;
+        this.platform = platform;
+        this.developer = developer;
+    }
+
+    public Game() {
+
+    }
     public int getGameId() {
         return gameId;
     }

@@ -1,14 +1,12 @@
 package com.example.webprojectgames.controller;
 
 
+import com.example.webprojectgames.api.steam.model.SteamGame;
 import com.example.webprojectgames.model.entities.Game;
 import com.example.webprojectgames.model.entities.Rating;
 import com.example.webprojectgames.model.entities.Review;
 import com.example.webprojectgames.model.entities.User;
-import com.example.webprojectgames.services.GameService;
-import com.example.webprojectgames.services.RatingService;
-import com.example.webprojectgames.services.ReviewService;
-import com.example.webprojectgames.services.UserService;
+import com.example.webprojectgames.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -32,6 +30,13 @@ public class GamesController {
     private RatingService ratingService;
 
     private ReviewService reviewService;
+
+    @Autowired
+    private SteamApiService steamApiService;
+
+    public void setSteamApiService(SteamApiService steamApiService) {
+        this.steamApiService = steamApiService;
+    }
 
     @Autowired
     public void setRatingService(RatingService ratingService) {
@@ -135,6 +140,21 @@ public class GamesController {
         return "redirect:/games";
     }
 
+    @PostMapping("/load")
+    public String searchSteamGame(@RequestParam("steamId") long steamId, Model model) {
+        SteamGame steamGame = steamApiService.getSteamGame(steamId);
+
+        if (steamGame == null) {
+            model.addAttribute("error", "Game not found on Steam");
+            return "add-game";
+        }
+
+        Game game = new Game(steamGame.getTitle(), steamGame.getDescription(), steamGame.getReleaseDate(),
+                steamGame.getPlatform().get(0), steamGame.getDeveloper());
+        model.addAttribute("game", game);
+        return "add-game";
+    }
+
     @GetMapping("/{id}/edit")
     public String showEditGameForm(@PathVariable("id") int id, Model model) {
         Game game = gameService.findById(id);
@@ -172,7 +192,5 @@ public class GamesController {
         gameService.saveGame(existingGame);
         return "redirect:/games/" + id;
     }
-
-
 
 }
