@@ -18,6 +18,15 @@ public class UserGameCollection implements Serializable {
     @Column(name = "date_added")
     private Date date_added;
 
+    public UserGameCollection(Integer userId, Integer gameId, Date date_added) {
+        this.userId = userId;
+        this.gameId = gameId;
+        this.date_added = date_added;
+    }
+
+    public UserGameCollection() {
+
+    }
 
     public int getUserId() {
         return userId;

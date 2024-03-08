@@ -29,7 +29,6 @@ public class GamesController {
 
     private ReviewService reviewService;
 
-
     private SteamApiService steamApiService;
 
     private PlatformService platformService;
@@ -289,5 +288,23 @@ public class GamesController {
         reviewService.saveReview(review);
         return "redirect:/games/" + id;
     }
+
+    @GetMapping("/{id}/save-to-collection")
+    public String saveGameToCollectionGame(@PathVariable("id") int id, Model model) {
+        Game existingGame = gameService.findById(id);
+        if (existingGame == null) {
+            return "not-found";
+        }
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        User user = userService.findByUsername(username);
+        int userId = user.getUserId();
+
+        userService.saveGameToUserCollection(new UserGameCollection(userId, id, new Date()));
+        //System.out.println("Saving game usr id = " + userId + " game id = " + id);
+        return "redirect:/games/collection";
+    }
+
 
 }

@@ -10,7 +10,11 @@
  <!--   <div th:if="${#authorization.expression('hasRole(''editor'')')}">
         <a th:href="@{'/games/' + ${game.gameId} + '/edit'}">Edit</a>
     </div>-->
-    <h1 th:text="${game.title}">Game Title</h1> <a th:href="@{'/games/' + ${game.gameId} + '/edit'}">Edit</a>
+    <div class="header-container">
+        <h1 th:text="${game.title}">Game Title</h1>
+        <span><a th:href="@{'/games/' + ${game.gameId} + '/edit'}">Edit</a></span>
+        <span><a th:href="@{'/games/' + ${game.gameId} + '/save-to-collection'}">Save to collection</a></span>
+    </div>
     <p>Ratings: <span th:text="${averageRating}"></span></p>
     <p>Description: <span th:text="${game.description}"></span></p>
     <p>Release Date: <span th:text="${#dates.format(game.releaseDate, 'dd-MM-yyyy')}"></span></p>

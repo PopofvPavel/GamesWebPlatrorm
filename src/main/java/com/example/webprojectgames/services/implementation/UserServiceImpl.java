@@ -2,6 +2,8 @@ package com.example.webprojectgames.services.implementation;
 
 import com.example.webprojectgames.model.entities.Game;
 import com.example.webprojectgames.model.entities.User;
+import com.example.webprojectgames.model.entities.UserGameCollection;
+import com.example.webprojectgames.repositories.UserGamesCollectionRepository;
 import com.example.webprojectgames.repositories.UserRepository;
 import com.example.webprojectgames.repositories.GamesRepository;
 import com.example.webprojectgames.services.UserService;
@@ -17,6 +19,13 @@ public class UserServiceImpl implements UserService {
 
     private GamesRepository gamesRepository;
 
+    private UserGamesCollectionRepository userGamesCollectionRepository;
+
+    @Autowired
+    public void setUserGamesCollectionRepository(UserGamesCollectionRepository userGamesCollectionRepository) {
+        this.userGamesCollectionRepository = userGamesCollectionRepository;
+    }
+
     @Autowired
     public void setGamesRepository(GamesRepository gamesRepository) {
         this.gamesRepository = gamesRepository;
@@ -29,6 +38,11 @@ public class UserServiceImpl implements UserService {
     public User findByUsername(String username) {
 
         return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public void saveGameToUserCollection(UserGameCollection userGameCollection) {
+        userGamesCollectionRepository.save(userGameCollection);
     }
 
 
