@@ -174,12 +174,16 @@ public class GamesController {
                                              @RequestParam(value = "useDeveloper", required = false) boolean useDeveloper,
                                              @RequestParam(value = "useImageUrl", required = false) boolean useImageUrl,
                                              Model model) {
+
+
+        //Game game = new Game();
+        Game game = gameService.findById(id);
+        if (game == null) {
+            return "not-found";
+        }
+        //game.setGameId(id);
+
         SteamGame steamGame = steamApiService.getSteamGame(steamId);
-
-        String returnUrl = "forward:/games/" + id + "/edit";
-
-        Game game = new Game();
-        game.setGameId(id);
         if (steamGame == null) {
 
             model.addAttribute("error", "Game not found on Steam");
@@ -212,9 +216,7 @@ public class GamesController {
             System.out.println(game.getImageUrl());
         }
 
-
-        model.addAttribute("game", game);
-
+        model.addAttribute("steamId", steamId);
         model.addAttribute("game", game);
         return "edit-game";
     }

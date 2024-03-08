@@ -19,13 +19,14 @@
     <img th:src="@{${game.imageUrl}}" alt="Game Image">
 
     <h2>Reviews:</h2>
-    <ul>
-        <li th:each="review : ${reviews}">
-            <p>User: <span th:text="${review.userId}"></span></p>
-            <p>Date: <span th:text="${#dates.format(review.date, 'dd-MM-yyyy')}"></span></p>
-            <p>Comment: <span th:text="${review.comment}"></span></p>
-        </li>
-    </ul>
+    <div class="review-container" th:each="review : ${reviews}">
+        <div class="review-item">
+            <p class="review-user" th:text="${review.userId}"></p>
+            <p class="review-date" th:text="${#dates.format(review.date, 'dd-MM-yyyy')}"></p>
+            <p class="review-comment" th:text="${review.comment}"></p>
+        </div>
+    </div>
+
 
 </div>
 </body>

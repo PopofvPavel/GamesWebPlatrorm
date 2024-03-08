@@ -1,36 +1,36 @@
-.container {
-    width: 60%;
-    margin: 60px auto 20px; /*60 для шапки*/
-    padding: 20px;
-    background-color: royalblue;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.wrap
-{
+
+
+.wrap {
     margin: 0 auto;
     width: 70%; /* отступы относительно окна браузера */
 }
-.header{
+
+.header {
     padding: 1.3em 0em; /* поля вокруг текста */
 }
-.logo{
+
+.logo {
     float: left; /* обтекание логотипа */
 }
+
 .logo a {
     display: block; /* переопределение в блочный */
 }
+
 .nav {
     float: right; /* обтекание логотипа */
     margin-top: 0.82em;
 }
+
 .nav > ul > li {
-    display:inline-block; /* переопределение в строчно-блочный */
+    display: inline-block; /* переопределение в строчно-блочный */
 }
-.nav > ul > li.active a{
+
+.nav > ul > li.active a {
     background: darkblue;
     color: #ffffff;
 }
+
 .nav > ul > li > a {
     display: block;
     font-family: 'Lato', sans-serif;
@@ -43,51 +43,98 @@
     -o-transition: 0.9s;
     transition: 0.9s;
 }
+
 .nav > ul > li > a:hover {
     color: #fff;
     background: mediumblue;
 }
 
-    .game-list {
-        list-style-type: none;
-        padding: 0;
-    }
+.container {
+    width: 60%;
+    margin: 60px auto 20px; /*60 для шапки*/
+    padding: 20px;
+    background-color: royalblue;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-    .game-item {
-        position: sticky;
-        overflow: hidden;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        padding: 10px;
-        background-color: #fff;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    }
+.game-list {
+    list-style-type: none;
+    padding: 0;
+}
 
-    .game-image {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: auto;
-        opacity: 0.7;
-        z-index: -1;
-    }
+.game-item {
+    position: sticky;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 200px;
+}
 
-    .game-title {
-        font-weight: bold;
-    }
+.game-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: auto;
+    opacity: 0.7;
+    z-index: -1;
+}
 
-    .game-developer {
-        color: mediumpurple;
+.game-title {
+    font-weight: bold;
+}
 
-    }
+.game-developer {
+    color: mediumpurple;
 
-    .game-platform-and-date {
-        font-size: 14px;
-    }
+}
 
-    .game-description {
-        margin-top: 5px;
-        color: #666;
-    }
+.game-platform-and-date {
+    font-size: 14px;
+}
+
+.game-description {
+    max-width: calc(100% - 600px);
+    height: 125px;
+    margin-top: 5px;
+    color: #666;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+
+.review-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.review-header {
+    font-weight: bold;
+    color: darkblue;
+    margin-bottom: 5px;
+}
+
+.review-item {
+    margin-bottom: 15px;
+}
+
+.review-user {
+    font-weight: bold;
+}
+
+.review-date {
+    font-size: 0.9em;
+    color: white;
+}
+
+.review-comment {
+    color: #333;
+}
