@@ -8,7 +8,7 @@ import java.util.Date;
 public class Review {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "review_id")
     private int reviewId;
     @Column(name = "game_id")
@@ -21,6 +21,16 @@ public class Review {
     private Date date;
     @Column(name = "is_blocked")
     private boolean isBlocked;
+
+    public Review(int gameId, int userId, String comment, Date date) {
+        this.gameId = gameId;
+        this.userId = userId;
+        this.comment = comment;
+        this.date = date;
+    }
+
+    public Review() {
+    }
 
     public boolean isBlocked() {
         return isBlocked;

@@ -24,4 +24,9 @@ public class ReviewServiceImpl implements ReviewService {
     public List<Review> findByGameId(Integer gameId) {
         return reviewRepository.findByGameId(gameId);
     }
+
+    @Override
+    public void saveReview(Review review) {
+        reviewRepository.save(review);
+    }
 }

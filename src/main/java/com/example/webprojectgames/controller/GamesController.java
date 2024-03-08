@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -256,6 +257,36 @@ public class GamesController {
         existingGame.setImageUrl(game.getImageUrl());
 
         gameService.saveGame(existingGame);
+        return "redirect:/games/" + id;
+    }
+
+    @PostMapping("/{id}//add-review")
+    public String saveReview(@ModelAttribute("comment") String comment,@ModelAttribute("game") Game game, @PathVariable("id") int id, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("error", "Some fields are invalid");
+            return "redirect:/games/" + id;
+        }
+
+        if (comment == null || comment.isEmpty()) {
+            model.addAttribute("error", "Comment should not be empty");
+            return "redirect:/games/" + id;
+        }
+
+        // Получение текущего пользователя
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        User user = userService.findByUsername(username);
+
+        // Создание нового объекта Review
+        Review review = new Review();
+        review.setGameId(id);
+        review.setUserId(user.getUserId());
+        review.setComment(comment);
+        // Установка текущей даты
+        review.setDate(new Date());
+
+        // Сохранение отзыва в базе данных
+        reviewService.saveReview(review);
         return "redirect:/games/" + id;
     }
 

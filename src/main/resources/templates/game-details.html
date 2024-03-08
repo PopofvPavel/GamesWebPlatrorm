@@ -19,6 +19,11 @@
     <img th:src="@{${game.imageUrl}}" alt="Game Image">
 
     <h2>Reviews:</h2>
+    <form method="post" th:action="@{'/games/' + ${game.gameId} + '/add-review'}">
+        <textarea name="comment" placeholder="Leave your review here..." required></textarea> <br>
+        <button type="submit">Submit</button>
+    </form>
+     <!--<a th:href="@{'/games/' + ${game.gameId} + '/'}">Add review</a>-->
     <div class="review-container" th:each="review : ${reviews}">
         <div class="review-item">
             <p class="review-user" th:text="${review.userId}"></p>
