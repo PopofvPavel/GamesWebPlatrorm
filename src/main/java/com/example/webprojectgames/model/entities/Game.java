@@ -37,12 +37,13 @@ public class Game {
     @Column(name = "image_url")
     private String imageUrl;
 
-    public Game(String title, String description, Date releaseDate, List<Platform> platform, String developer) {
+    public Game(String title, String description, Date releaseDate, List<Platform> platform, String developer,String imageUrl) {
         this.title = title;
         this.description = description;
         this.releaseDate = releaseDate;
         this.platforms = platform;
         this.developer = developer;
+        this.imageUrl = imageUrl;
     }
 
     public Game() {

@@ -141,6 +141,8 @@ public class GamesController {
         game.setEditorId(editor.getUserId());
         //System.out.println("User id : " + editor.getUserId());
 
+
+        System.out.println("game url : " + game.getImageUrl());
         gameService.saveGame(game);
         return "redirect:/games";
     }
@@ -156,9 +158,10 @@ public class GamesController {
 
         List<Platform> platforms = platformService.getPlatformsByNames(steamGame.getPlatform());
         Game game = new Game(steamGame.getTitle(), steamGame.getDescription(), steamGame.getReleaseDate(),
-                platforms, steamGame.getDeveloper());
+                platforms, steamGame.getDeveloper(),steamGame.getImage_url());
                 //steamGame.getPlatform().get(0), steamGame.getDeveloper());
         model.addAttribute("game", game);
+        System.out.println("game url : " + game.getImageUrl());
         return "add-game";
     }
 
@@ -199,13 +202,14 @@ public class GamesController {
             /*List<Platform> platforms = steamGame.getPlatform().stream().map(new)*/
             List<Platform> platforms = platformService.getPlatformsByNames(steamGame.getPlatform());
             System.out.println("platforms: " + platforms);
-            game.setPlatform(platforms);///fix
+            game.setPlatform(platforms);
         }
         if (useDeveloper) {
             game.setDeveloper(steamGame.getDeveloper());
         }
         if (useImageUrl) {
-            // Обработка изображения
+            game.setImageUrl(steamGame.getImage_url());
+            System.out.println(game.getImageUrl());
         }
 
 
