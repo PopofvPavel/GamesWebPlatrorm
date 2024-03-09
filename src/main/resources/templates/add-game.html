@@ -28,7 +28,7 @@
 
 <div class="container">
     <h1>Add New Game</h1>
-    <form method="post" th:action="@{/games/add}" th:object="${game}">
+    <form method="post" th:action="@{/games/add(steamId=${steamId})}" th:object="${game}">
         <label for="title">Title:</label><br>
         <input type="text" id="title" th:field="*{title}" required><br><br>
 
@@ -55,7 +55,7 @@
 <div class="container">
     <form method="post" th:action="@{/games/load}" >
         <label for="steamId">Enter Steam Game ID:</label><br>
-        <input type="number" id="steamId" name="steamId" required><br><br>
+        <input type="number" id="steamId" name="steamId" th:value="${steamId}" required><br><br>
         <button type="submit">Search</button>
     </form>
 </div>

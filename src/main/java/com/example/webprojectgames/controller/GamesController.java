@@ -129,7 +129,11 @@ public class GamesController {
     }
 
     @PostMapping("/add")
-    public String addGame(@ModelAttribute("game") Game game, BindingResult result, Model model) {
+    public String addGame(@ModelAttribute("game") Game game,
+                          @RequestParam("steamId") long steamId,
+                          BindingResult result, Model model) {
+
+        model.addAttribute("steamId", steamId);
         if (result.hasErrors()) {
             model.addAttribute("error", "Some fields are invalid");
 
@@ -159,6 +163,7 @@ public class GamesController {
 
 
         System.out.println("game url : " + game.getImageUrl());
+
         gameService.saveGame(game);
         return "redirect:/games";
     }
