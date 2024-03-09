@@ -13,8 +13,11 @@ public class Review {
     private int reviewId;
     @Column(name = "game_id")
     private int gameId;
-    @Column(name = "user_id")
-    private int userId;
+    /*@Column(name = "user_id")
+    private int userId;*/
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
     @Column(name = "comment")
     private String comment;
     @Column(name = "date")
@@ -22,9 +25,9 @@ public class Review {
     @Column(name = "is_blocked")
     private boolean isBlocked;
 
-    public Review(int gameId, int userId, String comment, Date date) {
+    public Review(int gameId, User user, String comment, Date date) {
         this.gameId = gameId;
-        this.userId = userId;
+        this.user = user;
         this.comment = comment;
         this.date = date;
     }
@@ -56,14 +59,6 @@ public class Review {
         this.gameId = gameId;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
 
 
     public String getComment() {
@@ -80,5 +75,13 @@ public class Review {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

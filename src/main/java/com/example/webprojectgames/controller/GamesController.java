@@ -296,7 +296,7 @@ public class GamesController {
         // Создание нового объекта Review
         Review review = new Review();
         review.setGameId(id);
-        review.setUserId(user.getUserId());
+        review.setUser(user);
         review.setComment(comment);
         // Установка текущей даты
         review.setDate(new Date());

@@ -59,7 +59,7 @@
      <!--<a th:href="@{'/games/' + ${game.gameId} + '/'}">Add review</a>-->
     <div class="review-container" th:each="review : ${reviews}">
         <div class="review-item">
-            <p class="review-user" th:text="${review.userId}"></p>
+            <p class="review-user" th:text="${review.user.getUsername()}"></p>
             <p class="review-date" th:text="${#dates.format(review.date, 'dd-MM-yyyy')}"></p>
             <p class="review-comment" th:text="${review.comment}"></p>
         </div>

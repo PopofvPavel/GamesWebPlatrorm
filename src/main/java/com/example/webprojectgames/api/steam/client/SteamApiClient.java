@@ -3,11 +3,14 @@ package com.example.webprojectgames.api.steam.client;
 
 import com.example.webprojectgames.api.steam.model.SteamGame;
 import com.example.webprojectgames.api.steam.model.SteamGameMapper;
+import com.example.webprojectgames.model.entities.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @Component
 public class SteamApiClient {
@@ -26,10 +29,16 @@ public class SteamApiClient {
     }
 
     public SteamGame getGameDescription(long appId) {
-        System.out.println("In get desctiption method");
         String url = "https://store.steampowered.com/api/appdetails?appids=" + appId;
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         //return  response.getBody();
         return steamGameMapper.mapSteamGame(response.getBody());
     }
+
+/*    public List<Review> getGameReviews(long appId) {
+        String url = "https://store.steampowered.com/appreviews/" + appId + "?json=1";
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        return steamGameMapper.mapSteamReview(response.getBody());
+    }*/
+
 }

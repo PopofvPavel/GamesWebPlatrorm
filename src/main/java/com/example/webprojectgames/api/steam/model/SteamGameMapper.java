@@ -1,5 +1,6 @@
 package com.example.webprojectgames.api.steam.model;
 
+import com.example.webprojectgames.model.entities.Review;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -50,4 +51,35 @@ public class SteamGameMapper {
         }
         return null;
     }
+
+/*    public List<Review> mapSteamReview(String body) {
+
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode rootNode = objectMapper.readTree(body);
+
+            List<Review> reviews = new ArrayList<>();
+            JsonNode reviewNode = rootNode.get("reviews");
+            if (reviewNode.isArray()) {
+                for (JsonNode node : reviewNode) {
+                    String username = node.get("author").get("steamid").asText();
+                    long dateInSeconds = node.get("timestamp_created").asLong();
+                    Date date = new Date(dateInSeconds * 1000);
+                    String comment = node.get("review").asText();
+                    Review review = new Review(username, date, comment);
+                    reviews.add(review);
+                }
+            }
+            return reviews;
+        } catch (JsonProcessingException e) {
+            System.out.println("Error parsing json");
+            e.printStackTrace();
+        }
+        return Collections.emptyList();
+
+
+    }*/
+
+
+
 }
