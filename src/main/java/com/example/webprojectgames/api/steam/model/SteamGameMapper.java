@@ -1,17 +1,16 @@
 package com.example.webprojectgames.api.steam.model;
 
 import com.example.webprojectgames.model.entities.Review;
+import com.example.webprojectgames.model.entities.ReviewInterface;
+import com.example.webprojectgames.model.entities.SteamGame;
+import com.example.webprojectgames.model.entities.SteamReview;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 @Component
 public class SteamGameMapper {
@@ -52,13 +51,13 @@ public class SteamGameMapper {
         return null;
     }
 
-/*    public List<Review> mapSteamReview(String body) {
+    public List<ReviewInterface> mapSteamReview(long appId, String body) {
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(body);
 
-            List<Review> reviews = new ArrayList<>();
+            List<ReviewInterface> reviews = new ArrayList<>();
             JsonNode reviewNode = rootNode.get("reviews");
             if (reviewNode.isArray()) {
                 for (JsonNode node : reviewNode) {
@@ -66,7 +65,7 @@ public class SteamGameMapper {
                     long dateInSeconds = node.get("timestamp_created").asLong();
                     Date date = new Date(dateInSeconds * 1000);
                     String comment = node.get("review").asText();
-                    Review review = new Review(username, date, comment);
+                    SteamReview review = new SteamReview(appId, username, comment, date);
                     reviews.add(review);
                 }
             }
@@ -78,8 +77,7 @@ public class SteamGameMapper {
         return Collections.emptyList();
 
 
-    }*/
-
+    }
 
 
 }

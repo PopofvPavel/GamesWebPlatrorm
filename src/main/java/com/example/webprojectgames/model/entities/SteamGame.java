@@ -1,4 +1,4 @@
-package com.example.webprojectgames.api.steam.model;
+package com.example.webprojectgames.model.entities;
 
 import java.util.Date;
 import java.util.List;

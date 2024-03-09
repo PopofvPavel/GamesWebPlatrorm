@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class SteamReview implements ReviewInterface {
     @Override
-    public int getGameId() {
+    public long getGameId() {
         return gameId;
     }
 
-    public void setGameId(int gameId) {
+    public void setGameId(long gameId) {
         this.gameId = gameId;
     }
 
@@ -39,12 +39,12 @@ public class SteamReview implements ReviewInterface {
         this.date = date;
     }
 
-    private int gameId;
+    private long gameId;
     private String username;
     private String comment;
     private Date date;
 
-    public SteamReview(int gameId, String username, String comment, Date date) {
+    public SteamReview(long gameId, String username, String comment, Date date) {
         this.gameId = gameId;
         this.username = username;
         this.comment = comment;

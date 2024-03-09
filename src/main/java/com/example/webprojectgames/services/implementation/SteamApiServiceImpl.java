@@ -1,10 +1,14 @@
 package com.example.webprojectgames.services.implementation;
 
 import com.example.webprojectgames.api.steam.client.SteamApiClient;
-import com.example.webprojectgames.api.steam.model.SteamGame;
+import com.example.webprojectgames.model.entities.ReviewInterface;
+import com.example.webprojectgames.model.entities.SteamGame;
+import com.example.webprojectgames.model.entities.SteamReview;
 import com.example.webprojectgames.services.SteamApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class SteamApiServiceImpl implements SteamApiService {
@@ -20,4 +24,7 @@ public class SteamApiServiceImpl implements SteamApiService {
         return steamApiClient.getGameDescription(id);
     }
 
+    public List<ReviewInterface> getSteamReview(long id) {
+        return steamApiClient.getGameReviews(id);
+    }
 }

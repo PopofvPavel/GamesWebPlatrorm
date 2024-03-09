@@ -1,7 +1,7 @@
 package com.example.webprojectgames.controller;
 
 
-import com.example.webprojectgames.api.steam.model.SteamGame;
+import com.example.webprojectgames.model.entities.SteamGame;
 import com.example.webprojectgames.model.entities.*;
 import com.example.webprojectgames.services.*;
 import org.springframework.beans.factory.annotation.Autowired;

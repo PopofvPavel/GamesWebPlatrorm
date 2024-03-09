@@ -12,7 +12,7 @@ public class Review implements ReviewInterface{
     @Column(name = "review_id")
     private int reviewId;
     @Column(name = "game_id")
-    private int gameId;
+    private long gameId;
     /*@Column(name = "user_id")
     private int userId;*/
     @ManyToOne(fetch = FetchType.LAZY)
@@ -51,7 +51,7 @@ public class Review implements ReviewInterface{
         this.reviewId = reviewId;
     }
 
-    public int getGameId() {
+    public long getGameId() {
         return gameId;
     }
 
@@ -60,7 +60,7 @@ public class Review implements ReviewInterface{
         return user.getUsername();
     }
 
-    public void setGameId(int gameId) {
+    public void setGameId(long gameId) {
         this.gameId = gameId;
     }
 

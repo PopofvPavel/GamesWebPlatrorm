@@ -5,7 +5,7 @@ import java.util.Date;
 
 public interface ReviewInterface {
 
-    int getGameId();
+    long getGameId();
     String getUsername();
     String getComment();
     Date getDate();
