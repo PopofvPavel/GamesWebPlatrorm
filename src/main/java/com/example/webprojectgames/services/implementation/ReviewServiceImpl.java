@@ -2,6 +2,7 @@ package com.example.webprojectgames.services.implementation;
 
 import com.example.webprojectgames.model.entities.Rating;
 import com.example.webprojectgames.model.entities.Review;
+import com.example.webprojectgames.model.entities.ReviewInterface;
 import com.example.webprojectgames.repositories.ReviewRepository;
 import com.example.webprojectgames.services.RatingService;
 import com.example.webprojectgames.services.ReviewService;
@@ -21,7 +22,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<Review> findByGameId(Integer gameId) {
+    public List<ReviewInterface> findByGameId(Integer gameId) {
         return reviewRepository.findByGameId(gameId);
     }
 

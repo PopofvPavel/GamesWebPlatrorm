@@ -90,7 +90,7 @@ public class GamesController {
             return "game-not-found";
         }
         List<Rating> ratings = ratingService.findByGameId(id);
-        List<Review> reviews = reviewService.findByGameId(id);
+        List<ReviewInterface> reviews = reviewService.findByGameId(id);
 
         Double averageRating = ratings.stream()
                 .mapToDouble(Rating::getRatingValue)

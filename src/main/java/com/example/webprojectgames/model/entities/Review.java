@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "reviews")
-public class Review {
+public class Review implements ReviewInterface{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,6 +55,11 @@ public class Review {
         return gameId;
     }
 
+    @Override
+    public String getUsername() {
+        return user.getUsername();
+    }
+
     public void setGameId(int gameId) {
         this.gameId = gameId;
     }
@@ -76,6 +81,7 @@ public class Review {
     public void setDate(Date date) {
         this.date = date;
     }
+
 
     public User getUser() {
         return user;
