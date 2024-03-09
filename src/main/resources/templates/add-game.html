@@ -6,6 +6,26 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
+
+<header>
+    <div class="wrap">
+        <div class="header">
+            <div class="logo">
+                <a href=""><img src="logo.png" alt=""/></a>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li ><a href="/games" class="header-link">Главная</a></li>
+                    <li><a href="/games/collection" class="header-link">Моя коллекция</a></li>
+                    <li class="active"><a href="/games/add" class="header-link">Добавить игру</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</header>
+
+
 <div class="container">
     <h1>Add New Game</h1>
     <form method="post" th:action="@{/games/add}" th:object="${game}">
