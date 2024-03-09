@@ -9,11 +9,11 @@ public class Rating
     @Id
     @GeneratedValue
     @Column(name = "rating_id")
-    private int ratingId;
+    private long ratingId;
     @Column(name = "user_id")
-    private int userId;
+    private long userId;
     @Column(name = "game_id")
-    private int gameId;
+    private long gameId;
 
     @Column(name = "rating_value")
     private int ratingValue;
@@ -27,7 +27,7 @@ public class Rating
         this.ratingValue = ratingValue;
     }
 
-    public int getGameId() {
+    public long getGameId() {
         return gameId;
     }
 
@@ -35,7 +35,7 @@ public class Rating
         this.gameId = gameId;
     }
 
-    public int getRatingId() {
+    public long getRatingId() {
         return ratingId;
     }
 
@@ -43,7 +43,7 @@ public class Rating
         this.ratingId = ratingId;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 

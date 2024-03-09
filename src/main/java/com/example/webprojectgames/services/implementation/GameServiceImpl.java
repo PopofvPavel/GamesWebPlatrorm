@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,15 +35,16 @@ public class GameServiceImpl implements GameService {
     @Override
     public List<Game> getUserGamesCollection(int userId) {
         List<UserGameCollection> userCollection = userGamesCollectionRepository.findAll();
-        List<Integer> gameIds = userCollection.stream().filter(game -> game.getUserId() == userId)
+        List<Long> gameIds = userCollection.stream().filter(game -> game.getUserId() == userId)
                 .map(UserGameCollection::getGameId).collect(Collectors.toList());
         return gamesRepository.findAllById(gameIds);
 
     }
 
     @Override
-    public Game findById(int id) {
-        return gamesRepository.findAllById(List.of(id)).get(0);
+    public Game findById(long id) {
+        Optional<Game> optionalGame = gamesRepository.findById(id);
+        return optionalGame.orElse(null);
     }
 
     @Override

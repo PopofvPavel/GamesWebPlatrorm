@@ -7,14 +7,14 @@ import java.util.List;
 
 @Service
 public interface RatingService {
-    List<Rating> findByGameId(Integer gameId);
+    List<Rating> findByGameId(Long gameId);
 
-    List<Rating> findByUserId(Integer userId);
+    List<Rating> findByUserId(Long userId);
 
 
     void saveRating(Rating rating);
 
-    boolean hasUserRatedGame(int userId, int id);
+    boolean hasUserRatedGame(long userId, long id);
 
     void rewriteRating(Rating rating);
 

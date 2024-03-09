@@ -84,7 +84,7 @@ public class GamesController {
 
 
     @GetMapping("/{id}")
-    public String showGameDetails(@PathVariable(value = "id") int id, Model model) {
+    public String showGameDetails(@PathVariable(value = "id") long id, Model model) {
         Game game = gameService.findById(id);
         if (game == null) {
             return "game-not-found";
@@ -118,8 +118,7 @@ public class GamesController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String userName = userDetails.getUsername();
-        User currentUser = userService.findByUsername(userName);
-        return currentUser;
+        return userService.findByUsername(userName);
     }
 
     @GetMapping("/add")
@@ -167,7 +166,7 @@ public class GamesController {
     @PostMapping("/load")
     public String searchSteamGame(@RequestParam("steamId") long steamId, Model model) {
         SteamGame steamGame = steamApiService.getSteamGame(steamId);
-
+        model.addAttribute("steamId", steamId);
         if (steamGame == null) {
             model.addAttribute("error", "Game not found on Steam");
             return "add-game";
@@ -177,6 +176,7 @@ public class GamesController {
         Game game = new Game(steamGame.getTitle(), steamGame.getDescription(), steamGame.getReleaseDate(),
                 platforms, steamGame.getDeveloper(),steamGame.getImage_url());
                 //steamGame.getPlatform().get(0), steamGame.getDeveloper());
+        game.setSteamId(steamId);
         model.addAttribute("game", game);
         System.out.println("game url : " + game.getImageUrl());
         return "add-game";
@@ -194,6 +194,7 @@ public class GamesController {
 
 
         //Game game = new Game();
+        model.addAttribute("steamId", steamId);
         Game game = gameService.findById(id);
         if (game == null) {
             return "not-found";
@@ -233,7 +234,8 @@ public class GamesController {
             System.out.println(game.getImageUrl());
         }
 
-        model.addAttribute("steamId", steamId);
+        game.setSteamId(steamId);
+
         model.addAttribute("game", game);
         return "edit-game";
     }
@@ -249,7 +251,12 @@ public class GamesController {
     }
 
     @PostMapping("/{id}/edit")
-    public String editGame(@ModelAttribute("game") Game game, @PathVariable("id") int id, BindingResult result, Model model) {
+    public String editGame(@ModelAttribute("game") Game game, @PathVariable("id") int id,
+                           BindingResult result,
+                           @RequestParam(value = "steamId", required = false) Long steamId,
+                           Model model) {
+
+
         if (result.hasErrors()) {
             model.addAttribute("error", "Some fields are invalid");
             return "edit-game";
@@ -265,12 +272,15 @@ public class GamesController {
             return "not-found";
         }
 
+        System.out.println("Steam id: " + steamId);
+        existingGame.setSteamId(steamId);
         existingGame.setTitle(game.getTitle());
         existingGame.setDescription(game.getDescription());
         existingGame.setReleaseDate(game.getReleaseDate());
         existingGame.setPlatform(game.getPlatform());
         existingGame.setDeveloper(game.getDeveloper());
         existingGame.setImageUrl(game.getImageUrl());
+
 
         gameService.saveGame(existingGame);
         return "redirect:/games/" + id;
@@ -307,7 +317,7 @@ public class GamesController {
     }
 
     @GetMapping("/{id}/save-to-collection")
-    public String saveGameToCollectionGame(@PathVariable("id") int id, Model model) {
+    public String saveGameToCollectionGame(@PathVariable("id") long id, Model model) {
         Game existingGame = gameService.findById(id);
         if (existingGame == null) {
             return "not-found";

@@ -14,7 +14,9 @@ public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "game_id")
-    private int gameId;
+    private long gameId;
+    @Column(name = "steam_id")
+    private Long steamId;
     @Column(name = "title")
     private String title;
     @Column(name = "description")
@@ -49,7 +51,7 @@ public class Game {
     public Game() {
 
     }
-    public int getGameId() {
+    public long getGameId() {
         return gameId;
     }
 
@@ -111,5 +113,13 @@ public class Game {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public Long getSteamId() {
+        return steamId;
+    }
+
+    public void setSteamId(Long steamId) {
+        this.steamId = steamId;
     }
 }

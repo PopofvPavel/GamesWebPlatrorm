@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public interface UserGamesCollectionRepository extends JpaRepository<UserGameCollection, Integer> {
+public interface UserGamesCollectionRepository extends JpaRepository<UserGameCollection, Long> {
     //List<UserGameCollection> findByUserId(int userId);
 }

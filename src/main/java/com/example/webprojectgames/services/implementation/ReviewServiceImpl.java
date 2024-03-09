@@ -22,7 +22,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<ReviewInterface> findByGameId(Integer gameId) {
+    public List<ReviewInterface> findByGameId(long gameId) {
         return reviewRepository.findByGameId(gameId);
     }
 

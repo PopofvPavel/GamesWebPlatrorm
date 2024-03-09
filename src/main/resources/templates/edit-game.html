@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <h1>Edit Game</h1>
-    <form method="post" th:action="@{/games/{id}/edit(id=${game.gameId})}" th:object="${game}">
+    <form method="post" th:action="@{/games/{id}/edit(id=${game.gameId}, steamId=${steamId})}" th:object="${game}">
         <label for="title">Title:</label><br>
         <input type="text" id="title" th:field="*{title}" required><br><br>
 

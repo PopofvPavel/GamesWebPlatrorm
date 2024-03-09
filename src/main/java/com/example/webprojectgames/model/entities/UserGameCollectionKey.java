@@ -3,10 +3,10 @@ package com.example.webprojectgames.model.entities;
 import java.io.Serializable;
 
 public class UserGameCollectionKey implements Serializable {
-    private int userId;
-    private int gameId;
+    private long userId;
+    private long gameId;
 
-    public int getGameId() {
+    public long getGameId() {
         return gameId;
     }
 
@@ -14,7 +14,7 @@ public class UserGameCollectionKey implements Serializable {
         this.gameId = gameId;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 

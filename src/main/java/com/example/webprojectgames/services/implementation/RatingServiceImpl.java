@@ -20,12 +20,12 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public List<Rating> findByGameId(Integer gameId) {
+    public List<Rating> findByGameId(Long gameId) {
         return ratingRepository.findByGameId(gameId);
     }
 
     @Override
-    public List<Rating> findByUserId(Integer userId) {
+    public List<Rating> findByUserId(Long userId) {
         return ratingRepository.findByUserId(userId);
     }
 
@@ -35,7 +35,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public boolean hasUserRatedGame(int userId, int id) {
+    public boolean hasUserRatedGame(long userId, long id) {
         return ratingRepository.findByUserId(userId)
                 .stream().anyMatch((g -> g.getGameId() == id));
     }

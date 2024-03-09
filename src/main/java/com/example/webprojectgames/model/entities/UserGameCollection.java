@@ -11,14 +11,14 @@ public class UserGameCollection implements Serializable {
     //private int collectionId;
     @Id
     @Column(name = "user_id")
-    private int userId;
+    private long userId;
     @Id
     @Column(name = "game_id")
-    private int gameId;
+    private long gameId;
     @Column(name = "date_added")
     private Date date_added;
 
-    public UserGameCollection(Integer userId, Integer gameId, Date date_added) {
+    public UserGameCollection(Integer userId, Long gameId, Date date_added) {
         this.userId = userId;
         this.gameId = gameId;
         this.date_added = date_added;
@@ -28,7 +28,7 @@ public class UserGameCollection implements Serializable {
 
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
@@ -37,7 +37,7 @@ public class UserGameCollection implements Serializable {
     }
 
 
-    public int getGameId() {
+    public long getGameId() {
         return gameId;
     }
 
