@@ -142,3 +142,11 @@
 .review-comment {
     color: #333;
 }
+
+.rate-game-container {
+    display: flex;
+    align-items: center;
+}
+.rate-game-container form {
+    margin-right: 10px;
+}

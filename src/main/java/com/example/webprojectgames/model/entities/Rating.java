@@ -18,6 +18,14 @@ public class Rating
     @Column(name = "rating_value")
     private int ratingValue;
 
+    public Rating() {
+    }
+
+    public Rating(int userId, int gameId, int ratingValue) {
+        this.userId = userId;
+        this.gameId = gameId;
+        this.ratingValue = ratingValue;
+    }
 
     public int getGameId() {
         return gameId;

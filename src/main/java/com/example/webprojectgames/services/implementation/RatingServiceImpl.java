@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RatingServiceImpl implements RatingService {
@@ -21,5 +22,32 @@ public class RatingServiceImpl implements RatingService {
     @Override
     public List<Rating> findByGameId(Integer gameId) {
         return ratingRepository.findByGameId(gameId);
+    }
+
+    @Override
+    public List<Rating> findByUserId(Integer userId) {
+        return ratingRepository.findByUserId(userId);
+    }
+
+    @Override
+    public void saveRating(Rating rating) {
+        ratingRepository.save(rating);
+    }
+
+    @Override
+    public boolean hasUserRatedGame(int userId, int id) {
+        return ratingRepository.findByUserId(userId)
+                .stream().anyMatch((g -> g.getGameId() == id));
+    }
+
+    @Override
+    public void rewriteRating(Rating rating) {
+        Optional<Rating> oldRating = ratingRepository
+                .findByUserId(rating.getUserId())
+                .stream().filter(g -> g.getGameId() == rating.getGameId())
+                .findFirst();
+        oldRating.ifPresent(ratingRepository::delete);
+
+        saveRating(rating);
     }
 }

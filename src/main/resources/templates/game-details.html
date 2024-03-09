@@ -35,7 +35,16 @@
         <span><a th:href="@{'/games/' + ${game.gameId} + '/edit'}">Edit</a></span>
         <span><a th:href="@{'/games/' + ${game.gameId} + '/save-to-collection'}">Save to collection</a></span>
     </div>
+
     <p>Ratings: <span th:text="${averageRating}"></span></p>
+    <div class="rate-game-container">
+        <form method="post" th:action="@{'/games/' + ${game.gameId} + '/rate'}">
+            <label for="rating">Rate the game (1-10):</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" required>
+            <button type="submit">Submit Rating</button>
+        </form>
+    </div>
+
     <p>Description: <span th:text="${game.description}"></span></p>
     <p>Release Date: <span th:text="${#dates.format(game.releaseDate, 'dd-MM-yyyy')}"></span></p>
     <p>Platform: <span th:text="${game.platform}"></span></p>

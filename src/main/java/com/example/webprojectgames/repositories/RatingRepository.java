@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface RatingRepository extends JpaRepository<Rating,Integer > {
     List<Rating> findByGameId(Integer gameId);
+
+    List<Rating> findByUserId(Integer userId);
 }

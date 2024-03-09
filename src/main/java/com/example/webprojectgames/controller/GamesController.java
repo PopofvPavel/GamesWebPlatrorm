@@ -69,6 +69,20 @@ public class GamesController {
         return "games";
     }
 
+    @PostMapping("/{id}/rate")
+    public String rateGame(@PathVariable("id") int id, @RequestParam("rating") int ratingValue, Model model) {
+        User currentUser = getCurrentUser();
+        Rating rating = new Rating(currentUser.getUserId(), id, ratingValue);
+        if (ratingService.hasUserRatedGame(currentUser.getUserId(), id)) {
+            ratingService.rewriteRating(rating);
+            return "redirect:/games/" + id;
+        }
+
+        ratingService.saveRating(rating);
+        return "redirect:/games/" + id;
+    }
+
+
     @GetMapping("/{id}")
     public String showGameDetails(@PathVariable(value = "id") int id, Model model) {
         Game game = gameService.findById(id);
@@ -93,16 +107,19 @@ public class GamesController {
 
     @GetMapping("/collection")
     public String getUserCollectionPage(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String userName = userDetails.getUsername();
-
-
-        User currentUser = userService.findByUsername(userName);
+        User currentUser = getCurrentUser();
         List<Game> userCollection = gameService.getUserGamesCollection(currentUser.getUserId());
         model.addAttribute("userCollection", userCollection);
         return "user-collection";
 
+    }
+
+    private User getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String userName = userDetails.getUsername();
+        User currentUser = userService.findByUsername(userName);
+        return currentUser;
     }
 
     @GetMapping("/add")
