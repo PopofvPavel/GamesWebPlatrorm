@@ -12,6 +12,8 @@ DROP TABLE IF EXISTS games_suggestions CASCADE;
 -- Удаление таблицы reviews
 DROP TABLE IF EXISTS reviews CASCADE;
 
+DROP TABLE IF EXISTS steam_reviews CASCADE;
+
 -- Удаление таблицы game_platforms
 DROP TABLE IF EXISTS game_platforms CASCADE;
 
@@ -120,6 +122,20 @@ CREATE TABLE reviews
     FOREIGN KEY (game_id) REFERENCES games (game_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
+
+
+CREATE TABLE steam_reviews (
+                               steam_review_id SERIAL PRIMARY KEY,
+                               game_id INT,
+                               username varchar(50),
+                               comment TEXT,
+                               date DATE,
+                               FOREIGN KEY (game_id) REFERENCES games (game_id)
+);
+
+-- Выбор всех ролей
+SELECT *
+FROM steam_reviews;
 
 CREATE TABLE user_game_collections
 (

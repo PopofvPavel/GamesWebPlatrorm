@@ -90,7 +90,10 @@ public class GamesController {
             return "game-not-found";
         }
         List<Rating> ratings = ratingService.findByGameId(id);
-        List<ReviewInterface> reviews = reviewService.findByGameId(id);
+        List<ReviewInterface> reviews = reviewService.findReviewByGameId(id);
+        List<ReviewInterface> steamReviews = reviewService.findSteamReviewByGameId(id);
+        reviews.addAll(steamReviews);
+
 
         Double averageRating = ratings.stream()
                 .mapToDouble(Rating::getRatingValue)
@@ -244,6 +247,23 @@ public class GamesController {
         model.addAttribute("game", game);
         return "edit-game";
     }
+
+
+    @PostMapping("/{id}/load-steam-reviews")
+    public String loadSteamReviews(@PathVariable("id") int id, Model model) {
+        Game game = gameService.findById(id);
+        if (game == null || game.getSteamId() == null) {
+            return "not-found";
+        }
+
+        long steamId = game.getSteamId();
+        List<SteamReview> steamReviews = steamApiService.getSteamReviews(steamId,game.getGameId());
+        System.out.println("Steam reviews before save" + steamReviews);
+        reviewService.saveSteamReviews(steamReviews);
+
+        return "redirect:/games/" + id;
+    }
+
 
     @GetMapping("/{id}/edit")
     public String showEditGameForm(@PathVariable("id") int id, Model model) {

@@ -51,13 +51,13 @@ public class SteamGameMapper {
         return null;
     }
 
-    public List<ReviewInterface> mapSteamReview(long appId, String body) {
+    public List<SteamReview> mapSteamReview(long gameId, String body) {
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(body);
 
-            List<ReviewInterface> reviews = new ArrayList<>();
+            List<SteamReview> reviews = new ArrayList<>();
             JsonNode reviewNode = rootNode.get("reviews");
             if (reviewNode.isArray()) {
                 for (JsonNode node : reviewNode) {
@@ -65,7 +65,7 @@ public class SteamGameMapper {
                     long dateInSeconds = node.get("timestamp_created").asLong();
                     Date date = new Date(dateInSeconds * 1000);
                     String comment = node.get("review").asText();
-                    SteamReview review = new SteamReview(appId, username, comment, date);
+                    SteamReview review = new SteamReview(gameId, username, comment, date);
                     reviews.add(review);
                 }
             }

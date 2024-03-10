@@ -1,7 +1,6 @@
 package com.example.webprojectgames.services.implementation;
 
 import com.example.webprojectgames.api.steam.client.SteamApiClient;
-import com.example.webprojectgames.model.entities.ReviewInterface;
 import com.example.webprojectgames.model.entities.SteamGame;
 import com.example.webprojectgames.model.entities.SteamReview;
 import com.example.webprojectgames.services.SteamApiService;
@@ -24,7 +23,7 @@ public class SteamApiServiceImpl implements SteamApiService {
         return steamApiClient.getGameDescription(id);
     }
 
-    public List<ReviewInterface> getSteamReview(long id) {
-        return steamApiClient.getGameReviews(id);
+    public List<SteamReview> getSteamReviews(long steamId, long gameId) {
+        return steamApiClient.getGameReviews(steamId,gameId);
     }
 }

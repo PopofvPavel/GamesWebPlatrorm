@@ -48,5 +48,17 @@
     </form>
 </div>
 
+<div class="container">
+    <div th:if="${game.steamId != null}">
+        <form method="post" th:action="@{/games/{id}/load-steam-reviews(id=${game.gameId})}">
+            <button type="submit">Load Steam Reviews</button>
+        </form>
+    </div>
+    <div th:unless="${game.steamId != null}">
+        <p>This game is not linked to Steam. Try to load some information using form above</p>
+    </div>
+</div>
+
+
 </body>
 </html>

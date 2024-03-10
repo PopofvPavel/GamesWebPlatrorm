@@ -4,6 +4,7 @@ package com.example.webprojectgames.api.steam.client;
 import com.example.webprojectgames.model.entities.ReviewInterface;
 import com.example.webprojectgames.model.entities.SteamGame;
 import com.example.webprojectgames.api.steam.model.SteamGameMapper;
+import com.example.webprojectgames.model.entities.SteamReview;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -34,10 +35,10 @@ public class SteamApiClient {
         return steamGameMapper.mapSteamGame(response.getBody());
     }
 
-    public List<ReviewInterface> getGameReviews(long appId) {
-        String url = "https://store.steampowered.com/appreviews/" + appId + "?json=1";
+    public List<SteamReview> getGameReviews(long steamId, long gameId) {
+        String url = "https://store.steampowered.com/appreviews/" + steamId + "?json=1";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-        return steamGameMapper.mapSteamReview(appId,response.getBody());
+        return steamGameMapper.mapSteamReview(gameId,response.getBody());
     }
 
 }

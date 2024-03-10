@@ -1,7 +1,6 @@
 package com.example.webprojectgames.controller;
 
-import com.example.webprojectgames.model.entities.ReviewInterface;
-import com.example.webprojectgames.model.entities.SteamGame;
+import com.example.webprojectgames.model.entities.SteamReview;
 import com.example.webprojectgames.services.SteamApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,12 +26,12 @@ public class HomeController {
     private  SteamApiService steamApiService;
 
 
-    @GetMapping("/api/{appId}")
+   /* @GetMapping("/api/{appId}")
     @ResponseBody
-    public List<ReviewInterface> getGameDescription(@PathVariable long appId) {
+    public List<SteamReview> getGameDescription(@PathVariable long appId) {
 
 
-        return steamApiService.getSteamReview(appId);
-    }
+        return steamApiService.getSteamReviews(appId);
+    }*/
 
 }
