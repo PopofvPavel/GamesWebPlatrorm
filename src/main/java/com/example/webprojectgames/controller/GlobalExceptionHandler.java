@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public String handleException(Exception ex, Model model) {
         ex.printStackTrace();
-        model.addAttribute("error", "An unexpected error occurred. Please try again later.");
+        model.addAttribute("error", "An unexpected error occurred.");
 
         return "error";
     }
