@@ -4,6 +4,7 @@ import com.example.webprojectgames.model.entities.Review;
 import com.example.webprojectgames.model.entities.ReviewInterface;
 import com.example.webprojectgames.model.entities.SteamGame;
 import com.example.webprojectgames.model.entities.SteamReview;
+import com.example.webprojectgames.model.exceptions.GameNotFoundException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,10 +23,12 @@ public class SteamGameMapper {
         try {
             JsonNode rootNode = objectMapper.readTree(json);
             String gameId = rootNode.fieldNames().next(); // Получаем первый (и единственный) ключ из объекта
-            JsonNode gameData = rootNode.get(gameId).get("data");
 
-            String title = gameData.get("name").asText();
-            String description = gameData.get("detailed_description").asText();
+            if (rootNode.get(gameId).get("success").asBoolean()) {//если в ответе пришло success, значит такая игра есть
+                JsonNode gameData = rootNode.get(gameId).get("data");
+
+                String title = gameData.get("name").asText();
+                String description = gameData.get("detailed_description").asText();
    /*         String releaseDateString = gameData.get("release_date").get("date").asText();
 
             Date releaseDate = null;
@@ -35,20 +38,22 @@ public class SteamGameMapper {
                 throw new RuntimeException(e);
             }*/
 
-            List<String> platforms = new ArrayList<>();
-            JsonNode platformsNode = gameData.get("platforms");
-            if (platformsNode != null) {
-                platformsNode.fieldNames().forEachRemaining(platforms::add);
-            }
-            String developer = gameData.get("developers").get(0).asText(); // Предполагается, что разработчик - первый в списке
-            String imageUrl = gameData.get("header_image").asText();
+                List<String> platforms = new ArrayList<>();
+                JsonNode platformsNode = gameData.get("platforms");
+                if (platformsNode != null) {
+                    platformsNode.fieldNames().forEachRemaining(platforms::add);
+                }
+                String developer = gameData.get("developers").get(0).asText(); // Предполагается, что разработчик - первый в списке
+                String imageUrl = gameData.get("header_image").asText();
 
-            return new SteamGame(title, description, null, platforms, developer, imageUrl);
+                return new SteamGame(title, description, null, platforms, developer, imageUrl);
+            } else {
+                throw new GameNotFoundException("Game not found on Steam with id " +gameId);
+            }
         } catch (JsonProcessingException e) {
             System.out.println("Error parsing json");
-            e.printStackTrace();
+            throw new RuntimeException("Error parsing json", e);
         }
-        return null;
     }
 
     public List<SteamReview> mapSteamReview(long gameId, String body) {

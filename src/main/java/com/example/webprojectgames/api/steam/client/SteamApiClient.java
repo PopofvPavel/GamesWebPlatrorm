@@ -5,6 +5,7 @@ import com.example.webprojectgames.model.entities.ReviewInterface;
 import com.example.webprojectgames.model.entities.SteamGame;
 import com.example.webprojectgames.api.steam.model.SteamGameMapper;
 import com.example.webprojectgames.model.entities.SteamReview;
+import com.example.webprojectgames.model.exceptions.GameNotFoundException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -32,13 +33,23 @@ public class SteamApiClient {
         String url = "https://store.steampowered.com/api/appdetails?appids=" + appId;
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
         //return  response.getBody();
-        return steamGameMapper.mapSteamGame(response.getBody());
+        SteamGame steamGame = steamGameMapper.mapSteamGame(response.getBody());
+        if (steamGame == null) {
+            throw new GameNotFoundException("Game with id " + appId + " not found in Steam library");
+        }
+
+        return steamGame;
     }
 
     public List<SteamReview> getGameReviews(long steamId, long gameId) {
         String url = "https://store.steampowered.com/appreviews/" + steamId + "?json=1";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
-        return steamGameMapper.mapSteamReview(gameId,response.getBody());
+
+        List<SteamReview> steamReviews = steamGameMapper.mapSteamReview(gameId, response.getBody());
+        if (steamReviews == null || steamReviews.isEmpty()) {
+            throw new GameNotFoundException("Reviews not found for game with Steam ID " + steamId);
+        }
+        return steamReviews;
     }
 
 }
