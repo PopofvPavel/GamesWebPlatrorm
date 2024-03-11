@@ -15,8 +15,8 @@ import java.util.List;
 @Component
 public class SteamApiClient {
 
-    @Value("${steam.api.key}") //described in properties
-    private String apiKey;
+  /*  @Value("${steam.api.key}") //described in properties
+    private String apiKey;*/
 
     final SteamGameMapper steamGameMapper;
 

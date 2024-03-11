@@ -87,7 +87,7 @@ public class GamesController {
     public String showGameDetails(@PathVariable(value = "id") long id, Model model) {
         Game game = gameService.findById(id);
         if (game == null) {
-            return "game-not-found";
+            return "not-found";
         }
         List<Rating> ratings = ratingService.findByGameId(id);
         List<ReviewInterface> reviews = reviewService.findReviewByGameId(id);
@@ -117,7 +117,7 @@ public class GamesController {
 
     }
 
-    private User getCurrentUser() {
+    public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String userName = userDetails.getUsername();
@@ -133,7 +133,7 @@ public class GamesController {
 
     @PostMapping("/add")
     public String addGame(@ModelAttribute("game") Game game,
-                          @RequestParam("steamId") long steamId,
+                          @RequestParam(value = "steamId", required = false) Long steamId,
                           BindingResult result, Model model) {
 
         model.addAttribute("steamId", steamId);
@@ -348,11 +348,13 @@ public class GamesController {
             return "not-found";
         }
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    /*    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         User user = userService.findByUsername(username);
-        int userId = user.getUserId();
+        int userId = user.getUserId();*/
 
+        User user = getCurrentUser();
+        int userId = user.getUserId();
         userService.saveGameToUserCollection(new UserGameCollection(userId, id, new Date()));
         //System.out.println("Saving game usr id = " + userId + " game id = " + id);
         return "redirect:/games/collection";

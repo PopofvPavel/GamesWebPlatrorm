@@ -70,5 +70,4 @@ public class SteamReview implements ReviewInterface {
         this.date = date;
     }
 
-    // Конструктор, геттеры и сеттеры
 }
