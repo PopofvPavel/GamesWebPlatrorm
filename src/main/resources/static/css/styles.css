@@ -1,4 +1,17 @@
 
+.button {
+    margin: 5px 10px 5px 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    border: silver;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.button:hover {
+    background-color: #E5E4E2;
+}
 
 .wrap {
     margin: 0 auto;
@@ -49,63 +62,80 @@
     background: mediumblue;
 }
 
+.header-container a {
+    margin: 5px;
+    font-weight: bold;
+    font-family: Verdana, serif;
+    text-decoration: white;
+    color: white;
+}
 .container {
-    width: 60%;
+    width: 80%;
     margin: 60px auto 20px; /*60 для шапки*/
     padding: 20px;
     background-color: royalblue;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Verdana, serif;
 }
 
-.header-container span {
-    margin-right: 10px; /* Пример отступа между элементами */
+.game-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.game-list {
-    list-style-type: none;
-    padding: 0;
+.game-column {
+    flex-basis: calc(33.33% - 10px); /* 33% ширины контейнера с небольшим отступом между столбцами */
+    margin-bottom: 20px; /* небольшой отступ между строками */
 }
 
 .game-item {
-    position: sticky;
     overflow: hidden;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 10px;
-    padding: 10px;
+    padding: 0px;
+    height: 400px;
+    width: 100%;
     background-color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    height: 200px;
 }
 
-.game-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: auto;
-    opacity: 0.7;
-    z-index: -1;
+.game-image img {
+    width: 100%; /* Ширина изображения должна быть 100% от родительского контейнера */
+    height: 100%; /* Высота изображения должна быть 100% от родительского контейнера */
+    max-height: 180px;
+    min-height: 180px;
+    object-fit: cover; /* Сохранять соотношение сторон и обрезать изображение при необходимости */
 }
 
-.game-title {
+.game-details {
+    padding: 10px 0;
+}
+
+.game-title a {
+    margin: 5px;
     font-weight: bold;
+    font-family: Verdana, serif;
+    text-decoration: black;
+    color: black;
 }
 
 .game-developer {
+    margin: 5px;
     color: mediumpurple;
 
 }
 
 .game-platform-and-date {
+    margin: 5px;
     font-size: 14px;
 }
 
 .game-description {
-    max-width: calc(100% - 600px);
-    height: 125px;
-    margin-top: 5px;
+    width:auto;
+    height: 135px;
+    margin: 5px;
     color: #666;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -146,6 +176,12 @@
 .rate-game-container {
     display: flex;
     align-items: center;
+}
+.input-rating {
+    width: 50px;
+    margin: 5px 10px 5px 0px;
+    padding: 5px;
+    border-radius: 6px;
 }
 .rate-game-container form {
     margin-right: 10px;

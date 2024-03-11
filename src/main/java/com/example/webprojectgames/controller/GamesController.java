@@ -3,6 +3,7 @@ package com.example.webprojectgames.controller;
 
 import com.example.webprojectgames.model.entities.SteamGame;
 import com.example.webprojectgames.model.entities.*;
+import com.example.webprojectgames.model.exceptions.GameNotFoundException;
 import com.example.webprojectgames.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -87,7 +88,8 @@ public class GamesController {
     public String showGameDetails(@PathVariable(value = "id") long id, Model model) {
         Game game = gameService.findById(id);
         if (game == null) {
-            return "not-found";
+            throw new GameNotFoundException("This game is not found in games list: " + id);
+            //return "not-found";
         }
         List<Rating> ratings = ratingService.findByGameId(id);
         List<ReviewInterface> reviews = reviewService.findReviewByGameId(id);
@@ -176,6 +178,7 @@ public class GamesController {
         SteamGame steamGame = steamApiService.getSteamGame(steamId);
         model.addAttribute("steamId", steamId);
         if (steamGame == null) {
+
             model.addAttribute("error", "Game not found on Steam");
             return "add-game";
         }
@@ -205,7 +208,8 @@ public class GamesController {
         model.addAttribute("steamId", steamId);
         Game game = gameService.findById(id);
         if (game == null) {
-            return "not-found";
+            throw new GameNotFoundException("This game is not found in games list: " + id);
+            //return "not-found";
         }
         //game.setGameId(id);
 
@@ -253,7 +257,8 @@ public class GamesController {
     public String loadSteamReviews(@PathVariable("id") int id, Model model) {
         Game game = gameService.findById(id);
         if (game == null || game.getSteamId() == null) {
-            return "not-found";
+            throw new GameNotFoundException("This game is not found in games list: " + id);
+            //return "not-found";
         }
 
         long steamId = game.getSteamId();
@@ -269,7 +274,8 @@ public class GamesController {
     public String showEditGameForm(@PathVariable("id") int id, Model model) {
         Game game = gameService.findById(id);
         if (game == null) {
-            return "not-found";
+            throw new GameNotFoundException("This game is not found in games list: " + id);
+            //return "not-found";
         }
         model.addAttribute("game", game);
         return "edit-game";
