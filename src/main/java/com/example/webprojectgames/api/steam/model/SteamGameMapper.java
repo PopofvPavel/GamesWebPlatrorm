@@ -1,7 +1,5 @@
 package com.example.webprojectgames.api.steam.model;
 
-import com.example.webprojectgames.model.entities.Review;
-import com.example.webprojectgames.model.entities.ReviewInterface;
 import com.example.webprojectgames.model.entities.SteamGame;
 import com.example.webprojectgames.model.entities.SteamReview;
 import com.example.webprojectgames.model.exceptions.GameNotFoundException;
@@ -54,6 +52,28 @@ public class SteamGameMapper {
             System.out.println("Error parsing json");
             throw new RuntimeException("Error parsing json", e);
         }
+    }
+
+    public List<SteamGame> mapAllSteamGamesTitles(String json) {
+        List<SteamGame> steamGames = new ArrayList<>();
+        try {
+            JsonNode rootNode = objectMapper.readTree(json);
+            JsonNode appList = rootNode.get("applist").get("apps");
+
+            if (appList.isArray()) {
+                for (JsonNode appNode : appList) {
+                    long appId = appNode.get("appid").asLong();
+                    String appName = appNode.get("name").asText();
+                    SteamGame steamGame = new SteamGame(appName, "", null, new ArrayList<>(), "", "");
+                    steamGame.setSteamId(appId);
+                    steamGames.add(steamGame);
+                }
+            }
+        } catch (JsonProcessingException e) {
+            System.out.println("Error parsing json");
+            throw new RuntimeException("Error parsing json", e);
+        }
+        return steamGames;
     }
 
     public List<SteamReview> mapSteamReview(long gameId, String body) {

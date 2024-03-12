@@ -4,13 +4,15 @@ import java.util.Date;
 import java.util.List;
 
 public class SteamGame {
-    String title;
-    String description;
-    Date releaseDate;
-    List<String> platform;
-    String developer;
 
-    String image_url;
+    private long steamId;
+    private String title;
+    private String description;
+    private Date releaseDate;
+    private List<String> platform;
+    private String developer;
+
+    private String image_url;
 
     public SteamGame(String title, String description, Date release_date, List<String> platforms,
                      String developer, String image_url) {
@@ -69,5 +71,13 @@ public class SteamGame {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public long getSteamId() {
+        return steamId;
+    }
+
+    public void setSteamId(long steamId) {
+        this.steamId = steamId;
     }
 }

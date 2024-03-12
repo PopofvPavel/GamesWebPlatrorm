@@ -1,12 +1,10 @@
 package com.example.webprojectgames.api.steam.client;
 
 
-import com.example.webprojectgames.model.entities.ReviewInterface;
 import com.example.webprojectgames.model.entities.SteamGame;
 import com.example.webprojectgames.api.steam.model.SteamGameMapper;
 import com.example.webprojectgames.model.entities.SteamReview;
 import com.example.webprojectgames.model.exceptions.GameNotFoundException;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -51,5 +49,12 @@ public class SteamApiClient {
         }
         return steamReviews;
     }
+
+    public List<SteamGame> getAllGames() {
+        String url = "https://api.steampowered.com/ISteamApps/GetAppList/v2/";
+        ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+        return steamGameMapper.mapAllSteamGamesTitles(response.getBody());
+    }
+
 
 }
