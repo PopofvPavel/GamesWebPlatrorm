@@ -118,3 +118,154 @@
 2024-03-12 12:22:10 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameComparisonServiceImpl.getMatchingGames(..)
 2024-03-12 12:22:13 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameComparisonServiceImpl.getMatchingGames(..)
 2024-03-12 12:22:15 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameComparisonServiceImpl.getMatchingGames(..)
+2024-03-12 12:56:32 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-12 12:56:32 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-12 12:56:32 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-12 12:56:32 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-12 12:56:37 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 58500 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-12 12:56:37 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-12 12:56:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-12 12:56:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56ms. Found 7 JPA repository interfaces.
+2024-03-12 12:56:38 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-12 12:56:38 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-12 12:56:38 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-12 12:56:38 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-12 12:56:38 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-12 12:56:38 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 992 ms
+2024-03-12 12:56:38 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-12 12:56:38 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-12 12:56:38 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-12 12:56:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-12 12:56:38 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-12 12:56:38 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-12 12:56:38 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-12 12:56:38 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-12 12:56:39 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-12 12:56:39 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-12 12:56:39 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-12 12:56:39 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@33845e3d, org.springframework.security.web.context.SecurityContextPersistenceFilter@774189d0, org.springframework.security.web.header.HeaderWriterFilter@5d373794, org.springframework.security.web.authentication.logout.LogoutFilter@b791e6e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@71634e64, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4e7151b3, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7e615c6a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2681185e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32f45e15, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3662c887, org.springframework.security.web.session.SessionManagementFilter@7c07023, org.springframework.security.web.access.ExceptionTranslationFilter@64921450, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4e35a219]
+2024-03-12 12:56:40 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-12 12:56:40 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-12 12:56:40 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-12 12:56:40 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.233 seconds (JVM running for 3.946)
+2024-03-12 13:00:41 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-12 13:00:41 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-12 13:00:41 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-12 13:00:41 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-12 13:00:45 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 31072 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-12 13:00:45 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-12 13:00:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-12 13:00:45 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57ms. Found 7 JPA repository interfaces.
+2024-03-12 13:00:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-12 13:00:46 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-12 13:00:46 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-12 13:00:46 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-12 13:00:46 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-12 13:00:46 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 986 ms
+2024-03-12 13:00:46 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-12 13:00:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-12 13:00:46 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-12 13:00:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-12 13:00:46 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-12 13:00:46 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-12 13:00:46 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-12 13:00:46 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-12 13:00:47 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-12 13:00:47 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-12 13:00:47 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-12 13:00:47 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2941631f, org.springframework.security.web.context.SecurityContextPersistenceFilter@5400db7e, org.springframework.security.web.header.HeaderWriterFilter@4880a9d, org.springframework.security.web.authentication.logout.LogoutFilter@f13e0a2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@43120a77, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@64921450, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6130a6f5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76eee0b1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12478b4e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3fb0d9de, org.springframework.security.web.session.SessionManagementFilter@151d216e, org.springframework.security.web.access.ExceptionTranslationFilter@23cfdfa2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@75a6bd06]
+2024-03-12 13:00:47 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-12 13:00:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-12 13:00:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-12 13:00:48 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.223 seconds (JVM running for 3.929)
+2024-03-12 13:02:28 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-12 13:02:28 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-12 13:02:28 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-12 13:02:28 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-12 13:02:32 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 52292 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-12 13:02:32 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-12 13:02:33 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-12 13:02:33 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54ms. Found 7 JPA repository interfaces.
+2024-03-12 13:02:33 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-12 13:02:33 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-12 13:02:33 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-12 13:02:33 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-12 13:02:34 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-12 13:02:34 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1015 ms
+2024-03-12 13:02:34 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-12 13:02:34 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-12 13:02:34 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-12 13:02:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-12 13:02:34 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-12 13:02:34 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-12 13:02:34 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-12 13:02:34 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-12 13:02:35 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-12 13:02:35 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-12 13:02:35 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-12 13:02:35 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67372d20, org.springframework.security.web.context.SecurityContextPersistenceFilter@151d216e, org.springframework.security.web.header.HeaderWriterFilter@23cfdfa2, org.springframework.security.web.authentication.logout.LogoutFilter@4c599679, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@656672fb, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@50b2ba2c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@25e24908, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5400db7e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@152d2a58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2941631f, org.springframework.security.web.session.SessionManagementFilter@4880a9d, org.springframework.security.web.access.ExceptionTranslationFilter@1a73f3d1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@ad585fb]
+2024-03-12 13:02:35 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-12 13:02:36 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-12 13:02:36 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-12 13:02:36 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.475 seconds (JVM running for 4.221)
+2024-03-12 13:02:41 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-12 13:02:41 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-12 13:02:41 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2024-03-12 13:02:42 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-12 13:02:43 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-12 13:02:43 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-12 13:02:43 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-12 13:02:57 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-12 13:02:57 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-12 13:02:57 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.loadGamesFromSteamUsingWiki(..)
+2024-03-12 13:02:57 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameComparisonServiceImpl.getMatchingGames(..)
+2024-03-12 13:02:59 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameComparisonServiceImpl.getMatchingGames(..)
+2024-03-12 13:02:59 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: SteamApiServiceImpl.getSteamGame(..)
+2024-03-12 13:18:15 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-12 13:18:15 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-12 13:18:15 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-12 13:18:15 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-12 13:18:19 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 27344 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-12 13:18:19 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-12 13:18:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-12 13:18:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 77ms. Found 7 JPA repository interfaces.
+2024-03-12 13:18:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-12 13:18:21 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-12 13:18:21 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-12 13:18:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-12 13:18:21 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-12 13:18:21 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1265 ms
+2024-03-12 13:18:21 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-12 13:18:21 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-12 13:18:21 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-12 13:18:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-12 13:18:21 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-12 13:18:21 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-12 13:18:22 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-12 13:18:22 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-12 13:18:22 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-12 13:18:22 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-12 13:18:22 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-12 13:18:23 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46507dda, org.springframework.security.web.context.SecurityContextPersistenceFilter@31cddb11, org.springframework.security.web.header.HeaderWriterFilter@72c175f1, org.springframework.security.web.authentication.logout.LogoutFilter@15bcecf9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7e741d6b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@58fbfefb, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@52463255, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d213a2b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@219a2203, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66f5770e, org.springframework.security.web.session.SessionManagementFilter@4a34de5e, org.springframework.security.web.access.ExceptionTranslationFilter@b791e6e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5b3a8bea]
+2024-03-12 13:18:23 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-12 13:18:23 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-12 13:18:23 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-12 13:18:23 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 4.101 seconds (JVM running for 5.204)
+2024-03-12 13:18:26 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-12 13:18:26 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-12 13:18:26 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2024-03-12 13:18:27 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [130] milliseconds.
+2024-03-12 13:18:28 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-12 13:18:28 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-12 13:18:28 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-12 13:18:28 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-12 13:18:38 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-12 13:18:38 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-12 13:18:38 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.loadGamesFromSteamUsingWiki(..)
+2024-03-12 13:18:38 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameComparisonServiceImpl.getMatchingGames(..)
+2024-03-12 13:18:40 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameComparisonServiceImpl.getMatchingGames(..)
+2024-03-12 13:18:40 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: SteamApiServiceImpl.getSteamGame(..)
+2024-03-12 13:19:34 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-12 13:19:34 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-12 13:19:34 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-12 13:19:34 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

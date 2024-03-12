@@ -35,7 +35,7 @@ public class WikipediaParserService {
             // Проход по всем таблицам в указанном диапазоне индексов
             for (int i = startIndex; i <= endIndex; i++) {
                 Element table = doc.select("table.wikitable").get(i);
-                System.out.println("Table " + i + ": " + table);
+                //System.out.println("Table " + i + ": " + table);
 
                 // Поиск всех строк в текущей таблице
                 Elements rows = table.select("tr");

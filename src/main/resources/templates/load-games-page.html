@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Game</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Load Games from Steam using wiki website list by year</h2>
+    <form th:action="@{/api/load-games-wiki}" method="post">
+        <label for="year">Enter year:</label>
+        <input type="text" id="year" name="year" required>
+        <button type="submit">Load Games</button>
+        </form>
+
+</div>
+</body>
+</html>

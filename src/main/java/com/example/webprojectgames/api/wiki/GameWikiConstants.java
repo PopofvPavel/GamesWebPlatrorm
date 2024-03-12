@@ -42,6 +42,6 @@ public class GameWikiConstants {
     }
 
     public WikiGamePage getGamePage(String year) {
-        return this.urlIndexMap.getOrDefault(year,null); // По умолчанию возвращаем нулевой диапазон
+        return this.urlIndexMap.getOrDefault(year,null);
     }
 }
