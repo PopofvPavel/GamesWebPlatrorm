@@ -1,5 +1,6 @@
 package com.example.webprojectgames.controller;
 
+import com.example.webprojectgames.api.wiki.WikipediaParserService;
 import com.example.webprojectgames.model.entities.SteamReview;
 import com.example.webprojectgames.services.SteamApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,14 @@ public class HomeController {
     @Autowired
     private  SteamApiService steamApiService;
 
+    @Autowired
+    private WikipediaParserService wikipediaParserService;
+
+    @GetMapping("/2023")
+    @ResponseBody
+    public List<String> get2007Games() {
+        return wikipediaParserService.extractGameTitles("2023");
+    }
 
    /* @GetMapping("/api/{appId}")
     @ResponseBody
