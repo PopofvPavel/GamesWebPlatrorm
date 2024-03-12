@@ -36,6 +36,20 @@ public class SteamGameMapper {
                 throw new RuntimeException(e);
             }*/
 
+
+                // Extract genres
+                List<String> genres = new ArrayList<>();
+                JsonNode genresNode = gameData.get("genres");
+                if (genresNode != null && genresNode.isArray()) {
+                    for (JsonNode genreNode : genresNode) {
+                        String genreDescription = genreNode.get("description").asText();
+                        genres.add(genreDescription);
+                    }
+                }
+
+                System.out.println("Genres: " + genres);
+
+
                 List<String> platforms = new ArrayList<>();
                 JsonNode platformsNode = gameData.get("platforms");
                 if (platformsNode != null) {
@@ -44,7 +58,7 @@ public class SteamGameMapper {
                 String developer = gameData.get("developers").get(0).asText(); // Предполагается, что разработчик - первый в списке
                 String imageUrl = gameData.get("header_image").asText();
 
-                return new SteamGame(title, description, null, platforms, developer, imageUrl);
+                return new SteamGame(title, description, null, platforms, developer, imageUrl,genres);
             } else {
                 throw new GameNotFoundException("Game not found on Steam with id " +gameId);
             }
@@ -64,7 +78,7 @@ public class SteamGameMapper {
                 for (JsonNode appNode : appList) {
                     long appId = appNode.get("appid").asLong();
                     String appName = appNode.get("name").asText();
-                    SteamGame steamGame = new SteamGame(appName, "", null, new ArrayList<>(), "", "");
+                    SteamGame steamGame = new SteamGame(appName, "", null, new ArrayList<>(), "", "",null);
                     steamGame.setSteamId(appId);
                     steamGames.add(steamGame);
                 }

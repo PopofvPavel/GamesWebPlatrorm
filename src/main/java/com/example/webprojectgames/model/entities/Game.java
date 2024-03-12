@@ -32,12 +32,21 @@ public class Game {
     )
     private List<Platform> platforms;
 
+    @ManyToMany
+    @JoinTable(name = "game_genres",
+            joinColumns = @JoinColumn(name = "game_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id")
+    )
+    private List<Genre> genres;
+
     @Column(name = "developer")
     private String developer;
     @Column(name = "editor_id")
     private int editorId;
     @Column(name = "image_url")
     private String imageUrl;
+
+
 
     public Game(String title, String description, Date releaseDate, List<Platform> platform, String developer,String imageUrl) {
         this.title = title;
@@ -121,5 +130,13 @@ public class Game {
 
     public void setSteamId(Long steamId) {
         this.steamId = steamId;
+    }
+
+    public List<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
     }
 }

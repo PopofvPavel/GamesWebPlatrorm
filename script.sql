@@ -17,6 +17,9 @@ DROP TABLE IF EXISTS steam_reviews CASCADE;
 -- Удаление таблицы game_platforms
 DROP TABLE IF EXISTS game_platforms CASCADE;
 
+
+DROP TABLE IF EXISTS game_genres CASCADE;
+
 -- Удаление таблицы games
 DROP TABLE IF EXISTS games CASCADE;
 
@@ -29,9 +32,10 @@ DROP TABLE IF EXISTS roles CASCADE;
 -- Удаление таблицы platforms
 DROP TABLE IF EXISTS platforms CASCADE;
 
+DROP TABLE IF EXISTS genres CASCADE;
+
 -- Удаление таблицы ratings
 DROP TABLE IF EXISTS ratings CASCADE;
-
 
 
 /*CREATE DATABASE "GamesPlatform"
@@ -76,12 +80,18 @@ CREATE TABLE platforms
     name        VARCHAR(50) NOT NULL
 );
 
+create table genres
+(
+    genre_id    SERIAL PRIMARY KEY,
+    description VARCHAR(50)
+
+);
 
 CREATE TABLE games
 (
     game_id      SERIAL PRIMARY KEY,
     title        VARCHAR(100) NOT NULL,
-    steam_id INT UNIQUE ,
+    steam_id     INT UNIQUE,
     description  TEXT,
     release_date DATE,
     developer    VARCHAR(100),
@@ -97,6 +107,15 @@ CREATE TABLE game_platforms
     PRIMARY KEY (game_id, platform_id),
     FOREIGN KEY (game_id) REFERENCES games (game_id),
     FOREIGN KEY (platform_id) REFERENCES platforms (platform_id)
+);
+
+CREATE TABLE game_genres
+(
+    game_id  INT,
+    genre_id INT,
+    PRIMARY KEY (game_id, genre_id),
+    FOREIGN KEY (game_id) REFERENCES games (game_id),
+    FOREIGN KEY (genre_id) REFERENCES genres (genre_id)
 );
 
 CREATE TABLE ratings
@@ -124,13 +143,14 @@ CREATE TABLE reviews
 );
 
 
-CREATE TABLE steam_reviews (
-                               steam_review_id SERIAL PRIMARY KEY,
-                               game_id INT,
-                               username varchar(50),
-                               comment TEXT,
-                               date DATE,
-                               FOREIGN KEY (game_id) REFERENCES games (game_id)
+CREATE TABLE steam_reviews
+(
+    steam_review_id SERIAL PRIMARY KEY,
+    game_id         INT,
+    username        varchar(50),
+    comment         TEXT,
+    date            DATE,
+    FOREIGN KEY (game_id) REFERENCES games (game_id)
 );
 
 -- Выбор всех ролей
@@ -181,6 +201,10 @@ VALUES ('windows'),
        ('mac'),
        ('linux');
 
+INSERT INTO genres (description)
+VALUES ('Экшены'),
+ ('Action');
+
 -- Заполнение таблицы users
 INSERT INTO users (username, email, password, role_id)
 VALUES ('user1', 'user1@example.com', 'password1', 1),
@@ -189,13 +213,13 @@ VALUES ('user1', 'user1@example.com', 'password1', 1),
        ('moderator1', 'moderator1@example.com', 'password4', 3);
 
 -- Заполнение таблицы games
-INSERT INTO games (title, description, release_date, developer, editor_id,image_url)
-VALUES ('Witcher 3', 'Final game in witcher series', '2015-01-01', 'CD Project RED', 3,'/images/witcher-3.jpg'),
-       ('Quake Champions', 'FPS multiplayer game', '2019-02-01','idSoftware', 3,null),
-       ('Counter-strike 1.6', 'Tactical FPS game', '1999-03-01', 'Valve', 3,null),
-       ('Counter-strike : Global Offensive', 'Tactical FPS game', '2012-03-01', 'Valve', 3,null),
-       ('Counter-strike 2', 'Tactical FPS game', '1999-03-01', 'Valve', 3,null),
-       ('Fallout: New Vegas', 'RPG game', '2011-03-01', 'Bethesda', 3,null);
+INSERT INTO games (title, description, release_date, developer, editor_id, image_url)
+VALUES ('Witcher 3', 'Final game in witcher series', '2015-01-01', 'CD Project RED', 3, '/images/witcher-3.jpg'),
+       ('Quake Champions', 'FPS multiplayer game', '2019-02-01', 'idSoftware', 3, null),
+       ('Counter-strike 1.6', 'Tactical FPS game', '1999-03-01', 'Valve', 3, null),
+       ('Counter-strike : Global Offensive', 'Tactical FPS game', '2012-03-01', 'Valve', 3, null),
+       ('Counter-strike 2', 'Tactical FPS game', '1999-03-01', 'Valve', 3, null),
+       ('Fallout: New Vegas', 'RPG game', '2011-03-01', 'Bethesda', 3, null);
 
 INSERT INTO game_platforms (game_id, platform_id)
 VALUES (1, 1), -- Windows
@@ -204,7 +228,8 @@ VALUES (1, 1), -- Windows
        (2, 1),
        (3, 1),
        (4, 1),
-       (5, 1); -- Linux
+       (5, 1);
+-- Linux
 
 -- Заполнение таблицы reviews
 INSERT INTO reviews (game_id, user_id, comment, date, is_blocked)

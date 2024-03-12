@@ -48,6 +48,7 @@
     <p>Description: <span th:text="${game.description}"></span></p>
     <p>Release Date: <span th:text="${#dates.format(game.releaseDate, 'dd-MM-yyyy')}"></span></p>
     <p>Platform: <span th:text="${game.platform}"></span></p>
+    <p>Genres: <span th:text="${game.genres}"></span></p>
     <p>Developer: <span th:text="${game.developer}"></span></p>
     <p>SteamId:
         <span th:if="${game.steamId != null}" th:text="${game.steamId}"></span>

@@ -10,18 +10,20 @@ public class SteamGame {
     private String description;
     private Date releaseDate;
     private List<String> platform;
+
+    private List<String> genres;
     private String developer;
 
     private String image_url;
 
     public SteamGame(String title, String description, Date release_date, List<String> platforms,
-                     String developer, String image_url) {
+                     String developer, String image_url, List<String> genres) {
         this.title = title;
         this.description = description;
         this.releaseDate = release_date;
         this.platform = platforms;
         this.developer = developer;
-
+        this.genres = genres;
         this.image_url = image_url;
     }
 
@@ -79,5 +81,13 @@ public class SteamGame {
 
     public void setSteamId(long steamId) {
         this.steamId = steamId;
+    }
+
+    public List<String> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<String> genres) {
+        this.genres = genres;
     }
 }

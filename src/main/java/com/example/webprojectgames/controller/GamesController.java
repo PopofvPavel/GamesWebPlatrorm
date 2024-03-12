@@ -34,6 +34,13 @@ public class GamesController {
 
     private PlatformService platformService;
 
+    private GenreService genreService;
+
+    @Autowired
+    public void setGenreService(GenreService genreService) {
+        this.genreService = genreService;
+    }
+
     @Autowired
     public void setPlatformService(PlatformService platformService) {
         this.platformService = platformService;
@@ -188,6 +195,12 @@ public class GamesController {
                 platforms, steamGame.getDeveloper(),steamGame.getImage_url());
                 //steamGame.getPlatform().get(0), steamGame.getDeveloper());
         game.setSteamId(steamId);
+
+        System.out.println("List of genres: " + steamGame.getGenres());
+        List<Genre> genres = genreService.getGenresByDescription(steamGame.getGenres());
+        game.setGenres(genres);
+        System.out.println("Genres in search method" + genres);
+
         model.addAttribute("game", game);
         System.out.println("game url : " + game.getImageUrl());
         return "add-game";
