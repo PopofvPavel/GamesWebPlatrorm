@@ -97,7 +97,7 @@ public class GameServiceImpl implements GameService {
                 SteamGame fullGame = steamApiService.getSteamGame(steamGame.getSteamId());
                 Game game = new Game();
 
-                game.setSteamId(fullGame.getSteamId());
+                game.setSteamId(steamGame.getSteamId());
                 game.setTitle(fullGame.getTitle());
                 game.setDescription(fullGame.getDescription());
                 List<Platform> platforms = platformService.getPlatformsByNames(fullGame.getPlatform());
