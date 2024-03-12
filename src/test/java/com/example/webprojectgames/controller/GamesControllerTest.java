@@ -152,7 +152,7 @@ class GamesControllerTest {
     @Test
     @WithMockUser(username="user", roles={"USER"})
     void searchSteamGame() throws Exception {
-        SteamGame steamGameMock = new SteamGame("Test Game", "Test description", new Date(2024, 3, 1), Collections.singletonList("Windows"), "Test developer", "https://example.com/test.jpg");
+        SteamGame steamGameMock = new SteamGame("Test Game", "Test description", new Date(2024, 3, 1), Collections.singletonList("Windows"), "Test developer", "https://example.com/test.jpg",null);
         //steamGameMock.set
         when(steamApiService.getSteamGame(anyLong())).thenReturn(steamGameMock);
 
@@ -169,7 +169,7 @@ class GamesControllerTest {
     void searchSteamGameForEditPage() throws Exception {
         when(gameService.findById(1)).thenReturn(new Game("Test Game", "Test description",  new Date(2024,03,01), null, "Test developer", "https://example.com/test.jpg"));
 
-        when(steamApiService.getSteamGame(anyLong())).thenReturn(new SteamGame("Test Game Updated", "Updated description",  new Date(2024,03,01), Collections.singletonList("Windows"), "Test developer", "https://example.com/test.jpg"));
+        when(steamApiService.getSteamGame(anyLong())).thenReturn(new SteamGame("Test Game Updated", "Updated description",  new Date(2024,03,01), Collections.singletonList("Windows"), "Test developer", "https://example.com/test.jpg",null));
 
         mockMvc.perform(post("/games/1/edit/load")
                         .param("steamId", "12345"))

@@ -30,4 +30,9 @@ public class GenreServiceImpl implements GenreService {
     public List<Genre> getGenresByDescription(List<String> descriptions) {
         return genreRepository.findAllByDescriptionIn(descriptions);
     }
+
+    @Override
+    public List<Genre> getAllGenres() {
+        return genreRepository.findAll();
+    }
 }

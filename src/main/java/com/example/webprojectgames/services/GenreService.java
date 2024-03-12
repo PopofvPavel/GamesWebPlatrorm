@@ -11,4 +11,7 @@ public interface GenreService {
     void save(Genre genre);
 
     List<Genre> getGenresByDescription(List<String> genres);
+
+    List<Genre> getAllGenres();
+
 }

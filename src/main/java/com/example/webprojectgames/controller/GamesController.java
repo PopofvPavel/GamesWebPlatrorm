@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -137,6 +138,10 @@ public class GamesController {
     public String showAddGamePage(Model model) {
         Game game = new Game();
         model.addAttribute("game", game);
+        List<Genre> allGenres = genreService.getAllGenres();
+        model.addAttribute("allGenres", allGenres);
+        List<Long> selectedGenres = new ArrayList<>();
+        model.addAttribute("selectedGenres", selectedGenres);
         return "add-game";
     }
 
@@ -192,14 +197,22 @@ public class GamesController {
 
         List<Platform> platforms = platformService.getPlatformsByNames(steamGame.getPlatform());
         Game game = new Game(steamGame.getTitle(), steamGame.getDescription(), steamGame.getReleaseDate(),
-                platforms, steamGame.getDeveloper(),steamGame.getImage_url());
-                //steamGame.getPlatform().get(0), steamGame.getDeveloper());
+                platforms, steamGame.getDeveloper(), steamGame.getImage_url());
+        //steamGame.getPlatform().get(0), steamGame.getDeveloper());
         game.setSteamId(steamId);
 
         System.out.println("List of genres: " + steamGame.getGenres());
         List<Genre> genres = genreService.getGenresByDescription(steamGame.getGenres());
         game.setGenres(genres);
         System.out.println("Genres in search method" + genres);
+
+        List<Genre> allGenres = genreService.getAllGenres();
+        model.addAttribute("allGenres", allGenres);
+
+        // Передаем активные идентификаторы жанров вместо объектов жанров
+        model.addAttribute("selectedGenres", new ArrayList<Long>());
+
+
 
         model.addAttribute("game", game);
         System.out.println("game url : " + game.getImageUrl());
@@ -275,7 +288,7 @@ public class GamesController {
         }
 
         long steamId = game.getSteamId();
-        List<SteamReview> steamReviews = steamApiService.getSteamReviews(steamId,game.getGameId());
+        List<SteamReview> steamReviews = steamApiService.getSteamReviews(steamId, game.getGameId());
         System.out.println("Steam reviews before save" + steamReviews);
         reviewService.saveSteamReviews(steamReviews);
 
@@ -331,7 +344,7 @@ public class GamesController {
     }
 
     @PostMapping("/{id}//add-review")
-    public String saveReview(@ModelAttribute("comment") String comment,@ModelAttribute("game") Game game, @PathVariable("id") int id, BindingResult result, Model model) {
+    public String saveReview(@ModelAttribute("comment") String comment, @ModelAttribute("game") Game game, @PathVariable("id") int id, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("error", "Some fields are invalid");
             return "redirect:/games/" + id;
