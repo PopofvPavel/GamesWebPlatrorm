@@ -85,7 +85,24 @@ public class GameServiceImpl implements GameService {
     }
 
     public void saveAllGames(List<Game> games) {
-        gamesRepository.saveAll(games);
+        for (Game game : games) {
+            Optional<Game> existingGame = gamesRepository.findBySteamId(game.getSteamId());
+            if (existingGame.isPresent()) {
+                // Update the existing game with the new data
+                Game existing = existingGame.get();
+                existing.setTitle(game.getTitle());
+                existing.setDescription(game.getDescription());
+                existing.setEditorId(game.getEditorId());
+                existing.setDeveloper(game.getDeveloper());
+                existing.setImageUrl(game.getImageUrl());
+                existing.setReleaseDate(game.getReleaseDate());
+
+                gamesRepository.save(existing); //save method to update the existing game
+            } else {
+                // Save a new game if it doesn't exist
+                gamesRepository.save(game);
+            }
+        }
     }
 
     @Override
@@ -113,6 +130,9 @@ public class GameServiceImpl implements GameService {
 
             }
         }
+       /* for(Game game : games) {
+            saveGame(game);
+        }*/
         saveAllGames(games);
 
     }

@@ -81,7 +81,7 @@ CREATE TABLE games
 (
     game_id      SERIAL PRIMARY KEY,
     title        VARCHAR(100) NOT NULL,
-    steam_id INT,
+    steam_id INT UNIQUE ,
     description  TEXT,
     release_date DATE,
     developer    VARCHAR(100),
