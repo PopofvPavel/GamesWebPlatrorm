@@ -37,7 +37,7 @@ public class HomeController {
     @GetMapping("/2023")
     @ResponseBody
     public List<SteamGame> get2007Games() {
-        return gameComparisonService.getMatchingGames("2022");
+        return gameComparisonService.getMatchingGames("2011");
         //return wikipediaParserService.extractGameTitles("2023");
     }
 
