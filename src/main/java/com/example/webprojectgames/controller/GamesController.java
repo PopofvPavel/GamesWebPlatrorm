@@ -138,10 +138,12 @@ public class GamesController {
     public String showAddGamePage(Model model) {
         Game game = new Game();
         model.addAttribute("game", game);
+
         List<Genre> allGenres = genreService.getAllGenres();
         model.addAttribute("allGenres", allGenres);
         List<Long> selectedGenres = new ArrayList<>();
         model.addAttribute("selectedGenres", selectedGenres);
+
         return "add-game";
     }
 
@@ -154,7 +156,6 @@ public class GamesController {
         if (result.hasErrors()) {
             model.addAttribute("error", "Some fields are invalid");
 
-            //sout the error message
             List<ObjectError> errors = result.getAllErrors();
             for (ObjectError error : errors) {
                 System.out.println(error.getDefaultMessage());
@@ -171,15 +172,8 @@ public class GamesController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String editorUsername = authentication.getName();
 
-        // Получение идентификатора пользователя (editorId) по его имени
         User editor = userService.findByUsername(editorUsername);
-        //System.out.println("editor: " + editor);
-        // Установка editorId в объекте game
         game.setEditorId(editor.getUserId());
-        //System.out.println("User id : " + editor.getUserId());
-
-
-        System.out.println("game url : " + game.getImageUrl());
 
         gameService.saveGame(game);
         return "redirect:/games";
@@ -201,15 +195,10 @@ public class GamesController {
         //steamGame.getPlatform().get(0), steamGame.getDeveloper());
         game.setSteamId(steamId);
 
-        System.out.println("List of genres: " + steamGame.getGenres());
         List<Genre> genres = genreService.getGenresByDescription(steamGame.getGenres());
         game.setGenres(genres);
-        System.out.println("Genres in search method" + genres);
-
         List<Genre> allGenres = genreService.getAllGenres();
         model.addAttribute("allGenres", allGenres);
-
-        // Передаем активные идентификаторы жанров вместо объектов жанров
         model.addAttribute("selectedGenres", new ArrayList<Long>());
 
 
@@ -274,6 +263,13 @@ public class GamesController {
 
         game.setSteamId(steamId);
 
+        List<Genre> genres = genreService.getGenresByDescription(steamGame.getGenres());
+        game.setGenres(genres);
+        List<Genre> allGenres = genreService.getAllGenres();
+        model.addAttribute("allGenres", allGenres);
+        model.addAttribute("selectedGenres", new ArrayList<Long>());
+
+
         model.addAttribute("game", game);
         return "edit-game";
     }
@@ -304,6 +300,10 @@ public class GamesController {
             //return "not-found";
         }
         model.addAttribute("game", game);
+        List<Genre> allGenres = genreService.getAllGenres();
+        model.addAttribute("allGenres", allGenres);
+        model.addAttribute("selectedGenres", new ArrayList<Long>());
+
         return "edit-game";
     }
 
@@ -337,6 +337,7 @@ public class GamesController {
         existingGame.setPlatform(game.getPlatform());
         existingGame.setDeveloper(game.getDeveloper());
         existingGame.setImageUrl(game.getImageUrl());
+        existingGame.setGenres(game.getGenres());
 
 
         gameService.saveGame(existingGame);
