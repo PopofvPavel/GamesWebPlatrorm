@@ -6,6 +6,7 @@ import com.example.webprojectgames.model.entities.*;
 import com.example.webprojectgames.model.exceptions.GameNotFoundException;
 import com.example.webprojectgames.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -175,7 +176,11 @@ public class GamesController {
         User editor = userService.findByUsername(editorUsername);
         game.setEditorId(editor.getUserId());
 
-        gameService.saveGame(game);
+        try {
+            gameService.saveGame(game);
+        } catch (DataIntegrityViolationException exception) {
+            throw new RuntimeException("Could not save game, maybe this game already exists");
+        }
         return "redirect:/games";
     }
 
@@ -339,8 +344,11 @@ public class GamesController {
         existingGame.setImageUrl(game.getImageUrl());
         existingGame.setGenres(game.getGenres());
 
-
-        gameService.saveGame(existingGame);
+        try {
+            gameService.saveGame(existingGame);
+        } catch (DataIntegrityViolationException exception) {
+            throw new RuntimeException("Could not save game, maybe this game already exists");
+        }
         return "redirect:/games/" + id;
     }
 
