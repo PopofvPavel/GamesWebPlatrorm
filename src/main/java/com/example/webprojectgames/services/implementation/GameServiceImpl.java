@@ -1,16 +1,10 @@
 package com.example.webprojectgames.services.implementation;
 
-import com.example.webprojectgames.model.entities.Game;
-import com.example.webprojectgames.model.entities.Platform;
-import com.example.webprojectgames.model.entities.SteamGame;
-import com.example.webprojectgames.model.entities.UserGameCollection;
+import com.example.webprojectgames.model.entities.*;
 import com.example.webprojectgames.model.exceptions.GameNotFoundException;
 import com.example.webprojectgames.repositories.GamesRepository;
 import com.example.webprojectgames.repositories.UserGamesCollectionRepository;
-import com.example.webprojectgames.services.GameComparisonService;
-import com.example.webprojectgames.services.GameService;
-import com.example.webprojectgames.services.PlatformService;
-import com.example.webprojectgames.services.SteamApiService;
+import com.example.webprojectgames.services.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +25,13 @@ public class GameServiceImpl implements GameService {
     private SteamApiService steamApiService;
 
     private PlatformService platformService;
+
+    private GenreService genreService;
+
+    @Autowired
+    public void setGenreService(GenreService genreService) {
+        this.genreService = genreService;
+    }
 
 
     @Autowired
@@ -89,13 +90,7 @@ public class GameServiceImpl implements GameService {
             Optional<Game> existingGame = gamesRepository.findBySteamId(game.getSteamId());
             if (existingGame.isPresent()) {
                 // Update the existing game with the new data
-                Game existing = existingGame.get();
-                existing.setTitle(game.getTitle());
-                existing.setDescription(game.getDescription());
-                existing.setEditorId(game.getEditorId());
-                existing.setDeveloper(game.getDeveloper());
-                existing.setImageUrl(game.getImageUrl());
-                existing.setReleaseDate(game.getReleaseDate());
+                Game existing = updateExistingGame(game, existingGame);
 
                 gamesRepository.save(existing); //save method to update the existing game
             } else {
@@ -103,6 +98,18 @@ public class GameServiceImpl implements GameService {
                 gamesRepository.save(game);
             }
         }
+    }
+
+    private static Game updateExistingGame(Game game, Optional<Game> existingGame) {
+        Game existing = existingGame.get();
+        existing.setTitle(game.getTitle());
+        existing.setDescription(game.getDescription());
+        existing.setEditorId(game.getEditorId());
+        existing.setDeveloper(game.getDeveloper());
+        existing.setImageUrl(game.getImageUrl());
+        existing.setReleaseDate(game.getReleaseDate());
+        existing.setGenres(game.getGenres());
+        return existing;
     }
 
     @Override
@@ -123,6 +130,8 @@ public class GameServiceImpl implements GameService {
                 game.setEditorId((int) editorId);
                 game.setReleaseDate(fullGame.getReleaseDate());
                 game.setDeveloper(fullGame.getDeveloper());
+                List<Genre> genres = genreService.getGenresByDescription(fullGame.getGenres());
+                game.setGenres(genres);
 
                 games.add(game);
             } catch (GameNotFoundException exception) {
@@ -136,5 +145,4 @@ public class GameServiceImpl implements GameService {
         saveAllGames(games);
 
     }
-
 }

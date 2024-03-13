@@ -203,7 +203,34 @@ VALUES ('windows'),
 
 INSERT INTO genres (description)
 VALUES ('Экшены'),
- ('Action');
+ ('Action'),
+ ('Инди'),
+ ('Стратегии'),
+ ('RPG'),
+ ('Simulation'),
+ ('Strategy'),
+ ('Adventure'),
+ ('Indie'),
+ ('Early Access'),
+ ('Приключенческие игры'),
+ ('Ролевые игры'),
+ ('Ранний доступ'),
+ ('Многопользовательские игры'),
+ ('Симуляторы'),
+ ('Гонки'),
+ ('Казуальные игры'),
+ ('Free to Play'),
+ ('Animation & Modeling'),
+ ('Video Production'),
+ ('Casual'),
+ ('Racing'),
+ ('Violent'),
+ ('Massively Multiplayer'),
+ ('Sports'),
+ ('Design & Illustration'),
+ ('Documentary'),
+ ('Tutorial')
+;
 
 -- Заполнение таблицы users
 INSERT INTO users (username, email, password, role_id)
