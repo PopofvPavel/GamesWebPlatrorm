@@ -10,4 +10,6 @@ import java.util.List;
 public interface GenreRepository extends JpaRepository<Genre, Long> {
 
     List<Genre> findAllByDescriptionIn(List<String> descriptions);
+
+    List<Genre> findAllByDescriptionInIgnoreCase(List<String> genreDescriptions);
 }

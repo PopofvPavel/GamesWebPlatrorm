@@ -16,4 +16,6 @@ public interface GameService {
     void saveGame(Game game);
 
     void loadGamesFromSteamUsingWiki(String year, long editorId);
+
+    List<Game> searchGames(String query);
 }

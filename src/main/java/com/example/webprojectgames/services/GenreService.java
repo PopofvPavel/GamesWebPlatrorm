@@ -14,4 +14,5 @@ public interface GenreService {
 
     List<Genre> getAllGenres();
 
+    List<Genre> getGenresByDescriptionIgnoreCase(List<String> genreDescriptions);
 }

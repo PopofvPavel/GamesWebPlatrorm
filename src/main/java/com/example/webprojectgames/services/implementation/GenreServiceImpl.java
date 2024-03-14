@@ -35,4 +35,9 @@ public class GenreServiceImpl implements GenreService {
     public List<Genre> getAllGenres() {
         return genreRepository.findAll();
     }
+
+    @Override
+    public List<Genre> getGenresByDescriptionIgnoreCase(List<String> genreDescriptions) {
+        return genreRepository.findAllByDescriptionInIgnoreCase(genreDescriptions);
+    }
 }

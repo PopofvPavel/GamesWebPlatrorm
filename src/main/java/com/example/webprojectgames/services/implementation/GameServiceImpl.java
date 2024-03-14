@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -144,5 +145,41 @@ public class GameServiceImpl implements GameService {
         }*/
         saveAllGames(games);
 
+    }
+
+    @Override
+    public List<Game> searchGames(String query) {
+        List<Game> foundGames = new ArrayList<>();
+
+        tryFindGamesByName(query, foundGames);
+        if (foundGames.isEmpty()) {
+            tryFindGamesByGenres(query, foundGames);
+        }
+
+
+
+
+        return foundGames;
+    }
+
+    private void tryFindGamesByGenres(String query, List<Game> foundGames) {
+        List<String> genreDescriptions = Arrays.asList(query.split("\\s*,\\s*"));
+        List<Genre> genres = genreService.getGenresByDescription(genreDescriptions);
+        for (Genre genre : genres) {
+            List<Game> gamesByGenre = gamesRepository.findByGenresContaining(genre);
+            for (Game game : gamesByGenre) {
+                if (!foundGames.contains(game)) {
+                    foundGames.add(game);
+                }
+            }
+        }
+    }
+
+
+    private void tryFindGamesByName(String query, List<Game> foundGames) {
+        List<Game> gamesByName = gamesRepository.findByTitleContainingIgnoreCase(query);
+        if(gamesByName != null && !gamesByName.isEmpty()) {
+            foundGames.addAll(gamesByName);
+        }
     }
 }
