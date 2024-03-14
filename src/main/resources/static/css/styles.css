@@ -81,12 +81,13 @@
 
 .game-row {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
 }
 
 .game-column {
-    flex-basis: calc(33.33% - 10px); /* 33% ширины контейнера с небольшим отступом между столбцами */
+
+    width: 32%; /* 33% ширины контейнера с небольшим отступом между столбцами */
     margin-bottom: 20px; /* небольшой отступ между строками */
 }
 

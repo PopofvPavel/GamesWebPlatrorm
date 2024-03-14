@@ -155,6 +155,9 @@ public class GameServiceImpl implements GameService {
         if (foundGames.isEmpty()) {
             tryFindGamesByGenres(query, foundGames);
         }
+        if (foundGames.isEmpty()) {
+            tryFindGamesBySteamId(query, foundGames);
+        }
 
 
 
@@ -164,6 +167,11 @@ public class GameServiceImpl implements GameService {
 
     private void tryFindGamesByGenres(String query, List<Game> foundGames) {
         List<String> genreDescriptions = Arrays.asList(query.split("\\s*,\\s*"));
+        genreDescriptions = genreDescriptions.stream()
+                .map(String::toLowerCase)
+                .map(s -> s.substring(0, 1).toUpperCase() + s.substring(1)) // Первая буква в верхний регистр
+                .collect(Collectors.toList());
+
         List<Genre> genres = genreService.getGenresByDescription(genreDescriptions);
         for (Genre genre : genres) {
             List<Game> gamesByGenre = gamesRepository.findByGenresContaining(genre);
@@ -180,6 +188,16 @@ public class GameServiceImpl implements GameService {
         List<Game> gamesByName = gamesRepository.findByTitleContainingIgnoreCase(query);
         if(gamesByName != null && !gamesByName.isEmpty()) {
             foundGames.addAll(gamesByName);
+        }
+    }
+
+    private void tryFindGamesBySteamId(String query, List<Game> foundGames) {
+        try {
+            long steamId = Long.parseLong(query);
+            Optional<Game> gameBySteamId = gamesRepository.findBySteamId(steamId);
+            gameBySteamId.ifPresent(foundGames::add);
+        } catch (NumberFormatException ignored) {
+
         }
     }
 }
