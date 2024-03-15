@@ -16,6 +16,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     private DataSource dataSource;
+
     @Autowired
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
@@ -42,7 +43,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/static/**").permitAll()
-                //.antMatchers("/**").permitAll()
+                .antMatchers("/games", "/games/{id:\\d+}", "/games/{id:\\d+}/rate","/games/{id:\\d+}/add-review",
+                        "/games/collection", "/games/search","/games/{id:\\d+}/save-to-collection")
+                    .hasAnyRole("USER", "EDITOR")
+                .antMatchers("/games/**").hasRole("EDITOR")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

@@ -192,9 +192,9 @@ CREATE TABLE games_suggestions
 
 -- Заполнение таблицы roles
 INSERT INTO roles (role_name)
-VALUES ('user'),
-       ('editor'),
-       ('moderator');
+VALUES ('ROLE_USER'),
+       ('ROLE_EDITOR'),
+       ('ROLE_MODERATOR');
 
 INSERT INTO platforms (name)
 VALUES ('windows'),

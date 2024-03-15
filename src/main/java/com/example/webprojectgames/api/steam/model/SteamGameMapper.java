@@ -62,7 +62,7 @@ public class SteamGameMapper {
             } else {
                 throw new GameNotFoundException("Game not found on Steam with id " +gameId);
             }
-        } catch (JsonProcessingException e) {
+        } catch (JsonProcessingException | NullPointerException e) {
             System.out.println("Error parsing json");
             throw new RuntimeException("Error parsing json", e);
         }
