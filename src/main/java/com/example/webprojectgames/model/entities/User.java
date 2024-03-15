@@ -18,6 +18,17 @@ public class User {
     @Column(name = "role_id")
     private int roleId;
 
+    @Column(name = "enabled")
+    boolean enabled;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public int getUserId() {
         return userId;
     }

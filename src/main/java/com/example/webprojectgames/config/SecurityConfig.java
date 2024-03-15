@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(NoOpPasswordEncoder.getInstance())
-                .usersByUsernameQuery("SELECT username, password, 1 as enabled FROM users WHERE username=?")
+                .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?")
                 .authoritiesByUsernameQuery("SELECT username, role_name FROM users INNER JOIN roles ON users.role_id = roles.role_id WHERE username=?");
 
     /* auth
@@ -55,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/games/collection", "/games/search","/games/{id:\\d+}/save-to-collection")
                     .hasAnyRole("USER", "EDITOR")
                 .antMatchers("/games/**").hasRole("EDITOR")
+                .antMatchers("/moderator/**").hasRole("MODERATOR")
                 .antMatchers("/static/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
