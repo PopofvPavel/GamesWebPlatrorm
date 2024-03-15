@@ -49,6 +49,12 @@ public class HomeController {
         return "redirect:/login";
     }
 
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "login";
+    }
+
+
     @Autowired
     private SteamApiService steamApiService;
 

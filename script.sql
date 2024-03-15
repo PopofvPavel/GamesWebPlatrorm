@@ -319,3 +319,5 @@ SELECT *
 FROM platforms;
 
 /*DELETE FROM GAMES WHERE game_id = 0*/
+
+select * from games where title = 'Miasma Chronicles'

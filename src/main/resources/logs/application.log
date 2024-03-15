@@ -12662,3 +12662,619 @@ Caused by: java.lang.IllegalStateException: Operator CONTAINING on genres requir
 2024-03-15 20:24:44 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-03-15 20:24:44 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-03-15 20:24:44 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-15 20:24:47 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 29324 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-15 20:24:47 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-15 20:24:48 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15 20:24:48 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65ms. Found 9 JPA repository interfaces.
+2024-03-15 20:24:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-15 20:24:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:24:48 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-15 20:24:48 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-15 20:24:48 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-15 20:24:48 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1121 ms
+2024-03-15 20:24:48 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15 20:24:49 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-15 20:24:49 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-15 20:24:49 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-15 20:24:49 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-15 20:24:49 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-15 20:24:49 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:24:49 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:24:49 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-15 20:24:49 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:24:50 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15 20:24:50 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53153d5e, org.springframework.security.web.context.SecurityContextPersistenceFilter@3a00237d, org.springframework.security.web.header.HeaderWriterFilter@e2498a3, org.springframework.security.web.authentication.logout.LogoutFilter@3c2f310c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1a0b4955, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4fd00e10, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5b407336, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@341df373, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c552f08, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@160cf225, org.springframework.security.web.session.SessionManagementFilter@6a7ab205, org.springframework.security.web.access.ExceptionTranslationFilter@2e1c5d1f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b6f73d]
+2024-03-15 20:24:51 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:24:51 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:24:51 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-15 20:24:51 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.968 seconds (JVM running for 4.656)
+2024-03-15 20:24:56 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-15 20:24:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-15 20:24:56 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2024-03-15 20:25:15 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.getRoleByRoleName(..)
+2024-03-15 20:25:15 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.getRoleByRoleName(..)
+2024-03-15 20:25:15 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.saveUser(..)
+2024-03-15 20:25:15 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.saveUser(..)
+2024-03-15 20:25:24 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:25:24 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:25:24 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:25:24 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:25:25 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.saveGameToCollectionGame(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.saveGameToUserCollection(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.saveGameToUserCollection(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.saveGameToCollectionGame(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:25:28 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:25:29 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:25:29 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:25:29 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:25:29 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:25:34 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:25:34 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:25:34 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:25:34 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:25:34 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:25:34 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:25:34 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:25:34 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:25:34 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:25:34 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:25:36 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.saveReview(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.saveReview(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.saveReview(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.saveReview(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:25:39 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:25:42 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:25:42 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:25:42 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:25:42 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:35:52 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:35:52 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:35:52 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-15 20:35:52 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-15 20:35:55 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 22568 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-15 20:35:55 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-15 20:35:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15 20:35:56 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61ms. Found 9 JPA repository interfaces.
+2024-03-15 20:35:56 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-15 20:35:56 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:35:56 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-15 20:35:56 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-15 20:35:56 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-15 20:35:56 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 984 ms
+2024-03-15 20:35:57 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15 20:35:57 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-15 20:35:57 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-15 20:35:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-15 20:35:57 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-15 20:35:57 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-15 20:35:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:35:57 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:35:57 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-15 20:35:57 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:35:58 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15 20:35:58 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31434b63, org.springframework.security.web.context.SecurityContextPersistenceFilter@e2498a3, org.springframework.security.web.header.HeaderWriterFilter@558ed473, org.springframework.security.web.authentication.logout.LogoutFilter@7e017f47, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3f2ab6ec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a7ab205, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6c96346b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64d42d3d, org.springframework.security.web.session.SessionManagementFilter@2e1c5d1f, org.springframework.security.web.access.ExceptionTranslationFilter@4a36a35d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1fcf73b9]
+2024-03-15 20:35:58 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:35:59 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:35:59 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-15 20:35:59 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.286 seconds (JVM running for 3.995)
+2024-03-15 20:36:06 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-15 20:36:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-15 20:36:06 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2024-03-15 20:39:10 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:39:10 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:39:10 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-15 20:39:10 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-15 20:39:12 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 31632 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-15 20:39:12 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-15 20:39:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15 20:39:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59ms. Found 9 JPA repository interfaces.
+2024-03-15 20:39:13 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-15 20:39:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:39:13 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-15 20:39:13 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-15 20:39:13 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-15 20:39:13 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1025 ms
+2024-03-15 20:39:14 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15 20:39:14 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-15 20:39:14 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-15 20:39:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-15 20:39:14 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-15 20:39:14 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-15 20:39:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:39:14 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:39:14 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-15 20:39:14 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:39:15 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15 20:39:15 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63e648a0, org.springframework.security.web.context.SecurityContextPersistenceFilter@786cc1df, org.springframework.security.web.header.HeaderWriterFilter@7b4c793b, org.springframework.security.web.authentication.logout.LogoutFilter@475eb4fd, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@585672dd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f926d01, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a525f88, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a6a3fc4, org.springframework.security.web.session.SessionManagementFilter@6442cf3e, org.springframework.security.web.access.ExceptionTranslationFilter@1a45e29f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5ec06e97]
+2024-03-15 20:39:15 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:39:16 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:39:16 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-15 20:39:16 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.452 seconds (JVM running for 4.145)
+2024-03-15 20:39:23 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-15 20:39:23 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-15 20:39:23 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 9 ms
+2024-03-15 20:39:24 [http-nio-8080-exec-2] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [101] milliseconds.
+2024-03-15 20:42:22 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:42:22 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:42:22 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-15 20:42:22 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-15 20:42:25 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 20880 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-15 20:42:25 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-15 20:42:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15 20:42:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57ms. Found 9 JPA repository interfaces.
+2024-03-15 20:42:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-15 20:42:26 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:42:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-15 20:42:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-15 20:42:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-15 20:42:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1101 ms
+2024-03-15 20:42:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15 20:42:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-15 20:42:26 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-15 20:42:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-15 20:42:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-15 20:42:26 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-15 20:42:26 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:42:26 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:42:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-15 20:42:27 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:42:27 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15 20:42:27 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@166d576b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3a00237d, org.springframework.security.web.header.HeaderWriterFilter@e2498a3, org.springframework.security.web.authentication.logout.LogoutFilter@68cb8e52, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@75d402d4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@341df373, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c552f08, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53153d5e, org.springframework.security.web.session.SessionManagementFilter@6a7ab205, org.springframework.security.web.access.ExceptionTranslationFilter@2e1c5d1f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@38d308e7]
+2024-03-15 20:42:28 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:42:28 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:42:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-15 20:42:28 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.499 seconds (JVM running for 4.213)
+2024-03-15 20:42:33 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-15 20:42:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-15 20:42:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2024-03-15 20:42:33 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:42:33 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:42:33 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:42:33 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:43:00 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:43:00 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:43:00 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-15 20:43:00 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-15 20:43:05 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 30160 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-15 20:43:05 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-15 20:43:06 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15 20:43:06 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54ms. Found 9 JPA repository interfaces.
+2024-03-15 20:43:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-15 20:43:06 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:43:06 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-15 20:43:06 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-15 20:43:06 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-15 20:43:06 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 969 ms
+2024-03-15 20:43:07 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15 20:43:07 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-15 20:43:07 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-15 20:43:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-15 20:43:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-15 20:43:07 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-15 20:43:07 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:43:07 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:43:07 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-15 20:43:07 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:43:07 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15 20:43:08 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67e628b, org.springframework.security.web.context.SecurityContextPersistenceFilter@c67a89, org.springframework.security.web.header.HeaderWriterFilter@60f1f95b, org.springframework.security.web.authentication.logout.LogoutFilter@7022fb5c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@50dd1e3a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58720eb9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@63e0057a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@578c99ac, org.springframework.security.web.session.SessionManagementFilter@1ddb6abb, org.springframework.security.web.access.ExceptionTranslationFilter@51a69e8f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3d6745ed]
+2024-03-15 20:43:08 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:43:08 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:43:08 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-15 20:43:08 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.271 seconds (JVM running for 3.943)
+2024-03-15 20:43:12 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-15 20:43:12 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-15 20:43:12 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2024-03-15 20:47:45 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:47:45 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:47:45 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-15 20:47:45 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-15 20:47:50 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 24940 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-15 20:47:50 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-15 20:47:50 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15 20:47:51 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72ms. Found 9 JPA repository interfaces.
+2024-03-15 20:47:51 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-15 20:47:51 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:47:51 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-15 20:47:51 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-15 20:47:51 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-15 20:47:51 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1204 ms
+2024-03-15 20:47:51 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15 20:47:51 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-15 20:47:51 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-15 20:47:51 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-15 20:47:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-15 20:47:52 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-15 20:47:52 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:47:52 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:47:52 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-15 20:47:52 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:47:52 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15 20:47:53 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4724b2c1, org.springframework.security.web.context.SecurityContextPersistenceFilter@46eb2260, org.springframework.security.web.header.HeaderWriterFilter@2b30b627, org.springframework.security.web.authentication.logout.LogoutFilter@22e1a1dc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@48cd8e71, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@370a935f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@31e84f10, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@426a4301, org.springframework.security.web.session.SessionManagementFilter@70a24463, org.springframework.security.web.access.ExceptionTranslationFilter@1107c465, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@62ff14cd]
+2024-03-15 20:47:53 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:47:53 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:47:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-15 20:47:53 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.587 seconds (JVM running for 4.278)
+2024-03-15 20:48:03 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-15 20:48:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-15 20:48:03 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2024-03-15 20:48:03 [http-nio-8080-exec-3] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [135] milliseconds.
+2024-03-15 20:49:25 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:49:25 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:49:25 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-15 20:49:25 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-15 20:49:28 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 17264 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-15 20:49:28 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-15 20:49:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15 20:49:28 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56ms. Found 9 JPA repository interfaces.
+2024-03-15 20:49:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-15 20:49:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:49:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-15 20:49:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-15 20:49:29 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-15 20:49:29 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 967 ms
+2024-03-15 20:49:29 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15 20:49:29 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-15 20:49:29 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-15 20:49:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-15 20:49:29 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-15 20:49:29 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-15 20:49:30 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:49:30 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:49:30 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-15 20:49:30 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:49:30 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15 20:49:31 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/static/**'], []
+2024-03-15 20:49:31 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/css/**'], []
+2024-03-15 20:49:31 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/images/**'], []
+2024-03-15 20:49:31 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3f2ab6ec, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e1c5d1f, org.springframework.security.web.header.HeaderWriterFilter@4a36a35d, org.springframework.security.web.authentication.logout.LogoutFilter@556944cd, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4c6fabba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e2498a3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@51f009ef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f1e15de, org.springframework.security.web.session.SessionManagementFilter@558ed473, org.springframework.security.web.access.ExceptionTranslationFilter@1a53ac0c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61555218]
+2024-03-15 20:49:31 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:49:31 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:49:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-15 20:49:31 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.309 seconds (JVM running for 3.975)
+2024-03-15 20:49:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-15 20:49:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-15 20:49:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2024-03-15 20:49:41 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:49:41 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:49:42 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:49:42 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:49:53 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.saveGameToCollectionGame(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.saveGameToUserCollection(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.saveGameToUserCollection(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.saveGameToCollectionGame(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:49:54 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:49:56 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:49:56 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:49:56 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:49:56 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:49:58 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:08 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:08 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:08 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:08 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:12 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:13 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showEditGameForm(..)
+2024-03-15 20:50:13 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:13 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:13 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:50:13 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:50:13 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showEditGameForm(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.editGame(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.saveGame(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.saveGame(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.editGame(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:18 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:28 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:28 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:28 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:28 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:29 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:30 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:30 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:30 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:30 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:33 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:34 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:34 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:34 [http-nio-8080-exec-3] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:36 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:36 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:36 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:50:36 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:37 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:38 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showEditGameForm(..)
+2024-03-15 20:50:38 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:38 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:38 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:50:38 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:50:38 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showEditGameForm(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.editGame(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.saveGame(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.saveGame(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.editGame(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:50:44 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:51:21 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:51:21 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:51:21 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:51:21 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:51:21 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:51:21 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:51:22 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showAddGamePage(..)
+2024-03-15 20:51:22 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:51:22 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:51:22 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showAddGamePage(..)
+2024-03-15 20:51:22 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:51:22 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:51:22 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:51:22 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:51:23 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:51:23 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:51:23 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:51:23 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:51:23 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getUserGamesCollection(..)
+2024-03-15 20:51:23 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.getUserCollectionPage(..)
+2024-03-15 20:51:23 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showAddGamePage(..)
+2024-03-15 20:51:23 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:51:23 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:51:23 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showAddGamePage(..)
+2024-03-15 20:51:24 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:51:24 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:51:24 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:51:24 [http-nio-8080-exec-4] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:53:41 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:53:42 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showEditGameForm(..)
+2024-03-15 20:53:42 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:42 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:42 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:53:42 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:53:42 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showEditGameForm(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.editGame(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.saveGame(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.saveGame(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-1] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.editGame(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:53:46 [http-nio-8080-exec-2] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:53:49 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:53:49 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:53:49 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.getAllGames()
+2024-03-15 20:53:49 [http-nio-8080-exec-10] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGamesPage(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:53:55 [http-nio-8080-exec-6] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:55:23 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:55:23 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:55:23 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-15 20:55:23 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-15 20:55:27 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 18276 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-15 20:55:27 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-15 20:55:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-15 20:55:27 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61ms. Found 9 JPA repository interfaces.
+2024-03-15 20:55:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-15 20:55:28 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:55:28 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-15 20:55:28 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-15 20:55:28 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-15 20:55:28 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1018 ms
+2024-03-15 20:55:28 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-15 20:55:28 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-15 20:55:28 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-15 20:55:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-15 20:55:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-15 20:55:28 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-15 20:55:29 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:55:29 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-15 20:55:29 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-15 20:55:29 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:55:29 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-15 20:55:30 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/static/**'], []
+2024-03-15 20:55:30 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/css/**'], []
+2024-03-15 20:55:30 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/images/**'], []
+2024-03-15 20:55:30 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38834000, org.springframework.security.web.context.SecurityContextPersistenceFilter@c67a89, org.springframework.security.web.header.HeaderWriterFilter@60f1f95b, org.springframework.security.web.authentication.logout.LogoutFilter@7022fb5c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3b764e66, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58720eb9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@63e0057a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b72b13a, org.springframework.security.web.session.SessionManagementFilter@1ddb6abb, org.springframework.security.web.access.ExceptionTranslationFilter@51a69e8f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@600e2000]
+2024-03-15 20:55:30 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:55:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-15 20:55:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-15 20:55:30 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 3.409 seconds (JVM running for 4.101)
+2024-03-15 20:55:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-15 20:55:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-03-15 20:55:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:55:35 [http-nio-8080-exec-5] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:55:38 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showEditGameForm(..)
+2024-03-15 20:55:38 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:55:38 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:55:38 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:55:38 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GenreServiceImpl.getAllGenres()
+2024-03-15 20:55:38 [http-nio-8080-exec-7] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showEditGameForm(..)
+2024-03-15 20:55:43 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.editGame(..)
+2024-03-15 20:55:43 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:55:43 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:55:43 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.saveGame(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.saveGame(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-8] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.editGame(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: GameServiceImpl.findById(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: RatingServiceImpl.findByGameId(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findReviewByGameId(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: ReviewServiceImpl.findSteamReviewByGameId(..)
+2024-03-15 20:55:44 [http-nio-8080-exec-9] INFO  c.e.w.aspect.LoggingAspect - Finished calling controller method: GamesController.showGameDetails(..)
+2024-03-15 20:56:31 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-15 20:56:31 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-15 20:56:31 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-15 20:56:31 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

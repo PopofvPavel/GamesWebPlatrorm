@@ -340,6 +340,10 @@ public class GamesController {
             return "not-found";
         }
 
+        User editor = getCurrentUser();
+        existingGame.setEditorId(editor.getUserId());
+        //System.out.println("Editor id" + editor);
+
         System.out.println("Steam id: " + steamId);
         existingGame.setSteamId(steamId);
         existingGame.setTitle(game.getTitle());
