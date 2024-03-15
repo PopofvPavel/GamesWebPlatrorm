@@ -1,6 +1,5 @@
 package com.example.webprojectgames.services;
 
-import com.example.webprojectgames.model.entities.GameSuggestion;
 import com.example.webprojectgames.model.entities.Role;
 import com.example.webprojectgames.model.entities.User;
 import com.example.webprojectgames.model.entities.UserGameCollection;
@@ -23,4 +22,7 @@ public interface UserService {
     void changeUserStatus(Integer userId);
 
 
+    List<Role> getAllRoles();
+
+    void updateUserRole(Integer userId, Integer roleId);
 }

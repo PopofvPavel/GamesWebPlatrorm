@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.util.List;
 
 @Controller
 @RequestMapping("/moderator")
@@ -24,6 +25,7 @@ public class ModeratorController {
     @GetMapping("/users")
     public String showUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("roles", userService.getAllRoles());
         return "moderator";
     }
 
@@ -32,4 +34,11 @@ public class ModeratorController {
         userService.changeUserStatus(userId);
         return "redirect:/moderator/users";
     }
+
+    @PostMapping("/update-roles")
+    public String updateRoles(@RequestParam Integer userId, @RequestParam Integer roleId) {
+        userService.updateUserRole(userId, roleId);
+        return "redirect:/moderator/users";
+    }
+
 }

@@ -8,15 +8,15 @@ public class Role {
     @Id
     @GeneratedValue
     @Column(name = "role_id")
-    private int roleId;
+    private Integer roleId;
     @Column(name = "role_name")
     private String roleName;
 
-    public int getRoleId() {
+    public Integer getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(int roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 

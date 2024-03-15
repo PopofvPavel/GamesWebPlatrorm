@@ -16,6 +16,18 @@
 </header>
 
 <div class="container">
+    <div>
+        <div th:if="${param.error} != null">
+            <div class="">
+                Invalid username and password of you have been blocked.
+            </div>
+        </div>
+        <div th:if="${param.logout} != null">
+            <div class="">
+                You have been logged out.
+            </div>
+        </div>
+    </div>
     <form method="post">
         <div class="form-group">
             <label for="username">Username:</label><br>

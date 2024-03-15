@@ -81,6 +81,22 @@ public class UserServiceImpl implements UserService {
         });
     }
 
+    @Override
+    public List<Role> getAllRoles() {
+        return roleRepository.findAll();
+    }
+
+    @Override
+    public void updateUserRole(Integer userId, Integer roleId) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        userOptional.ifPresent(user -> {
+            Optional<Role> roleOptional = roleRepository.findById(roleId);
+            roleOptional.ifPresent(role -> {
+                user.setRoleId(role.getRoleId());
+                userRepository.save(user);
+            });
+        });
+    }
 
 
 

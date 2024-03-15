@@ -16,7 +16,7 @@ public class User {
     @Column(name = "password")
     private String password;
     @Column(name = "role_id")
-    private int roleId;
+    private Integer roleId;
 
     @Column(name = "enabled")
     boolean enabled;
@@ -61,11 +61,11 @@ public class User {
         this.password = password;
     }
 
-    public int getRoleId() {
+    public Integer getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(int roleId) {
+    public void setRoleId(Integer roleId) {
         this.roleId = roleId;
     }
 }
