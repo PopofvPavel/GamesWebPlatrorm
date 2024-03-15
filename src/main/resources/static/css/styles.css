@@ -9,6 +9,25 @@
     font-size: 14px;
 }
 
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 120px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group label {
+    margin-bottom: 20px;
+    font-family: Verdana, serif;
+    font-color :white;
+}
 .button:hover {
     background-color: #E5E4E2;
 }
