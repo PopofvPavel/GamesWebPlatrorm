@@ -1,8 +1,12 @@
 package com.example.webprojectgames.controller;
 
+import com.example.webprojectgames.model.entities.User;
 import com.example.webprojectgames.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/moderator")
@@ -31,7 +36,11 @@ public class ModeratorController {
 
     @PostMapping("/change-status")
     public String changeUserStatus(@RequestParam Integer userId) {
-        userService.changeUserStatus(userId);
+
+        User currentUser = getCurrentUser();
+        if (currentUser.getUserId() != userId) {
+            userService.changeUserStatus(userId);
+        }
         return "redirect:/moderator/users";
     }
 
@@ -39,6 +48,13 @@ public class ModeratorController {
     public String updateRoles(@RequestParam Integer userId, @RequestParam Integer roleId) {
         userService.updateUserRole(userId, roleId);
         return "redirect:/moderator/users";
+    }
+
+    public User getCurrentUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String userName = userDetails.getUsername();
+        return userService.findByUsername(userName);
     }
 
 }

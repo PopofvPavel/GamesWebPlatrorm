@@ -1,6 +1,5 @@
 package com.example.webprojectgames.services.implementation;
 
-import com.example.webprojectgames.model.entities.GameSuggestion;
 import com.example.webprojectgames.model.entities.Role;
 import com.example.webprojectgames.model.entities.User;
 import com.example.webprojectgames.model.entities.UserGameCollection;
@@ -98,6 +97,10 @@ public class UserServiceImpl implements UserService {
         });
     }
 
+    @Override
+    public Optional<User> findById(Integer userId) {
+        return  userRepository.findById(userId);
+    }
 
 
 }

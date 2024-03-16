@@ -6,6 +6,7 @@ import com.example.webprojectgames.model.entities.UserGameCollection;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface UserService {
@@ -25,4 +26,6 @@ public interface UserService {
     List<Role> getAllRoles();
 
     void updateUserRole(Integer userId, Integer roleId);
+
+    Optional<User> findById(Integer userId);
 }
