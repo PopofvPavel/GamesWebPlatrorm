@@ -82,6 +82,7 @@ public class GamesController {
     public String searchGames(Model model, @RequestParam String query) {
         List<Game> searchedGames = gameService.searchGames(query);
         model.addAttribute("games", searchedGames);
+        model.addAttribute("query", query);
         return "games";
     }
 

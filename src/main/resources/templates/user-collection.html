@@ -12,13 +12,16 @@
     <div class="wrap">
         <div class="header">
             <div class="logo">
-                <a href=""><img src="../static/images/logo.png" alt=""/></a>
+                <img src="static/images/default_image.jpg" alt=""/>
             </div>
             <div class="nav">
                 <ul>
                     <li ><a href="/games" class="header-link">Главная</a></li>
                     <li class="active"><a href="/games/collection" class="header-link">Моя коллекция</a></li>
-                    <li><a href="/games/add" class="header-link">Добавить игру</a></li>
+                    <li th:if="${#authorization.expression('hasRole(''EDITOR'')')}" ><a href="/games/add" class="header-link">Добавить игру вручную</a></li>
+                    <li th:if="${#authorization.expression('hasRole(''EDITOR'')')}" ><a href="/api/load" class="header-link">Добавить игру автоматически</a></li>
+                    <li th:unless="${#authorization.expression('isAuthenticated()')}"><a href="/login" class="header-link">Войти</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><form action="/logout" method="post"><button type="submit">Выйти</button></form></li>
                 </ul>
             </div>
             <div class="clear"></div>

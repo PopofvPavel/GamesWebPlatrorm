@@ -32,7 +32,9 @@
     </div>-->
     <div class="header-container">
         <h1 th:text="${game.title}">Game Title</h1>
-        <span><a th:href="@{'/games/' + ${game.gameId} + '/edit'}">Edit</a></span>
+        <span th:if="${#authorization.expression('hasRole(''EDITOR'')')}">
+        <a th:href="@{'/games/' + ${game.gameId} + '/edit'}">Edit</a>
+    </span>
         <span><a th:href="@{'/games/' + ${game.gameId} + '/save-to-collection'}">Save to collection</a></span>
     </div>
 
@@ -60,7 +62,7 @@
     <h2>Reviews:</h2>
     <form method="post" th:action="@{'/games/' + ${game.gameId} + '/add-review'}">
         <textarea name="comment" placeholder="Leave your review here..." required></textarea> <br>
-        <button type="submit">Submit</button>
+        <button type="submit" class="button" >Submit</button>
     </form>
      <!--<a th:href="@{'/games/' + ${game.gameId} + '/'}">Add review</a>-->
     <div class="review-container" th:each="review : ${reviews}">

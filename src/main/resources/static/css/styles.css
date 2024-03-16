@@ -9,6 +9,20 @@
     font-size: 14px;
 }
 
+.logout-button{
+    margin: 5px 5px 5px 0;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    border-color: grey;
+    border-radius: 6px;
+    font-size: 16px;
+
+}
+
+.logout-button:hover {
+    background-color: royalblue;
+}
 .form-group {
     margin-bottom: 20px;
 }
@@ -205,4 +219,42 @@
 }
 .rate-game-container form {
     margin-right: 10px;
+}
+
+.search-and-title {
+    display: flex;
+    align-items: center; /* Выравнивание элементов по вертикали */
+}
+
+.search-form {
+    padding: 10px;
+    margin: 10px 20px 10px 10px;
+    display: flex;
+    align-items: center; /* Центрирование элементов по вертикали */
+}
+
+.search-form input[type="text"],
+.search-form button {
+    margin: 5px; /* Отступ кнопки от поля ввдоа*/
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form input[type="text"] {
+    width: 70%; /* Ширина поля ввода */
+}
+
+.search-form button {
+    background-color: #007bff; /* Цвет кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    cursor: pointer;
+    width: 25%; /* Ширина кнопки */
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #0056b3; /* Изменение цвета кнопки при наведении */
 }
