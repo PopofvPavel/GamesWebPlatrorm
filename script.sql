@@ -202,23 +202,24 @@ VALUES ('windows'),
        ('linux');
 
 INSERT INTO genres (description)
-VALUES ('Экшены'),
+VALUES
+
  ('Action'),
- ('Инди'),
- ('Стратегии'),
+/* ('Инди'),
+ ('Стратегии'),*/
  ('RPG'),
  ('Simulation'),
  ('Strategy'),
  ('Adventure'),
  ('Indie'),
  ('Early Access'),
- ('Приключенческие игры'),
+ /*('Приключенческие игры'),
  ('Ролевые игры'),
  ('Ранний доступ'),
  ('Многопользовательские игры'),
  ('Симуляторы'),
  ('Гонки'),
- ('Казуальные игры'),
+ ('Казуальные игры'),*/
  ('Free to Play'),
  ('Animation & Modeling'),
  ('Video Production'),

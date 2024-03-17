@@ -33,16 +33,16 @@
     <h1>Add New Game</h1>
     <form method="post" th:action="@{/games/add(steamId=${steamId})}" th:object="${game}">
         <label for="title">Title:</label><br>
-        <input type="text" id="title" th:field="*{title}" required><br><br>
+        <input type="text" id="title" class="input"  th:field="*{title}" required><br><br>
 
         <label for="description">Description:</label><br>
-        <textarea id="description" th:field="*{description}"></textarea><br><br>
+        <textarea id="description" class="comment-area" th:field="*{description}"></textarea><br><br>
 
         <label for="releaseDate">Release Date:</label><br>
         <input type="date" id="releaseDate" th:field="*{releaseDate}"><br><br>
 
         <label for="platform">Platform:</label><br>
-        <input type="text" id="platform" th:field="*{platform}"><br><br>
+        <input type="text" class="input" id="platform" th:field="*{platform}"><br><br>
 
         <label for="genres">Genres:</label><br>
         <select id="genres" th:field="*{genres}" multiple>
@@ -54,10 +54,10 @@
 
 
         <label for="developer">Developer:</label><br>
-        <input type="text" id="developer" th:field="*{developer}"><br><br>
+        <input type="text" id="developer" class="input"   th:field="*{developer}"><br><br>
 
         <label for="imageUrl">Image URL:</label><br>
-        <input type="text" id="imageUrl" th:field="*{imageUrl}"><br><br>
+        <input type="text" id="imageUrl" class="input"  th:field="*{imageUrl}"><br><br>
 
         <button type="submit">Submit</button>
     </form>
@@ -67,7 +67,7 @@
 <div class="container">
     <form method="post" th:action="@{/games/load}" >
         <label for="steamId">Enter Steam Game ID:</label><br>
-        <input type="number" id="steamId" name="steamId" th:value="${steamId}" required><br><br>
+        <input type="number" id="steamId" name="steamId" class="input"  th:value="${steamId}" required><br><br>
         <button type="submit">Search</button>
     </form>
 </div>

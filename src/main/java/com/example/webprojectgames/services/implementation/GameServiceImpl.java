@@ -165,6 +165,19 @@ public class GameServiceImpl implements GameService {
         return foundGames;
     }
 
+    @Override
+    public List<Game> searchGamesByGenre(String query, Long genreId) {
+        List<Game> foundGames = new ArrayList<>();
+        if (genreId != null) {
+            Optional<Genre> genre = genreService.findById(genreId);
+            if (genre.isPresent()) {
+                List<Game> gamesByGenre = gamesRepository.findByGenresContaining(genre.get());
+                foundGames.addAll(gamesByGenre);
+            }
+        }
+        return foundGames;
+    }
+
     private void tryFindGamesByGenres(String query, List<Game> foundGames) {
         List<String> genreDescriptions = Arrays.asList(query.split("\\s*,\\s*"));
         genreDescriptions = genreDescriptions.stream()

@@ -46,6 +46,17 @@
     background-color: #E5E4E2;
 }
 
+.comment-area{
+    width: 40%; /* Ширина текстового поля */
+    height: 100px; /* Высота текстового поля */
+    margin-bottom: 10px; /* Отступ снизу */
+    padding: 10px; /* Внутренний отступ */
+    font-family: Arial, sans-serif; /* Шрифт */
+    font-size: 14px; /* Размер шрифта */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 5px; /* Радиус скругления углов */
+    resize: vertical; /* Возможность изменения размера только по вертикали */
+}
 .wrap {
     margin: 0 auto;
     width: 70%; /* отступы относительно окна браузера */
@@ -213,6 +224,12 @@
 }
 .input-rating {
     width: 50px;
+    margin: 5px 10px 5px 0px;
+    padding: 5px;
+    border-radius: 6px;
+}
+.input{
+    width: 250px;
     margin: 5px 10px 5px 0px;
     padding: 5px;
     border-radius: 6px;

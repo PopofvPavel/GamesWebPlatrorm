@@ -18,4 +18,6 @@ public interface GameService {
     void loadGamesFromSteamUsingWiki(String year, long editorId);
 
     List<Game> searchGames(String query);
+
+    List<Game> searchGamesByGenre(String query, Long genreId);
 }

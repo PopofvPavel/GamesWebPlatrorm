@@ -76,13 +76,21 @@ public class GamesController {
     @GetMapping()
     public String showGamesPage(Model model) {
         model.addAttribute("games", gameService.getAllGames());
+        model.addAttribute("genres", genreService.getAllGenres());
         return "games";
     }
     @PostMapping("/search")
-    public String searchGames(Model model, @RequestParam String query) {
-        List<Game> searchedGames = gameService.searchGames(query);
+    public String searchGames(Model model, @RequestParam String query, @RequestParam(required = false) Long genreId) {
+        List<Game> searchedGames;
+        if (genreId != null) {
+            searchedGames = gameService.searchGamesByGenre(query, genreId);
+        } else {
+            searchedGames = gameService.searchGames(query);
+        }
+        model.addAttribute("genres", genreService.getAllGenres());
         model.addAttribute("games", searchedGames);
         model.addAttribute("query", query);
+        model.addAttribute("genreId", genreId);
         return "games";
     }
 
