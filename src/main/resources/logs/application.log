@@ -21294,3 +21294,137 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: значение NUL
 2024-03-17 23:48:32 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
 2024-03-17 23:48:32 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.updateUserState(..)
 2024-03-17 23:48:32 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-17 23:57:03 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = q
+2024-03-17 23:57:03 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:03 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:04 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-17 23:57:04 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-17 23:57:09 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = fskajdf
+2024-03-17 23:57:09 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:09 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:09 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:57:09 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:57:12 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = gg
+2024-03-17 23:57:12 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:12 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:12 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:57:12 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:57:14 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = user1
+2024-03-17 23:57:14 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:14 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:14 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:57:14 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:57:14 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-17 23:57:14 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-17 23:57:20 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-17 23:57:20 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-17 23:57:20 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-17 23:57:20 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-17 23:57:25 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 36792 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-17 23:57:25 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-17 23:57:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-17 23:57:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60ms. Found 10 JPA repository interfaces.
+2024-03-17 23:57:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-17 23:57:26 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-17 23:57:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-17 23:57:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-17 23:57:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-17 23:57:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1100 ms
+2024-03-17 23:57:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-17 23:57:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-17 23:57:26 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-17 23:57:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-17 23:57:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-17 23:57:26 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-17 23:57:27 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-17 23:57:27 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-17 23:57:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-17 23:57:27 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-17 23:57:28 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-17 23:57:28 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/static/**'], []
+2024-03-17 23:57:28 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/css/**'], []
+2024-03-17 23:57:28 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/images/**'], []
+2024-03-17 23:57:28 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70d16858, org.springframework.security.web.context.SecurityContextPersistenceFilter@5add7380, org.springframework.security.web.header.HeaderWriterFilter@49bc1f6c, org.springframework.security.web.authentication.logout.LogoutFilter@7095b688, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63b2418e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c25385a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d3b0397, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@789f5552, org.springframework.security.web.session.SessionManagementFilter@1e5190bd, org.springframework.security.web.access.ExceptionTranslationFilter@6c92a59d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@467421cc]
+2024-03-17 23:57:28 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-17 23:57:28 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-17 23:57:28 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-17 23:57:28 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 4.008 seconds (JVM running for 4.983)
+2024-03-17 23:57:36 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = salam
+2024-03-17 23:57:36 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:36 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:36 [project_gp_bot Telegram Executor] ERROR c.e.w.api.telegram.TelegramBot - Unknown user state: ENTER_CODE
+2024-03-17 23:57:44 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = jla
+2024-03-17 23:57:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:57:44 [project_gp_bot Telegram Executor] ERROR c.e.w.api.telegram.TelegramBot - Unknown user state: ENTER_CODE
+2024-03-17 23:58:37 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = salam
+2024-03-17 23:58:37 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:58:37 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:58:37 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-17 23:58:37 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-17 23:58:42 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = negr
+2024-03-17 23:58:42 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:58:42 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:58:42 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:58:42 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:58:44 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = user1
+2024-03-17 23:58:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:58:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-17 23:58:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:58:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-17 23:58:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-17 23:58:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-17 23:58:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.saveCode(..)
+2024-03-17 23:58:44 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.saveCode(..)
+2024-03-18 00:00:36 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2024-03-18 00:00:36 [SpringContextShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-18 00:00:36 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-18 00:00:36 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-18 00:00:41 [main] INFO  c.e.w.WebProjectGamesApplication - Starting WebProjectGamesApplication on PP with PID 37188 (D:\AASolo\WebProjectGames\target\classes started by Нотя in D:\AASolo\WebProjectGames)
+2024-03-18 00:00:41 [main] INFO  c.e.w.WebProjectGamesApplication - No active profile set, falling back to default profiles: default
+2024-03-18 00:00:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-18 00:00:42 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 74ms. Found 10 JPA repository interfaces.
+2024-03-18 00:00:42 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2024-03-18 00:00:42 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-03-18 00:00:42 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-18 00:00:42 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.41]
+2024-03-18 00:00:42 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-18 00:00:42 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1178 ms
+2024-03-18 00:00:42 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-18 00:00:42 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.25.Final
+2024-03-18 00:00:42 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-03-18 00:00:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-18 00:00:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-18 00:00:43 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-03-18 00:00:43 [main] WARN  org.hibernate.mapping.RootClass - HHH000038: Composite-id class does not override equals(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-18 00:00:43 [main] WARN  org.hibernate.mapping.RootClass - HHH000039: Composite-id class does not override hashCode(): com.example.webprojectgames.model.entities.UserGameCollectionKey
+2024-03-18 00:00:43 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-03-18 00:00:43 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-18 00:00:44 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-18 00:00:44 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/static/**'], []
+2024-03-18 00:00:44 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/css/**'], []
+2024-03-18 00:00:44 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/images/**'], []
+2024-03-18 00:00:44 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32bae609, org.springframework.security.web.context.SecurityContextPersistenceFilter@530bd77b, org.springframework.security.web.header.HeaderWriterFilter@44a0e68f, org.springframework.security.web.authentication.logout.LogoutFilter@6ca97ddf, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2dc77962, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7657d29f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6464f017, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@106b476a, org.springframework.security.web.session.SessionManagementFilter@63a9af28, org.springframework.security.web.access.ExceptionTranslationFilter@1c25385a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@70d16858]
+2024-03-18 00:00:44 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2024-03-18 00:00:45 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-03-18 00:00:45 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2024-03-18 00:00:45 [main] INFO  c.e.w.WebProjectGamesApplication - Started WebProjectGamesApplication in 4.331 seconds (JVM running for 5.1)
+2024-03-18 00:00:57 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = salam
+2024-03-18 00:00:57 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-18 00:00:57 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-18 00:00:57 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-18 00:00:57 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-18 00:01:00 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = usuda
+2024-03-18 00:01:00 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-18 00:01:00 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-18 00:01:00 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-18 00:01:00 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-18 00:01:01 [project_gp_bot Telegram Executor] INFO  c.e.w.api.telegram.TelegramBot - On update receive method. ChatID = 388701082, Message = user1
+2024-03-18 00:01:01 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-18 00:01:01 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.findUserStateByChatId(..)
+2024-03-18 00:01:01 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserServiceImpl.findByUsername(..)
+2024-03-18 00:01:01 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserServiceImpl.findByUsername(..)
+2024-03-18 00:01:01 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-18 00:01:01 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.updateUserState(..)
+2024-03-18 00:01:01 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Calling service method: UserStateServiceImp.saveCode(..)
+2024-03-18 00:01:01 [project_gp_bot Telegram Executor] INFO  c.e.w.aspect.LoggingAspect - Finished calling service method: UserStateServiceImp.saveCode(..)

@@ -10,4 +10,6 @@ public interface UserStateService {
     Optional<UserState> findUserStateByUserId(Long userId);
 
     void updateUserState(Long chatId, String state);
+
+    void saveCode(Long chatId, String code);
 }

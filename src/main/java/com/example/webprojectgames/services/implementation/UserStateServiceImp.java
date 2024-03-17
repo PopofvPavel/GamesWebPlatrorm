@@ -40,5 +40,15 @@ public class UserStateServiceImp  implements UserStateService {
 
     }
 
+    @Override
+    public void saveCode(Long chatId, String code) {
+        Optional<UserState> userStateOptional = userStateRepository.findById(chatId);
+        if (userStateOptional.isPresent()) {
+            UserState userState = userStateOptional.get();
+            userState.setCode(code);
+            userStateRepository.save(userState);
+        }
+    }
+
 
 }

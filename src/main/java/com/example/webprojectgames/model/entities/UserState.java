@@ -19,6 +19,9 @@ public class UserState {
     @Column(name = "state")
     private String state;
 
+    @Column(name = "code")
+    private String code;
+
     public UserState(Long chatId, Long userId, String state) {
         this.chatId = chatId;
         this.userId = userId;
@@ -52,5 +55,13 @@ public class UserState {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

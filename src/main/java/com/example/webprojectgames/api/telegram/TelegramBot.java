@@ -15,6 +15,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import com.example.webprojectgames.model.entities.UserState;
 import com.example.webprojectgames.repositories.UserStateRepository;
+import java.util.Random;
 
 import java.util.Optional;
 
@@ -58,6 +59,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                 // Обработка ввода имени пользователя
                 handleUsernameInput(chatId, inputText);
                 break;
+
+            case "ENTER_CODE":     
+                handleEnterCodeInput(chatId);
             // Другие обработки для остальных состояний
             default:
                 // Если состояние не определено, выполните какое-то действие по умолчанию или выведите сообщение об ошибке
@@ -65,6 +69,9 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
 
 
+    }
+
+    private void handleEnterCodeInput(Long chatId) {
     }
 
     // Метод для обработки начального состояния
@@ -87,9 +94,10 @@ public class TelegramBot extends TelegramLongPollingBot {
         message.setChatId(chatId);
 
         if (user != null) {
-            String code = "1111";
+            String code = generateCode();
             message.setText("Thank you! Now enter this code in your user page on web site: " + code);
             userStateService.updateUserState(chatId,"ENTER_CODE");
+            userStateService.saveCode(chatId, code);
         } else {
             message.setText("User was not found, please try again");
         }
@@ -100,6 +108,13 @@ public class TelegramBot extends TelegramLongPollingBot {
             logger.error("Error sending message: {}", e.getMessage());
         }
 
+    }
+
+    private String generateCode() {
+        // Генерируем случайное четырехзначное число
+        Random random = new Random();
+        int code = random.nextInt(10_000) ;
+        return String.valueOf(code);
     }
 
     private void doRegisterUserInBot(String inputText, Long chatId) {

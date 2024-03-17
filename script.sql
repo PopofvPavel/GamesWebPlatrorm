@@ -77,6 +77,7 @@ CREATE TABLE user_bot_states
     chat_id BIGINT PRIMARY KEY,
     user_id INT,
     state   VARCHAR(50) NOT NULL,
+    code varchar(4),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
