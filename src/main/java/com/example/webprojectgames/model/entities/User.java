@@ -13,8 +13,11 @@ public class User {
     private String username;
     @Column(name = "email")
     private String email;
+    @Column(name = "telegram_chat_id")
+    private Long telegramChatId;
     @Column(name = "password")
     private String password;
+
     @Column(name = "role_id")
     private Integer roleId;
 
@@ -67,5 +70,13 @@ public class User {
 
     public void setRoleId(Integer roleId) {
         this.roleId = roleId;
+    }
+
+    public Long getTelegramChatId() {
+        return telegramChatId;
+    }
+
+    public void setTelegramChatId(Long telegramChatId) {
+        this.telegramChatId = telegramChatId;
     }
 }

@@ -3,6 +3,8 @@
 -- Удаление таблицы user_game_collections
 DROP TABLE IF EXISTS user_game_collections CASCADE;
 
+DROP TABLE IF EXISTS user_bot_states CASCADE;
+
 -- Удаление таблицы notifications
 DROP TABLE IF EXISTS notifications CASCADE;
 
@@ -56,16 +58,29 @@ CREATE TABLE roles
     role_name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE users
+create table users
 (
-    user_id  SERIAL PRIMARY KEY,
-    username VARCHAR(50)  NOT NULL,
-    email    VARCHAR(100) NOT NULL,
-    password VARCHAR(100) NOT NULL,
-    role_id  INT,
-    enabled  BOOLEAN DEFAULT TRUE,
-    FOREIGN KEY (role_id) REFERENCES roles (role_id)
+    user_id          serial
+        primary key,
+    username         varchar(50)  not null,
+    email            varchar(100) not null,
+    telegram_chat_id varchar(20),
+    password         varchar(100) not null,
+    role_id          integer
+        references roles,
+    enabled          boolean default true
 );
+
+
+CREATE TABLE user_bot_states
+(
+    chat_id BIGINT PRIMARY KEY,
+    user_id INT,
+    state   VARCHAR(50) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
+);
+
+select * from user_bot_states;
 
 
 /*ALTER TABLE users
@@ -202,35 +217,33 @@ VALUES ('windows'),
        ('linux');
 
 INSERT INTO genres (description)
-VALUES
-
- ('Action'),
+VALUES ('Action'),
 /* ('Инди'),
  ('Стратегии'),*/
- ('RPG'),
- ('Simulation'),
- ('Strategy'),
- ('Adventure'),
- ('Indie'),
- ('Early Access'),
- /*('Приключенческие игры'),
- ('Ролевые игры'),
- ('Ранний доступ'),
- ('Многопользовательские игры'),
- ('Симуляторы'),
- ('Гонки'),
- ('Казуальные игры'),*/
- ('Free to Play'),
- ('Animation & Modeling'),
- ('Video Production'),
- ('Casual'),
- ('Racing'),
- ('Violent'),
- ('Massively Multiplayer'),
- ('Sports'),
- ('Design & Illustration'),
- ('Documentary'),
- ('Tutorial')
+       ('RPG'),
+       ('Simulation'),
+       ('Strategy'),
+       ('Adventure'),
+       ('Indie'),
+       ('Early Access'),
+    /*('Приключенческие игры'),
+    ('Ролевые игры'),
+    ('Ранний доступ'),
+    ('Многопользовательские игры'),
+    ('Симуляторы'),
+    ('Гонки'),
+    ('Казуальные игры'),*/
+       ('Free to Play'),
+       ('Animation & Modeling'),
+       ('Video Production'),
+       ('Casual'),
+       ('Racing'),
+       ('Violent'),
+       ('Massively Multiplayer'),
+       ('Sports'),
+       ('Design & Illustration'),
+       ('Documentary'),
+       ('Tutorial')
 ;
 
 -- Заполнение таблицы users
@@ -321,4 +334,6 @@ FROM platforms;
 
 /*DELETE FROM GAMES WHERE game_id = 0*/
 
-select * from games where title = 'Miasma Chronicles'
+select *
+from games
+where title = 'Miasma Chronicles'

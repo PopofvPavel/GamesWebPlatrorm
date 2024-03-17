@@ -102,5 +102,10 @@ public class UserServiceImpl implements UserService {
         return  userRepository.findById(userId);
     }
 
+    @Override
+    public Optional<User> findUserByChatId(Long chatId) {
+        return userRepository.findByTelegramChatId(chatId);
+    }
+
 
 }

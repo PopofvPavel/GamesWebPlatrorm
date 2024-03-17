@@ -28,4 +28,6 @@ public interface UserService {
     void updateUserRole(Integer userId, Integer roleId);
 
     Optional<User> findById(Integer userId);
+
+    Optional<User> findUserByChatId(Long chatId);
 }
