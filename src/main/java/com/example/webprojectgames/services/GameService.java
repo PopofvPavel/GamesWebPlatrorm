@@ -19,5 +19,7 @@ public interface GameService {
 
     List<Game> searchGames(String query);
 
-    List<Game> searchGamesByGenre(String query, Long genreId);
+    List<Game> searchGamesByGenre(Long genreId);
+
+    List<Game> searchGamesByGenreAndQuery(String query, Long genreId);
 }

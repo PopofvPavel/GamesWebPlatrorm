@@ -14,7 +14,7 @@ public interface GamesRepository extends JpaRepository<Game,Long > {
     Optional<Game> findBySteamId(Long steamId);
 
 
-    List<Game> findByTitleContainingIgnoreCase(String query);
+    List<Game> findByTitleContainingIgnoringCase(String query);
 
     List<Game> findByGenresContaining(Genre genres);
 

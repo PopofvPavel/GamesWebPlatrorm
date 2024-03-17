@@ -166,7 +166,7 @@ public class GameServiceImpl implements GameService {
     }
 
     @Override
-    public List<Game> searchGamesByGenre(String query, Long genreId) {
+    public List<Game> searchGamesByGenre(Long genreId) {
         List<Game> foundGames = new ArrayList<>();
         if (genreId != null) {
             Optional<Genre> genre = genreService.findById(genreId);
@@ -176,6 +176,17 @@ public class GameServiceImpl implements GameService {
             }
         }
         return foundGames;
+    }
+
+    @Override
+    public List<Game> searchGamesByGenreAndQuery(String query, Long genreId) {
+        List<Game> genreGames = new ArrayList<>(searchGamesByGenre(genreId));
+        List<Game> foundGames = new ArrayList<>();
+        tryFindGamesByName(query, foundGames);
+        tryFindGamesBySteamId(query, foundGames);
+        genreGames.retainAll(foundGames);
+
+        return genreGames;
     }
 
     private void tryFindGamesByGenres(String query, List<Game> foundGames) {
@@ -198,7 +209,7 @@ public class GameServiceImpl implements GameService {
 
 
     private void tryFindGamesByName(String query, List<Game> foundGames) {
-        List<Game> gamesByName = gamesRepository.findByTitleContainingIgnoreCase(query);
+        List<Game> gamesByName = gamesRepository.findByTitleContainingIgnoringCase(query);
         if(gamesByName != null && !gamesByName.isEmpty()) {
             foundGames.addAll(gamesByName);
         }

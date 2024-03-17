@@ -82,10 +82,16 @@ public class GamesController {
     @PostMapping("/search")
     public String searchGames(Model model, @RequestParam String query, @RequestParam(required = false) Long genreId) {
         List<Game> searchedGames;
-        if (genreId != null) {
-            searchedGames = gameService.searchGamesByGenre(query, genreId);
+        if (genreId != null && !query.isEmpty()) {
+            // Если выбран жанр и введен текст поиска
+            searchedGames = gameService.searchGamesByGenreAndQuery(query, genreId);
+        } else if (genreId != null) {
+            // Если выбран только жанр
+            searchedGames = gameService.searchGamesByGenre(genreId);
         } else {
+            // Если не выбран жанр, то ищем по тексту
             searchedGames = gameService.searchGames(query);
+            System.out.println("In query search");
         }
         model.addAttribute("genres", genreService.getAllGenres());
         model.addAttribute("games", searchedGames);
