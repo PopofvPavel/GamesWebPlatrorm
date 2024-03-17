@@ -47,7 +47,7 @@
         <h1>List of Games</h1>
         <form action="/games/search" method="POST" class="search-form">
             <input type="text" name="query" placeholder="Поиск по играм" th:value="${query}">
-            <select name="genreId">
+            <select name="genreId" class="select">
                 <option value="">Все жанры</option>
                 <option th:each="genre : ${genres}" th:value="${genre.id}"
                         th:text="${genre.description}"

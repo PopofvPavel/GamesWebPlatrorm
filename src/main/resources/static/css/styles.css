@@ -46,6 +46,15 @@
     background-color: #E5E4E2;
 }
 
+.select{
+    margin: 5px; /* Отступ селекта от остальных элементов */
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 150px; /* Ширина списка */
+}
 .comment-area{
     width: 40%; /* Ширина текстового поля */
     height: 100px; /* Высота текстового поля */
