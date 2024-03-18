@@ -1,12 +1,12 @@
 package com.example.webprojectgames.api.telegram;
 
+import com.example.webprojectgames.model.entities.Notification;
 import com.example.webprojectgames.model.entities.User;
-import com.example.webprojectgames.services.TelegramService;
+import com.example.webprojectgames.services.NotificationService;
 import com.example.webprojectgames.services.UserService;
 import com.example.webprojectgames.services.UserStateService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -14,7 +14,8 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import com.example.webprojectgames.model.entities.UserState;
-import com.example.webprojectgames.repositories.UserStateRepository;
+
+import java.util.List;
 import java.util.Random;
 
 import java.util.Optional;
@@ -33,9 +34,11 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     private final UserService userService;
 
-    public TelegramBot(UserStateService userStateService, UserService userService) {
+    private final NotificationService notificationService;
+    public TelegramBot(UserStateService userStateService, UserService userService, NotificationService notificationService) {
         this.userStateService = userStateService;
         this.userService = userService;
+        this.notificationService = notificationService;
     }
 
 
@@ -62,13 +65,28 @@ public class TelegramBot extends TelegramLongPollingBot {
 
             case "ENTER_CODE":     
                 handleEnterCodeInput(chatId);
-            // Другие обработки для остальных состояний
+                break;
+            case "AUTHORIZED":
+                handleAuthorizedState(chatId);
+                break;
             default:
                 // Если состояние не определено, выполните какое-то действие по умолчанию или выведите сообщение об ошибке
                 logger.error("Unknown user state: {}", currentState);
         }
 
 
+    }
+
+    private void handleAuthorizedState(Long chatId) {
+        Optional<User> user = userService.findUserByChatId(chatId);
+        if (user.isPresent()) {
+            List<Notification> notifications = notificationService.getUserUnsendNotifications(user.get());
+            for (Notification notification : notifications) {
+                sendTextMessage(user.get().getTelegramChatId(), "У вас новое уведомление: " + notification.getNotificationType());
+                notification.setNotified(true);
+                notificationService.save(notification);
+            }
+        }
     }
 
     private void handleEnterCodeInput(Long chatId) {
@@ -125,7 +143,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
 
-    private void sendTextMessage(Long chatId, String text) {
+    public void sendTextMessage(Long chatId, String text) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
         message.setText(text);

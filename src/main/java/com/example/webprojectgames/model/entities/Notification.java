@@ -8,7 +8,7 @@ public class Notification {
     @Id
     @GeneratedValue
     @Column(name = "notification_id")
-    private int notificationId;
+    private long notificationId;
     @Column(name = "user_id")
     private int userId;
     @Column(name = "game_id")
@@ -18,11 +18,11 @@ public class Notification {
     @Column(name = "is_notified")
     private boolean isNotified;
 
-    public int getNotificationId() {
+    public long getNotificationId() {
         return notificationId;
     }
 
-    public void setNotificationId(int notificationId) {
+    public void setNotificationId(long notificationId) {
         this.notificationId = notificationId;
     }
 

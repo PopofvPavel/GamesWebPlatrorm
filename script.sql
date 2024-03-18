@@ -64,7 +64,7 @@ create table users
         primary key,
     username         varchar(50)  not null,
     email            varchar(100) not null,
-    telegram_chat_id varchar(20),
+    telegram_chat_id bigint,
     password         varchar(100) not null,
     role_id          integer
         references roles,
@@ -289,9 +289,9 @@ VALUES (1, 1, '2022-01-15'),
 
 -- Заполнение таблицы notifications
 INSERT INTO notifications (user_id, game_id, notification_type, is_notified)
-VALUES (1, 1, 'Type1', TRUE),
+VALUES (1, 1, 'Type1', FALSE),
        (2, 2, 'Type2', FALSE),
-       (2, 3, 'Type3', TRUE);
+       (2, 3, 'Type3', FALSE);
 
 -- Заполнение таблицы games_suggestions
 INSERT INTO games_suggestions (title, description, user_id, status)
