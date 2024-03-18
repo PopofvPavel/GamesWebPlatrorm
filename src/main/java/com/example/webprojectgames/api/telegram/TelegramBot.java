@@ -1,7 +1,9 @@
 package com.example.webprojectgames.api.telegram;
 
+import com.example.webprojectgames.model.entities.Game;
 import com.example.webprojectgames.model.entities.Notification;
 import com.example.webprojectgames.model.entities.User;
+import com.example.webprojectgames.services.GameService;
 import com.example.webprojectgames.services.NotificationService;
 import com.example.webprojectgames.services.UserService;
 import com.example.webprojectgames.services.UserStateService;
@@ -35,10 +37,13 @@ public class TelegramBot extends TelegramLongPollingBot {
     private final UserService userService;
 
     private final NotificationService notificationService;
-    public TelegramBot(UserStateService userStateService, UserService userService, NotificationService notificationService) {
+    private GameService gameService;
+
+    public TelegramBot(UserStateService userStateService, UserService userService, NotificationService notificationService, GameService gameService) {
         this.userStateService = userStateService;
         this.userService = userService;
         this.notificationService = notificationService;
+        this.gameService = gameService;
     }
 
 
@@ -63,29 +68,51 @@ public class TelegramBot extends TelegramLongPollingBot {
                 handleUsernameInput(chatId, inputText);
                 break;
 
-            case "ENTER_CODE":     
+            case "ENTER_CODE":
                 handleEnterCodeInput(chatId);
                 break;
             case "AUTHORIZED":
-                handleAuthorizedState(chatId);
+                handleAuthorizedState(chatId, inputText);
                 break;
             default:
-                // Если состояние не определено, выполните какое-то действие по умолчанию или выведите сообщение об ошибке
                 logger.error("Unknown user state: {}", currentState);
         }
 
 
     }
 
-    private void handleAuthorizedState(Long chatId) {
-        Optional<User> user = userService.findUserByChatId(chatId);
-        if (user.isPresent()) {
-            List<Notification> notifications = notificationService.getUserUnsendNotifications(user.get());
-            for (Notification notification : notifications) {
-                sendTextMessage(user.get().getTelegramChatId(), "У вас новое уведомление: " + notification.getNotificationType());
-                notification.setNotified(true);
-                notificationService.save(notification);
+    private void handleAuthorizedState(Long chatId, String inputText) {
+        Optional<User> userOptional = userService.findUserByChatId(chatId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+
+            if (inputText.startsWith("/notifications")) {
+                handleNotificationsCommand(user);
+            } else if (inputText.startsWith("/mycollection")) {
+                handleMyCollectionCommand(user);
+            } else {
+                sendTextMessage(user.getTelegramChatId(), "Команда не распознана. Пожалуйста, используйте:\n" +
+                        " /notifications для получения новых уведомлениий\n" +
+                        "/mycollection для получения ващей коллекции игр.");
             }
+        }
+    }
+
+    private void handleMyCollectionCommand(User user) {
+        List<Game> userCollection = gameService.getUserGamesCollection(user.getUserId());
+        StringBuilder response = new StringBuilder("Ваша коллекция игр:\n");
+        for (Game game : userCollection) {
+            response.append(game.getTitle()).append("\n");
+        }
+        sendTextMessage(user.getTelegramChatId(), response.toString());
+    }
+
+    private void handleNotificationsCommand(User user) {
+        List<Notification> notifications = notificationService.getUserUnsendNotifications(user);
+        for (Notification notification : notifications) {
+            sendTextMessage(user.getTelegramChatId(), "Новое уведомление: " + notification.getNotificationType());
+            notification.setNotified(true);
+            notificationService.save(notification);
         }
     }
 
@@ -113,7 +140,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         if (user != null) {
             String code = generateCode();
-            userStateService.updateUserState(chatId,"ENTER_CODE");
+            userStateService.updateUserState(chatId, "ENTER_CODE");
             userStateService.saveCode(chatId, code);
             userStateService.setUserId(chatId, user.getUserId());
             user.setTelegramChatId(chatId);
@@ -134,7 +161,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private String generateCode() {
         // Генерируем случайное четырехзначное число
         Random random = new Random();
-        int code = random.nextInt(10_000) ;
+        int code = random.nextInt(10_000);
         return String.valueOf(code);
     }
 
