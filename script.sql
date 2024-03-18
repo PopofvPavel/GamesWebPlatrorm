@@ -71,6 +71,7 @@ create table users
     enabled          boolean default true
 );
 
+DROP TABLE IF EXISTS user_bot_states CASCADE;
 
 CREATE TABLE user_bot_states
 (

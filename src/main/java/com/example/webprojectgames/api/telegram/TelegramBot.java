@@ -95,9 +95,12 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         if (user != null) {
             String code = generateCode();
-            message.setText("Thank you! Now enter this code in your user page on web site: " + code);
             userStateService.updateUserState(chatId,"ENTER_CODE");
             userStateService.saveCode(chatId, code);
+            userStateService.setUserId(chatId, user.getUserId());
+            user.setTelegramChatId(chatId);
+            userService.saveUser(user);
+            message.setText("Thank you! Now enter this code in your user page on web site: " + code);
         } else {
             message.setText("User was not found, please try again");
         }

@@ -50,5 +50,20 @@ public class UserStateServiceImp  implements UserStateService {
         }
     }
 
+    @Override
+    public String getTelegramCode(long userId) {
+        Optional<UserState> userStateOptional = userStateRepository.findUserStateByUserId(userId);
+        return userStateOptional.map(UserState::getCode).orElse(null);
+    }
 
+    @Override
+    public void setUserId(Long chatId, long userId) {
+        Optional<UserState> userStateOptional = userStateRepository.findById(chatId);
+        if (userStateOptional.isPresent()) {
+            UserState userState = userStateOptional.get();
+            userState.setUserId(userId);
+            userStateRepository.save(userState);
+        }
+
+    }
 }

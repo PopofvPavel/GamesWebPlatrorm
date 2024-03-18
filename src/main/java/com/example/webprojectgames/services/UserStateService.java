@@ -12,4 +12,8 @@ public interface UserStateService {
     void updateUserState(Long chatId, String state);
 
     void saveCode(Long chatId, String code);
+
+    String getTelegramCode(long userId);
+
+    void setUserId(Long telegramChatId, long userId);
 }
