@@ -68,7 +68,7 @@
 }
 .wrap {
     margin: 0 auto;
-    width: 70%; /* отступы относительно окна браузера */
+    width: 80%; /* отступы относительно окна браузера */
 }
 
 .header {
@@ -283,4 +283,8 @@
 
 .search-form button:hover {
     background-color: #0056b3; /* Изменение цвета кнопки при наведении */
+}
+
+.text-success{
+    color : lawngreen;
 }
