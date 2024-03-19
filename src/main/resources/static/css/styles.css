@@ -10,18 +10,20 @@
 }
 
 .logout-button{
-    margin: 5px 5px 5px 0;
     padding: 5px;
-    text-align: center;
-    background-color: white;
-    border-color: grey;
+    margin: 10px 20px 10px 10px;
+    background-color: darkred; /* Цвет кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    cursor: pointer;
     border-radius: 6px;
-    font-size: 16px;
+    font-family: Arial, serif;
+    width: 100%; /* Ширина кнопки */
+    transition: background-color 0.3s ease;
 
 }
 
 .logout-button:hover {
-    background-color: royalblue;
+    background-color: red;
 }
 .form-group {
     margin-bottom: 20px;

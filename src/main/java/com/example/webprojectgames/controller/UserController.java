@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UserController
 {
-
     private final UserStateService userStateService;
 
     private final UserService userService;
+
     @Autowired
     public UserController(UserStateService userStateService, UserService userService) {
         this.userStateService = userStateService;

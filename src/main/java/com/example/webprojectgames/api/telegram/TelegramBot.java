@@ -42,7 +42,8 @@ public class TelegramBot extends TelegramLongPollingBot {
     private final UserService userService;
 
     private final NotificationService notificationService;
-    private GameService gameService;
+
+    private final GameService gameService;
 
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
@@ -64,17 +65,13 @@ public class TelegramBot extends TelegramLongPollingBot {
         Optional<UserState> userStateOptional = userStateService.findUserStateByChatId(chatId);
         String currentState = userStateOptional.map(UserState::getState).orElse("START");
 
-        // Обработка в зависимости от текущего состояния
         switch (currentState) {
             case "START":
-                // Обработка начального состояния
                 handleStartState(chatId);
                 break;
             case "ENTER_USERNAME":
-                // Обработка ввода имени пользователя
                 handleUsernameInput(chatId, inputText);
                 break;
-
             case "ENTER_CODE":
                 handleEnterCodeInput(chatId);
                 break;
@@ -124,13 +121,20 @@ public class TelegramBot extends TelegramLongPollingBot {
     }
 
     private void handleEnterCodeInput(Long chatId) {
+        SendMessage message = new SendMessage();
+        message.setChatId(chatId);
+        message.setText("Чтобы продолжить работу с ботом вы должны ввести код в вашем профиле");
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
+            logger.error("Error sending message: {}", e.getMessage());
+        }
     }
 
-    // Метод для обработки начального состояния
     private void handleStartState(Long chatId) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
-        message.setText("Welcome to the bot! Please enter your username:");
+        message.setText("Добро пожаловать в бота! Пожалуйста, введите ваш username:");
         try {
             execute(message);
         } catch (TelegramApiException e) {
@@ -152,9 +156,9 @@ public class TelegramBot extends TelegramLongPollingBot {
             userStateService.setUserId(chatId, user.getUserId());
             user.setTelegramChatId(chatId);
             userService.saveUser(user);
-            message.setText("Thank you! Now enter this code in your user page on web site: " + code);
+            message.setText("Хорошо, теперь введите данный код на сайте (страница профиля): " + code);
         } else {
-            message.setText("User was not found, please try again");
+            message.setText("Пользователь не найден, попробуйте еще раз");
         }
 
         try {
@@ -171,11 +175,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         int code = random.nextInt(10_000);
         return String.valueOf(code);
     }
-
-    private void doRegisterUserInBot(String inputText, Long chatId) {
-
-    }
-
 
     public void sendTextMessage(Long chatId, String text) {
         SendMessage message = new SendMessage();

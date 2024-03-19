@@ -18,10 +18,7 @@ import java.util.List;
 @Controller
 @RequestMapping
 public class HomeController {
-
     private final UserService userService;
-
-
 
     @Autowired
     public HomeController(UserService userService) {

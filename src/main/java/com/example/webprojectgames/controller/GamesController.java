@@ -439,6 +439,12 @@ public class GamesController {
 
         // Сохранение отзыва в базе данных
         reviewService.saveReview(review);
+
+        Notification notification = new Notification(user.getUserId(), id,"Thank you for comment!" +
+                " It was successfully saved (" + gameService.findById(id).getTitle() + ")");
+        notificationService.save(notification);
+
+
         return "redirect:/games/" + id;
     }
 

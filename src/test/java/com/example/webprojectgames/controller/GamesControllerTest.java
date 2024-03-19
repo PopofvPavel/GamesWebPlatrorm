@@ -6,6 +6,7 @@ import com.example.webprojectgames.model.entities.SteamReview;
 import com.example.webprojectgames.model.entities.User;
 import com.example.webprojectgames.services.*;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -56,6 +57,10 @@ class GamesControllerTest {
 
     @MockBean
     private GenreService genresService;
+    @MockBean
+    private NotificationService NotificationService;
+    @MockBean
+    private TelegramService telegramService;
 
 
     @Test
@@ -73,7 +78,9 @@ class GamesControllerTest {
         User mockUser = new User();
         mockUser.setUserId(1);
         Mockito.when(userService.findByUsername(Mockito.anyString())).thenReturn(mockUser);
-
+        Game game = new Game("Test Game", "Test description", new Date(), null, "Test developer", "https://example.com/test.jpg");
+        game.setGameId(1);
+        when(gameService.findById(1)).thenReturn(game);
         mockMvc.perform(post("/games/1/rate")
                         .param("rating", "5"))
                 .andExpect(status().is3xxRedirection())
@@ -229,6 +236,13 @@ class GamesControllerTest {
     @Test
     @WithMockUser(username="user", roles={"USER"})
     void saveReview() throws Exception {
+        Game game = new Game("Test Game", "Test description", new Date(), null, "Test developer", "https://example.com/test.jpg");
+        game.setGameId(1);
+        User mockUser = new User();
+        mockUser.setUserId(1);
+        Mockito.when(userService.findByUsername(Mockito.anyString())).thenReturn(mockUser);
+
+        when(gameService.findById(1)).thenReturn(game);
         mockMvc.perform(post("/games/1/add-review")
                         .param("comment", "Test review")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED))
