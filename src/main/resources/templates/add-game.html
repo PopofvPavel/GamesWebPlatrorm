@@ -40,13 +40,13 @@
         <textarea id="description" class="comment-area" th:field="*{description}"></textarea><br><br>
 
         <label for="releaseDate">Release Date:</label><br>
-        <input type="date" id="releaseDate" th:field="*{releaseDate}"><br><br>
+        <input type="date" class="date-input" id="releaseDate" th:field="*{releaseDate}"><br><br>
 
         <label for="platform">Platform:</label><br>
         <input type="text" class="input" id="platform" th:field="*{platform}"><br><br>
 
         <label for="genres">Genres:</label><br>
-        <select id="genres" th:field="*{genres}" multiple>
+        <select id="genres" class="genres-input" th:field="*{genres}" multiple>
             <option th:each="genre : ${allGenres}"
                     th:value="${genre.id}"
                     th:text="${genre.description}"
@@ -60,7 +60,7 @@
         <label for="imageUrl">Image URL:</label><br>
         <input type="text" id="imageUrl" class="input"  th:field="*{imageUrl}"><br><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="button">Submit</button>
     </form>
     <p th:if="${error}" th:text="${error}" class="error-message"></p>
 </div>
@@ -69,7 +69,7 @@
     <form method="post" th:action="@{/games/load}" >
         <label for="steamId">Enter Steam Game ID:</label><br>
         <input type="number" id="steamId" name="steamId" class="input"  th:value="${steamId}" required><br><br>
-        <button type="submit">Search</button>
+        <button type="submit" class="button">Search</button>
     </form>
 </div>
 

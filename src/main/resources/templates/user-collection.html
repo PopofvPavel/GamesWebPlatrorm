@@ -41,7 +41,7 @@
                             <img th:src="@{${game.imageUrl}}" alt="">
                         </a>
 
-                        <th:block th:if="${game.imageUrl == null}">
+                        <th:block th:href="@{'/games/' + ${game.gameId}}" th:if="${game.imageUrl == null}">
                             <img th:src="@{images/default_image.jpg}" src="../static/images/default_image.jpg" alt="no picture" >
                         </th:block>
                     </div>

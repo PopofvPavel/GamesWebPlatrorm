@@ -31,19 +31,19 @@
     <h1>Edit Game</h1>
     <form method="post" th:action="@{/games/{id}/edit(id=${game.gameId}, steamId=${steamId})}" th:object="${game}">
         <label for="title">Title:</label><br>
-        <input type="text" id="title" th:field="*{title}" required><br><br>
+        <input type="text" id="title" class="input" th:field="*{title}" required><br><br>
 
         <label for="description">Description:</label><br>
-        <textarea id="description" th:field="*{description}"></textarea><br><br>
+        <textarea id="description" class="comment-area" th:field="*{description}"></textarea><br><br>
 
         <label for="releaseDate">Release Date:</label><br>
-        <input type="date" id="releaseDate" th:field="*{releaseDate}"><br><br>
+        <input type="date" class="date-input" id="releaseDate" th:field="*{releaseDate}"><br><br>
 
         <label for="platform">Platform:</label><br>
-        <input type="text" id="platform" th:field="*{platform}"><br><br>
+        <input type="text" class="input" id="platform" th:field="*{platform}"><br><br>
 
         <label for="genres">Genres:</label><br>
-        <select id="genres" th:field="*{genres}" multiple>
+        <select id="genres" class="genres-input" th:field="*{genres}" multiple>
             <option th:each="genre : ${allGenres}"
                     th:value="${genre.id}"
                     th:text="${genre.description}"
@@ -51,12 +51,12 @@
         </select><br><br>
 
         <label for="developer">Developer:</label><br>
-        <input type="text" id="developer" th:field="*{developer}"><br><br>
+        <input type="text" id="developer" class="input" th:field="*{developer}"><br><br>
 
          <label for="imageUrl">Image URL:</label><br>
-        <input type="text" id="imageUrl" th:field="*{imageUrl}"><br><br>
+        <input type="text" id="imageUrl" class="input" th:field="*{imageUrl}"><br><br>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="button">Submit</button>
     </form>
     <p th:if="${error}" th:text="${error}" class="error-message"></p>
 </div>
@@ -64,7 +64,7 @@
 <div class="container">
     <form method="post" th:action="@{/games/{id}/edit/load(id=${game.gameId})}" >
         <label for="steamId">Enter Steam Game ID:</label><br>
-        <input type="number" id="steamId" name="steamId" th:value="${steamId}" required><br><br>
+        <input type="number" id="steamId" name="steamId" class="input" th:value="${steamId}" required><br><br>
 
         <label><input type="checkbox" name="useTitle" value="true" checked> Use Steam Title</label><br>
         <label><input type="checkbox" name="useDescription" value="true"> Use Steam Description</label><br>
@@ -73,14 +73,14 @@
         <label><input type="checkbox" name="useDeveloper" value="true"> Use Steam Developer</label><br>
         <label><input type="checkbox" name="useImageUrl" value="true"> Use Steam Image URL</label><br><br>
 
-        <button type="submit">Search</button>
+        <button type="submit" class="button">Search</button>
     </form>
 </div>
 
 <div class="container">
     <div th:if="${game.steamId != null}">
         <form method="post" th:action="@{/games/{id}/load-steam-reviews(id=${game.gameId})}">
-            <button type="submit">Load Steam Reviews</button>
+            <button type="submit" class="button">Load Steam Reviews</button>
         </form>
     </div>
     <div th:unless="${game.steamId != null}">

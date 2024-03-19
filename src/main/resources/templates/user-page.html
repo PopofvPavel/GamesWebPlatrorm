@@ -33,8 +33,8 @@
 <div class="container">
     <h2>User page</h2>
     <form action="/users/code" method="post" th:if="${hasCode != null and state != null and hasCode and state != 'AUTHORIZED'}">
-        <input type="text" name="code" placeholder="Enter your code">
-        <button type="submit">Submit</button>
+        <input type="text" class="input" name="code" placeholder="Enter your code">
+        <button type="submit" class="button">Submit</button>
     </form>
 
 </div>
@@ -43,7 +43,7 @@
     <h2>Go to https://t.me/project_gp_bot and synchronize your account with bot</h2><br>
     <h2 th:if="${state != null and state == 'AUTHORIZED'}" class="text-success">You have been successfully authorized in telegram bot</h2>
     <form th:action="@{/users/unlink}" method="post" th:if="${state != null and state == 'AUTHORIZED'}">
-        <button type="submit" class="btn btn-danger">Unlink Bot Account</button>
+        <button type="submit" class="button">Unlink Bot Account</button>
     </form>
 </div>
 

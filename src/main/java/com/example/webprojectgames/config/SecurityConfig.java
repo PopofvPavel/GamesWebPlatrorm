@@ -51,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
                 .antMatchers("/register").permitAll()
+                .antMatchers("/users/**").hasAnyRole("EDITOR","USER")
                 .antMatchers("/games", "/games/{id:\\d+}", "/games/{id:\\d+}/rate","/games/{id:\\d+}/add-review",
                         "/games/collection", "/games/search","/games/{id:\\d+}/save-to-collection")
                     .hasAnyRole("USER", "EDITOR")

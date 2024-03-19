@@ -10,15 +10,13 @@
 }
 
 .logout-button{
+    margin: 5px 10px 5px 0px;
     padding: 5px;
-    margin: 10px 20px 10px 10px;
-    background-color: darkred; /* Цвет кнопки */
-    color: #fff; /* Цвет текста кнопки */
-    cursor: pointer;
+    text-align: center;
+    background-color: white;
+    border-color: black;
     border-radius: 6px;
-    font-family: Arial, serif;
-    width: 100%; /* Ширина кнопки */
-    transition: background-color 0.3s ease;
+    font-size: 14px;
 
 }
 
@@ -228,6 +226,18 @@
 .review-comment {
     color: #333;
 }
+
+.date-input{
+    color: black;
+    border-radius: 6px;
+
+}
+
+.genres-input{
+    color:black;
+    border-radius: 6px;
+}
+
 
 .rate-game-container {
     display: flex;
