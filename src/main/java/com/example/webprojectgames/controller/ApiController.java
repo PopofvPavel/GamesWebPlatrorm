@@ -38,6 +38,7 @@ public class ApiController {
         User editor = userService.findByUsername(editorUsername);
 
         gameService.loadGamesFromSteamUsingWiki(year,editor.getUserId());
+
         System.out.println("Loaded all games from wiki");
         return "redirect:/";
     }

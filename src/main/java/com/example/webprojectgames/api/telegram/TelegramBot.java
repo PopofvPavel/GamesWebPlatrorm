@@ -17,10 +17,15 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import com.example.webprojectgames.model.entities.UserState;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 
 import java.util.Optional;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
@@ -38,6 +43,8 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     private final NotificationService notificationService;
     private GameService gameService;
+
+    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
     public TelegramBot(UserStateService userStateService, UserService userService, NotificationService notificationService, GameService gameService) {
         this.userStateService = userStateService;
@@ -181,6 +188,29 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
+    public void scheduleNotification(int userId, String message, LocalDateTime notificationTime) {
+        Optional<User> userOptional = userService.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            if (user.getTelegramChatId() != null) {
+                LocalDateTime now = LocalDateTime.now();
+                Duration delay = Duration.between(now, notificationTime);
+                scheduler.schedule(() -> sendNotification(user, message), delay.getSeconds(), TimeUnit.SECONDS);
+            } else {
+                logger.error("This user has got no telegram chat id");
+            }
+        } else {
+            logger.error("User not found for userId: " +  userId);
+        }
+
+    }
+
+    private void sendNotification(User user, String message) {
+        sendTextMessage(user.getTelegramChatId(), message);
+
+    }
+
+
     @Override
     public String getBotUsername() {
         return botName;
@@ -199,7 +229,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     public String getToken() {
         return token;
     }
-
 
 }
 

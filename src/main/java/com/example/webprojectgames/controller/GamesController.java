@@ -7,6 +7,7 @@ import com.example.webprojectgames.model.exceptions.GameNotFoundException;
 import com.example.webprojectgames.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +39,13 @@ public class GamesController {
     private PlatformService platformService;
 
     private GenreService genreService;
+    private TelegramService telegramService;
+
+
+    @Autowired
+    public void setTelegramService(TelegramService telegramService) {
+        this.telegramService = telegramService;}
+
 
     @Autowired
     public void setGenreService(GenreService genreService) {
@@ -233,6 +242,22 @@ public class GamesController {
         System.out.println("game url : " + game.getImageUrl());
         return "add-game";
     }
+
+    @PostMapping("/{id}/schedule-notification")
+    public String scheduleNotification(@RequestParam("notificationTime")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime notificationTime,
+                                       @PathVariable("id") int id) {
+        Game game = gameService.findById(id);
+        if (game == null) {
+            throw new GameNotFoundException("This game is not found in games list: " + id);
+        }
+        User user = getCurrentUser();
+        String message = "Reminder: Don't forget to play " + game.getTitle() + "!";
+        telegramService.scheduleNotification(user.getUserId(), message, notificationTime);
+
+        System.out.println("Added notification");
+        return "redirect:/games/" + id;
+    }
+
 
     @PostMapping("/{id}/edit/load")
     public String searchSteamGameForEditPage(@PathVariable("id") int id, @RequestParam("steamId") long steamId,
