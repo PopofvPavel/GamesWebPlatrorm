@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -26,15 +27,17 @@ public class SteamGameMapper {
                 JsonNode gameData = rootNode.get(gameId).get("data");
 
                 String title = gameData.get("name").asText();
-                String description = gameData.get("detailed_description").asText();
-   /*         String releaseDateString = gameData.get("release_date").get("date").asText();
+                String description = parseDescription(gameData.get("detailed_description").asText());
+            String releaseDateString = gameData.get("release_date").get("date").asText();
 
             Date releaseDate = null;
             try {
-                releaseDate = dateFormat.parse(releaseDateString);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("d MMM, yyyy", Locale.ENGLISH);
+                releaseDate =  dateFormat.parse(releaseDateString);
+                //releaseDate = dateFormat.parse(releaseDateString);
             } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }*/
+                e.printStackTrace();
+            }
 
 
                 // Extract genres
@@ -58,7 +61,7 @@ public class SteamGameMapper {
                 String developer = gameData.get("developers").get(0).asText(); // Предполагается, что разработчик - первый в списке
                 String imageUrl = gameData.get("header_image").asText();
 
-                return new SteamGame(title, description, null, platforms, developer, imageUrl,genres);
+                return new SteamGame(title, description, releaseDate, platforms, developer, imageUrl,genres);
             } else {
                 throw new GameNotFoundException("Game not found on Steam with id " +gameId);
             }
@@ -67,6 +70,20 @@ public class SteamGameMapper {
             throw new RuntimeException("Error parsing json", e);
         }
     }
+
+    private String parseDescription(String detailedDescription) {
+        // Удаление HTML-тегов
+        String cleanDescription = detailedDescription.replaceAll("\\<.*?\\>", "");
+
+        // Удаление специальных символов HTML
+        cleanDescription = cleanDescription.replaceAll("&.*?;", "");
+
+        // Удаление множественных пробелов и лишних пробельных символов
+        cleanDescription = cleanDescription.replaceAll("\\s+", " ").trim();
+
+        return cleanDescription;
+    }
+
 
     public List<SteamGame> mapAllSteamGamesTitles(String json) {
         List<SteamGame> steamGames = new ArrayList<>();

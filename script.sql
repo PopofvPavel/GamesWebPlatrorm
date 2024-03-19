@@ -82,6 +82,8 @@ CREATE TABLE user_bot_states
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
+
+
 select * from user_bot_states;
 
 
