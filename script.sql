@@ -193,7 +193,7 @@ CREATE TABLE notifications
     notification_id   SERIAL PRIMARY KEY,
     user_id           INT,
     game_id           INT,
-    notification_type VARCHAR(50),
+    message VARCHAR(50),
     is_notified       BOOLEAN,
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     FOREIGN KEY (game_id) REFERENCES games (game_id)
@@ -290,7 +290,7 @@ VALUES (1, 1, '2022-01-15'),
        (2, 3, '2022-03-25');
 
 -- Заполнение таблицы notifications
-INSERT INTO notifications (user_id, game_id, notification_type, is_notified)
+INSERT INTO notifications (user_id, game_id, message, is_notified)
 VALUES (1, 1, 'Type1', FALSE),
        (2, 2, 'Type2', FALSE),
        (2, 3, 'Type3', FALSE);

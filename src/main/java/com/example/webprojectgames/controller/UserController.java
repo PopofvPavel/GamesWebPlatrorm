@@ -59,6 +59,16 @@ public class UserController
         }
     }
 
+    @PostMapping("/unlink")
+    public String unlinkBotAccount() {
+        User user = getCurrentUser();
+        userStateService.deleteState(user.getTelegramChatId());
+        user.setTelegramChatId(null);
+        userService.saveUser(user);
+        return "redirect:/users";
+    }
+
+
     public User getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();

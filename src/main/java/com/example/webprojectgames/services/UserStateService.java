@@ -16,4 +16,6 @@ public interface UserStateService {
     String getTelegramCode(long userId);
 
     void setUserId(Long telegramChatId, long userId);
+
+    void deleteState(Long telegramChatId);
 }

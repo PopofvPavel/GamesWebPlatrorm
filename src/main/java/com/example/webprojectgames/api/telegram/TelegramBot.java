@@ -110,7 +110,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private void handleNotificationsCommand(User user) {
         List<Notification> notifications = notificationService.getUserUnsendNotifications(user);
         for (Notification notification : notifications) {
-            sendTextMessage(user.getTelegramChatId(), "Новое уведомление: " + notification.getNotificationType());
+            sendTextMessage(user.getTelegramChatId(), "Новое уведомление: " + notification.getMessage());
             notification.setNotified(true);
             notificationService.save(notification);
         }

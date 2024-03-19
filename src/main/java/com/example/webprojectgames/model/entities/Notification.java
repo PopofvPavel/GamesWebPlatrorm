@@ -13,8 +13,8 @@ public class Notification {
     private int userId;
     @Column(name = "game_id")
     private int gameId;
-    @Column(name = "notification_type")
-    private String notificationType;
+    @Column(name = "message")
+    private String message;
     @Column(name = "is_notified")
     private boolean isNotified;
 
@@ -42,12 +42,12 @@ public class Notification {
         this.gameId = gameId;
     }
 
-    public String getNotificationType() {
-        return notificationType;
+    public String getMessage() {
+        return message;
     }
 
-    public void setNotificationType(String notificationType) {
-        this.notificationType = notificationType;
+    public void setMessage(String notificationType) {
+        this.message = notificationType;
     }
 
     public boolean isNotified() {

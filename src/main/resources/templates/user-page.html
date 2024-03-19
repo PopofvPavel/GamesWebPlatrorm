@@ -42,7 +42,9 @@
     <h1>Telegram bot </h1>
     <h2>Go to https://t.me/project_gp_bot and synchronize your account with bot</h2><br>
     <h2 th:if="${state != null and state == 'AUTHORIZED'}" class="text-success">You have been successfully authorized in telegram bot</h2>
-
+    <form th:action="@{/users/unlink}" method="post" th:if="${state != null and state == 'AUTHORIZED'}">
+        <button type="submit" class="btn btn-danger">Unlink Bot Account</button>
+    </form>
 </div>
 
 </body>

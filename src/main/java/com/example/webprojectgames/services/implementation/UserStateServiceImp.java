@@ -66,4 +66,10 @@ public class UserStateServiceImp  implements UserStateService {
         }
 
     }
+
+    @Override
+    public void deleteState(Long telegramChatId) {
+        Optional<UserState> userStateOptional = userStateRepository.findById(telegramChatId);
+        userStateOptional.ifPresent(userStateRepository::delete);
+    }
 }

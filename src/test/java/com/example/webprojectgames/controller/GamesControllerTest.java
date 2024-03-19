@@ -54,6 +54,9 @@ class GamesControllerTest {
     @MockBean
     private PlatformService platformService;
 
+    @MockBean
+    private GenreService genresService;
+
 
     @Test
     @WithMockUser(username="user", roles={"USER"})
@@ -111,7 +114,7 @@ class GamesControllerTest {
     }
 
     @Test
-    @WithMockUser(username="user", roles={"USER"})
+    @WithMockUser(username="user", roles={"EDITOR"})
     void showAddGamePage() throws Exception {
         mockMvc.perform(get("/games/add"))
                 .andExpect(status().isOk())
@@ -120,7 +123,7 @@ class GamesControllerTest {
     }
 
     @Test
-    @WithMockUser(username="user", roles={"USER"})
+    @WithMockUser(username="user", roles={"EDITOR"})
     void addGameWithSteamId() throws Exception {
         User mockUser = new User();
         mockUser.setUserId(1);
@@ -135,7 +138,7 @@ class GamesControllerTest {
     }
 
 @Test
-    @WithMockUser(username="user", roles={"USER"})
+    @WithMockUser(username="user", roles={"EDITOR"})
     void addGameWithoutSteamId() throws Exception {
         User mockUser = new User();
         mockUser.setUserId(1);
@@ -150,7 +153,7 @@ class GamesControllerTest {
     }
 
     @Test
-    @WithMockUser(username="user", roles={"USER"})
+    @WithMockUser(username="user", roles={"EDITOR"})
     void searchSteamGame() throws Exception {
         SteamGame steamGameMock = new SteamGame("Test Game", "Test description", new Date(2024, 3, 1), Collections.singletonList("Windows"), "Test developer", "https://example.com/test.jpg",null);
         //steamGameMock.set
@@ -165,7 +168,7 @@ class GamesControllerTest {
     }
 
     @Test
-    @WithMockUser(username="user", roles={"USER"})
+    @WithMockUser(username="user", roles={"EDITOR"})
     void searchSteamGameForEditPage() throws Exception {
         when(gameService.findById(1)).thenReturn(new Game("Test Game", "Test description",  new Date(2024,03,01), null, "Test developer", "https://example.com/test.jpg"));
 
@@ -180,7 +183,7 @@ class GamesControllerTest {
     }
 
     @Test
-    @WithMockUser(username="user", roles={"USER"})
+    @WithMockUser(username="user", roles={"EDITOR"})
     void loadSteamReviews() throws Exception {
         Game mockGame = new Game("Test Game", "Test description", new Date(2024, 03, 01), null, "Test developer", "https://example.com/test.jpg");
         mockGame.setSteamId(12345L);
@@ -197,7 +200,7 @@ class GamesControllerTest {
     }
 
     @Test
-    @WithMockUser(username="user", roles={"USER"})
+    @WithMockUser(username="user", roles={"EDITOR"})
     void showEditGameForm() throws Exception {
         when(gameService.findById(1)).thenReturn(new Game("Test Game", "Test description",  new Date(2024,03,01), null, "Test developer", "https://example.com/test.jpg"));
 
@@ -208,7 +211,7 @@ class GamesControllerTest {
     }
 
     @Test
-    @WithMockUser(username="user", roles={"USER"})
+    @WithMockUser(username="user", roles={"EDITOR"})
     void editGame() throws Exception {
         when(gameService.findById(1)).thenReturn(new Game("Test Game", "Test description",  new Date(2024,03,01), null, "Test developer", "https://example.com/test.jpg"));
         User mockUser = new User();
