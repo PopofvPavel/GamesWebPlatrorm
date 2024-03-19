@@ -37,10 +37,16 @@
     <div class="header-container">
         <h1 th:text="${game.title}">Game Title</h1>
         <span th:if="${#authorization.expression('hasRole(''EDITOR'')')}">
-        <a th:href="@{'/games/' + ${game.gameId} + '/edit'}">Edit</a>
+        <form th:action="@{'/games/' + ${game.gameId} + '/edit'}" method="get">
+            <button class="button" type="submit">Edit</button>
+        </form>
     </span>
-        <span><a th:href="@{'/games/' + ${game.gameId} + '/save-to-collection'}">Save to collection</a></span>
+        <form th:action="@{'/games/' + ${game.gameId} + '/save-to-collection'}" method="get">
+            <button class="button" type="submit">Save to collection</button>
+        </form>
     </div>
+
+
 
     <p>Ratings: <span th:text="${averageRating}"></span></p>
     <div class="rate-game-container">

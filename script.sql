@@ -193,7 +193,7 @@ CREATE TABLE notifications
     notification_id   SERIAL PRIMARY KEY,
     user_id           INT,
     game_id           INT,
-    message VARCHAR(50),
+    message VARCHAR(100),
     is_notified       BOOLEAN,
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     FOREIGN KEY (game_id) REFERENCES games (game_id)

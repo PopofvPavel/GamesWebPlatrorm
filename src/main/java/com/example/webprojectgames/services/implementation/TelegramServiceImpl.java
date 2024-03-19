@@ -1,6 +1,7 @@
 package com.example.webprojectgames.services.implementation;
 
 import com.example.webprojectgames.api.telegram.TelegramBot;
+import com.example.webprojectgames.model.entities.Notification;
 import com.example.webprojectgames.model.entities.User;
 import com.example.webprojectgames.services.TelegramService;
 import com.example.webprojectgames.services.UserService;
@@ -30,7 +31,7 @@ public class TelegramServiceImpl implements TelegramService {
     }
 
     @Override
-    public void scheduleNotification(int userId, String message, LocalDateTime notificationTime) {
-        telegramBot.scheduleNotification(userId, message, notificationTime);
+    public void scheduleNotification(Notification notification, LocalDateTime notificationTime) {
+        telegramBot.scheduleNotification(notification, notificationTime);
     }
 }

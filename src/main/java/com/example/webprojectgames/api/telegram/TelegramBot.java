@@ -188,25 +188,28 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
     }
 
-    public void scheduleNotification(int userId, String message, LocalDateTime notificationTime) {
-        Optional<User> userOptional = userService.findById(userId);
+    public void scheduleNotification(Notification notification, LocalDateTime notificationTime) {
+        Optional<User> userOptional = userService.findById(notification.getUserId());
         if (userOptional.isPresent()) {
             User user = userOptional.get();
             if (user.getTelegramChatId() != null) {
                 LocalDateTime now = LocalDateTime.now();
                 Duration delay = Duration.between(now, notificationTime);
-                scheduler.schedule(() -> sendNotification(user, message), delay.getSeconds(), TimeUnit.SECONDS);
+
+                scheduler.schedule(() -> sendNotification(user, notification), delay.getSeconds(), TimeUnit.SECONDS);
             } else {
                 logger.error("This user has got no telegram chat id");
             }
         } else {
-            logger.error("User not found for userId: " +  userId);
+            logger.error("User not found for userId: " + notification.getUserId());
         }
 
     }
 
-    private void sendNotification(User user, String message) {
-        sendTextMessage(user.getTelegramChatId(), message);
+    private void sendNotification(User user, Notification notification) {
+        sendTextMessage(user.getTelegramChatId(), notification.getMessage());
+        notification.setNotified(true);
+        notificationService.save(notification);
 
     }
 

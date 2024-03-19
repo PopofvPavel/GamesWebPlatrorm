@@ -1,5 +1,6 @@
 package com.example.webprojectgames.services;
 
+import com.example.webprojectgames.model.entities.Notification;
 import com.example.webprojectgames.model.entities.User;
 
 import java.time.LocalDateTime;
@@ -10,5 +11,5 @@ public interface TelegramService {
 
 
 
-    void scheduleNotification(int userId, String message, LocalDateTime notificationTime);
+    void scheduleNotification(Notification notification, LocalDateTime notificationTime);
 }

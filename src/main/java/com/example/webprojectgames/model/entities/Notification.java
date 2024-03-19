@@ -11,8 +11,20 @@ public class Notification {
     private long notificationId;
     @Column(name = "user_id")
     private int userId;
+
+    public Notification() {
+    }
+
     @Column(name = "game_id")
     private int gameId;
+
+    public Notification(int userId, int gameId, String message) {
+        this.userId = userId;
+        this.gameId = gameId;
+        this.message = message;
+        this.isNotified = false;
+    }
+
     @Column(name = "message")
     private String message;
     @Column(name = "is_notified")

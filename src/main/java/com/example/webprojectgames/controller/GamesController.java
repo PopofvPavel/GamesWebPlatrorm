@@ -40,8 +40,12 @@ public class GamesController {
 
     private GenreService genreService;
     private TelegramService telegramService;
+    private NotificationService notificationService;
 
 
+    @Autowired
+    public void setNotificationService(NotificationService notificationService) {
+        this.notificationService = notificationService;}
     @Autowired
     public void setTelegramService(TelegramService telegramService) {
         this.telegramService = telegramService;}
@@ -119,6 +123,10 @@ public class GamesController {
         }
 
         ratingService.saveRating(rating);
+
+        Notification notification = new Notification(currentUser.getUserId(), id,"Thank you for your rate!" +
+                " It was successfully saved (" + gameService.findById(id).getTitle() + ")");
+        notificationService.save(notification);
         return "redirect:/games/" + id;
     }
 
@@ -252,7 +260,9 @@ public class GamesController {
         }
         User user = getCurrentUser();
         String message = "Reminder: Don't forget to play " + game.getTitle() + "!";
-        telegramService.scheduleNotification(user.getUserId(), message, notificationTime);
+        Notification notification = new Notification(user.getUserId(),id, message);
+
+        telegramService.scheduleNotification(notification, notificationTime);
 
         System.out.println("Added notification");
         return "redirect:/games/" + id;
