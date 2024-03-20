@@ -32,9 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?")
                 .authoritiesByUsernameQuery("SELECT username, role_name FROM users INNER JOIN roles ON users.role_id = roles.role_id WHERE username=?");
 
-    /* auth
-            .inMemoryAuthentication()
-            .withUser("user").password("{noop}password").roles("USER"); */
+
     }
 
     public void configure(WebSecurity web) {

@@ -26,7 +26,10 @@ import java.util.Optional;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
+/**
+ * Класс для обработки обновлений и отправки сообщений через Telegram бота.
+ * Также имеет ScheduledExecutorService для отправки уведомлений по таймеру
+ */
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
 
@@ -54,7 +57,13 @@ public class TelegramBot extends TelegramLongPollingBot {
         this.gameService = gameService;
     }
 
-
+    /**
+     * Обрабатывает полученное сообщение.
+     * Реагирует в зависимости от UserState,
+     * которое показывает на каком этапе находится пользователь
+     * в чате тг бота
+     * @param update Обновление из Telegram.
+     */
     @Override
     public void onUpdateReceived(Update update) {
         Long chatId = update.getMessage().getChatId();
@@ -84,7 +93,12 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 
     }
-
+    /**
+     * Обрабатывает состояние авторизованного пользователя.
+     *
+     * @param chatId     Идентификатор чата пользователя.
+     * @param inputText  Введенный текст пользователем.
+     */
     private void handleAuthorizedState(Long chatId, String inputText) {
         Optional<User> userOptional = userService.findUserByChatId(chatId);
         if (userOptional.isPresent()) {
@@ -101,7 +115,11 @@ public class TelegramBot extends TelegramLongPollingBot {
             }
         }
     }
-
+    /**
+     * Обрабатывает команду для просмотра коллекции игр пользователя.
+     *
+     * @param user  Пользователь.
+     */
     private void handleMyCollectionCommand(User user) {
         List<Game> userCollection = gameService.getUserGamesCollection(user.getUserId());
         StringBuilder response = new StringBuilder("Ваша коллекция игр:\n");
@@ -110,7 +128,11 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
         sendTextMessage(user.getTelegramChatId(), response.toString());
     }
-
+    /**
+     * Обрабатывает команду для просмотра уведомлений пользователя.
+     *
+     * @param user  Пользователь.
+     */
     private void handleNotificationsCommand(User user) {
         List<Notification> notifications = notificationService.getUserUnsendNotifications(user);
         for (Notification notification : notifications) {
@@ -119,7 +141,11 @@ public class TelegramBot extends TelegramLongPollingBot {
             notificationService.save(notification);
         }
     }
-
+    /**
+     * Обрабатывает ввод кода пользователем.
+     *
+     * @param chatId  Идентификатор чата пользователя.
+     */
     private void handleEnterCodeInput(Long chatId) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
@@ -130,7 +156,11 @@ public class TelegramBot extends TelegramLongPollingBot {
             logger.error("Error sending message: {}", e.getMessage());
         }
     }
-
+    /**
+     * Обрабатывает начальное состояние пользователя.
+     *
+     * @param chatId  Идентификатор чата пользователя.
+     */
     private void handleStartState(Long chatId) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
@@ -143,7 +173,12 @@ public class TelegramBot extends TelegramLongPollingBot {
         userStateService.updateUserState(chatId, "ENTER_USERNAME");
     }
 
-    // Метод для обработки ввода имени пользователя
+    /**
+     * Обрабатывает ввод имени пользователя.
+     *
+     * @param chatId    Идентификатор чата пользователя.
+     * @param username  Имя пользователя.
+     */
     private void handleUsernameInput(Long chatId, String username) {
         User user = userService.findByUsername(username);
         SendMessage message = new SendMessage();
@@ -169,13 +204,23 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     }
 
+    /**
+     * Генерирует код для подтверждения аккаунта.
+     *
+     * @return Сгенерированный код.
+     */
     private String generateCode() {
         // Генерируем случайное четырехзначное число
         Random random = new Random();
         int code = random.nextInt(10_000);
         return String.valueOf(code);
     }
-
+    /**
+     * Отправляет текстовое сообщение пользователю.
+     *
+     * @param chatId  Идентификатор чата пользователя.
+     * @param text    Текст сообщения.
+     */
     public void sendTextMessage(Long chatId, String text) {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
@@ -186,7 +231,12 @@ public class TelegramBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Планирует отправку уведомления в указанное время.
+     *
+     * @param notification       Уведомление для отправки.
+     * @param notificationTime   Время отправки уведомления.
+     */
     public void scheduleNotification(Notification notification, LocalDateTime notificationTime) {
         Optional<User> userOptional = userService.findById(notification.getUserId());
         if (userOptional.isPresent()) {
@@ -204,7 +254,12 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
 
     }
-
+    /**
+     * Отправляет уведомление пользователю.
+     *
+     * @param user          Пользователь.
+     * @param notification  Уведомление для отправки.
+     */
     private void sendNotification(User user, Notification notification) {
         sendTextMessage(user.getTelegramChatId(), notification.getMessage());
         notification.setNotified(true);

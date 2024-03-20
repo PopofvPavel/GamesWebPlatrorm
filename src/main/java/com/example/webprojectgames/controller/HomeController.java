@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ *  Контроллер для логина и регистрации
+ */
 @Controller
 @RequestMapping
 public class HomeController {

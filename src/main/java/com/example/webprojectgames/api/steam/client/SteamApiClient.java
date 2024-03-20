@@ -11,11 +11,12 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+/**
+ * Класс для интеграции с API Steam с использованием REST.
+ */
 @Component
 public class SteamApiClient {
 
-  /*  @Value("${steam.api.key}") //described in properties
-    private String apiKey;*/
 
     final SteamGameMapper steamGameMapper;
 
@@ -26,7 +27,12 @@ public class SteamApiClient {
         this.restTemplate = new RestTemplate();
         this.steamGameMapper = steamGameMapper;
     }
-
+    /**
+     * Получает описание игры из Steam по её идентификатору.
+     * @param appId id игры в Steam.
+     * @return объект игры.
+     * @throws GameNotFoundException Если игра не найдена в библиотеке Steam.
+     */
     public SteamGame getGameDescription(long appId) {
         String url = "https://store.steampowered.com/api/appdetails?appids=" + appId;
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
@@ -38,7 +44,13 @@ public class SteamApiClient {
 
         return steamGame;
     }
-
+    /**
+     * Получает отзывы на игру из Steam.
+     * @param steamId id игры в Steam.
+     * @param gameId  id игры в нашей базе данных.
+     * @return Список отзывов на игру.
+     * @throws GameNotFoundException Если отзывы не найдены для указанной игры в Steam.
+     */
     public List<SteamReview> getGameReviews(long steamId, long gameId) {
         String url = "https://store.steampowered.com/appreviews/" + steamId + "?json=1";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
@@ -49,7 +61,11 @@ public class SteamApiClient {
         }
         return steamReviews;
     }
-
+    /**
+     * Получает список всех игр из Steam.
+     * Используется для автоматической массовой загрузки
+     * @return Список всех игр.
+     */
     public List<SteamGame> getAllGames() {
         String url = "https://api.steampowered.com/ISteamApps/GetAppList/v2/";
         ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);

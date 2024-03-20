@@ -11,7 +11,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+/**
+ *  Контроллер для операций с пользовательской страницей(профилем)
+ */
 @Controller
 @RequestMapping("/users")
 public class UserController

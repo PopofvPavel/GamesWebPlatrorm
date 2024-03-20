@@ -12,6 +12,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+/**
+ * Долгий по выполнению тест(неск. десятков секунд),
+ * который проверяет, что для каждого года приходит хотя бы одна игра
+ */
 class GameComparisonServiceIntegrationTest {
 
     @Autowired
