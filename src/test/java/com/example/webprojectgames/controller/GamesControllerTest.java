@@ -1,9 +1,6 @@
 package com.example.webprojectgames.controller;
 
-import com.example.webprojectgames.model.entities.Game;
-import com.example.webprojectgames.model.entities.SteamGame;
-import com.example.webprojectgames.model.entities.SteamReview;
-import com.example.webprojectgames.model.entities.User;
+import com.example.webprojectgames.model.entities.*;
 import com.example.webprojectgames.services.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -16,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -106,6 +104,32 @@ class GamesControllerTest {
         verifyNoInteractions(gameService);
         verifyNoInteractions(notificationService);
     }
+
+    @Test
+    @WithMockUser(username = "user", roles = { "USER" })
+    void scheduleNotificationForAuthenticatedUser() throws Exception {
+        // Подготовка
+        Game game = new Game("Test Game", "Test description", new Date(), null, "Test developer", "https://example.com/test.jpg");
+        game.setGameId(1);
+        when(gameService.findById(1)).thenReturn(game);
+
+        when(telegramService.isUserAuthenticated(anyInt())).thenReturn(true);
+        doNothing().when(telegramService).scheduleNotification(any(Notification.class), any(LocalDateTime.class));
+        User mockUser = new User();
+        mockUser.setUserId(1);
+        Mockito.when(userService.findByUsername(Mockito.anyString())).thenReturn(mockUser);
+        // Выполнение
+        mockMvc.perform(post("/games/1/schedule-notification")
+                        .param("notificationTime", "2024-03-05T10:00:00")
+                )
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/games/1"));
+
+        // Проверка вызова методов
+        verify(telegramService, times(1)).isUserAuthenticated(anyInt());
+        verify(telegramService, times(1)).scheduleNotification(any(Notification.class), any(LocalDateTime.class));
+    }
+
 
     @Test
     @WithMockUser(username = "user", roles = { "USER" })
