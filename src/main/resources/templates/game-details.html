@@ -75,6 +75,9 @@
         <input type="datetime-local" class="date-input" name="notificationTime" required><br>
         <button class="button" type="submit">Schedule Notification</button>
     </form>
+    <div th:if="${error}" class="error-message">
+        <p th:text="${error}"></p>
+    </div>
 
 
     <h2>Reviews:</h2>

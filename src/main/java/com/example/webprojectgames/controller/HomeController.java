@@ -41,7 +41,8 @@ public class HomeController {
     @PostMapping("/register")
     public String registerNewUser(@ModelAttribute("user") User user, Model model) {
         if (userService.existsByUsername(user.getUsername())) {
-            model.addAttribute("error", "Username is already in use");
+            model.addAttribute("error", "Username is already in already in use");
+            System.out.println("in error register block");
             return "register";
         }
 

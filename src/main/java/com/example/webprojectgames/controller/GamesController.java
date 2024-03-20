@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -253,12 +254,18 @@ public class GamesController {
 
     @PostMapping("/{id}/schedule-notification")
     public String scheduleNotification(@RequestParam("notificationTime")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime notificationTime,
-                                       @PathVariable("id") int id) {
+                                       @PathVariable("id") int id,
+                                       RedirectAttributes redirectAttributes) {
+        User user = getCurrentUser();
+        if (!telegramService.isUserAuthenticated(user.getUserId())) {
+            redirectAttributes.addFlashAttribute("error", "User is not authenticated in the Telegram bot");
+            return "redirect:/games/" + id;
+        }
         Game game = gameService.findById(id);
         if (game == null) {
             throw new GameNotFoundException("This game is not found in games list: " + id);
         }
-        User user = getCurrentUser();
+
         String message = "Reminder: Don't forget to play " + game.getTitle() + "!";
         Notification notification = new Notification(user.getUserId(),id, message);
 

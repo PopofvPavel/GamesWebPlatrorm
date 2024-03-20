@@ -12,4 +12,6 @@ public interface TelegramService {
 
 
     void scheduleNotification(Notification notification, LocalDateTime notificationTime);
+
+    boolean isUserAuthenticated(int userId);
 }
