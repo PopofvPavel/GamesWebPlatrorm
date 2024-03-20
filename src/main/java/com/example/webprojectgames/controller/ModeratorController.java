@@ -20,12 +20,12 @@ import java.util.Optional;
 @RequestMapping("/moderator")
 @PreAuthorize("hasRole('MODERATOR')")
 public class ModeratorController {
-    private final UserService userService;
-
+    private  UserService userService;
     @Autowired
-    public ModeratorController(UserService userService) {
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
+
 
     @GetMapping("/users")
     public String showUsers(Model model) {
