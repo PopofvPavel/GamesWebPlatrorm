@@ -30,4 +30,7 @@ public interface UserService {
     Optional<User> findById(Integer userId);
 
     Optional<User> findUserByChatId(Long chatId);
+
+    boolean existsByUsername(String username);
+
 }

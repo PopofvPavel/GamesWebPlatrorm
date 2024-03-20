@@ -122,6 +122,14 @@
     text-decoration: white;
     color: white;
 }
+
+.link{
+    margin: 5px;
+    font-weight: bold;
+    font-family: Verdana, serif;
+    text-decoration: white;
+    color: white;
+}
 .container {
     width: 80%;
     margin: 60px auto 20px; /*60 для шапки*/

@@ -107,5 +107,12 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByTelegramChatId(chatId);
     }
 
+    @Override
+    public boolean existsByUsername(String username) {
+        User user = findByUsername(username);
+        return user != null;
+
+    }
+
 
 }

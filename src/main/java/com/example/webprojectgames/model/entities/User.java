@@ -22,7 +22,7 @@ public class User {
     private Integer roleId;
 
     @Column(name = "enabled")
-    boolean enabled;
+    boolean enabled = true;
 
     public boolean isEnabled() {
         return enabled;

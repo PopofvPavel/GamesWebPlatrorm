@@ -39,9 +39,15 @@ public class HomeController {
     }
 
     @PostMapping("/register")
-    public String registerNewUser(@ModelAttribute("user") User user) {
+    public String registerNewUser(@ModelAttribute("user") User user, Model model) {
+        if (userService.existsByUsername(user.getUsername())) {
+            model.addAttribute("error", "Username is already in use");
+            return "register";
+        }
+
         Role role = userService.getRoleByRoleName("ROLE_USER");
         user.setRoleId(role.getRoleId());
+
         userService.saveUser(user);
         return "redirect:/login";
     }
