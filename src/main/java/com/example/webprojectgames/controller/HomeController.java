@@ -18,19 +18,16 @@ import java.util.List;
 @Controller
 @RequestMapping
 public class HomeController {
-    private final UserService userService;
-
+    private  UserService userService;
     @Autowired
-    public HomeController(UserService userService) {
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
     @GetMapping
     public String showHomePage(Model model) {
-
         return "redirect:/games";
     }
-
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
@@ -58,30 +55,5 @@ public class HomeController {
         return "login";
     }
 
-
-    @Autowired
-    private SteamApiService steamApiService;
-
-    @Autowired
-    private WikipediaParserService wikipediaParserService;
-
-
-    @Autowired
-    private GameComparisonService gameComparisonService;
-
-    @GetMapping("/2023")
-    @ResponseBody
-    public List<SteamGame> get2007Games() {
-        return gameComparisonService.getMatchingGames("2011");
-        //return wikipediaParserService.extractGameTitles("2023");
-    }
-
-   /* @GetMapping("/api/{appId}")
-    @ResponseBody
-    public List<SteamReview> getGameDescription(@PathVariable long appId) {
-
-
-        return steamApiService.getSteamReviews(appId);
-    }*/
 
 }
