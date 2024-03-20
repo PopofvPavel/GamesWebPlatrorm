@@ -6,7 +6,6 @@ import com.example.webprojectgames.model.entities.SteamReview;
 import com.example.webprojectgames.model.entities.User;
 import com.example.webprojectgames.services.*;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -23,8 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -58,7 +56,7 @@ class GamesControllerTest {
     @MockBean
     private GenreService genresService;
     @MockBean
-    private NotificationService NotificationService;
+    private NotificationService notificationService;
     @MockBean
     private TelegramService telegramService;
 
@@ -85,6 +83,46 @@ class GamesControllerTest {
                         .param("rating", "5"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(redirectedUrl("/games/1"));
+    }
+
+    @Test
+    @WithMockUser(username = "user", roles = { "USER" })
+    void scheduleNotificationForNotAuthenticatedUser() throws Exception {
+        // Подготовка
+        when(telegramService.isUserAuthenticated(anyInt())).thenReturn(false);
+        User mockUser = new User();
+        mockUser.setUserId(1);
+        Mockito.when(userService.findByUsername(Mockito.anyString())).thenReturn(mockUser);
+        // Выполнение
+        mockMvc.perform(post("/games/1/schedule-notification")
+                        .param("notificationTime", "2024-03-05T10:00:00")
+                       )
+                .andExpect(status().is3xxRedirection())
+                .andExpect(flash().attributeExists("error"))
+                .andExpect(redirectedUrl("/games/1"));
+
+        // Проверка вызова методов
+        verify(telegramService, times(1)).isUserAuthenticated(anyInt());
+        verifyNoInteractions(gameService);
+        verifyNoInteractions(notificationService);
+    }
+
+    @Test
+    @WithMockUser(username = "user", roles = { "USER" })
+    void searchGamesByQueryAndGenre() throws Exception {
+        List<Game> expectedGames = Collections.singletonList(new Game("Test Game", "Test description", new Date(), null, "Test developer", "https://example.com/test.jpg"));
+        when(gameService.searchGamesByGenreAndQuery(anyString(), anyLong())).thenReturn(expectedGames);
+
+        mockMvc.perform(post("/games/search")
+                        .param("query", "test")
+                        .param("genreId", "1")
+                        )
+                .andExpect(status().isOk())
+                .andExpect(model().attribute("games", expectedGames))
+                .andExpect(view().name("games"));
+
+
+        verify(gameService, times(1)).searchGamesByGenreAndQuery(eq("test"), eq(1L));
     }
 
     @Test
