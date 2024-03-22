@@ -42,8 +42,9 @@
         <label for="releaseDate">Release Date:</label><br>
         <input type="date" class="date-input" id="releaseDate" th:field="*{releaseDate}"><br><br>
 
-        <label for="platform">Platform:</label><br>
-        <input type="text" class="input" id="platform" th:field="*{platform}"><br><br>
+        <label for="platform">Platform(1- WIN, 2 - MAC, 3 - LINUX):</label><br>
+        <input type="text" class="input" id="platform" th:field="*{platform}" pattern="^[1-3]+(,[1-3]+)*$" title="Please enter platform numbers separated by commas (e.g., 1,2,3)" required><br><br>
+
 
         <label for="genres">Genres:</label><br>
         <select id="genres" class="genres-input" th:field="*{genres}" multiple>

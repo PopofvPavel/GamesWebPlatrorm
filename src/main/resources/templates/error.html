@@ -6,25 +6,28 @@
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-
 <header>
     <div class="wrap">
         <div class="header">
             <div class="logo">
-                <a href=""><img src="../static/images/logo.png" alt=""/></a>
+                <img src="static/images/default_image.jpg" alt=""/>
             </div>
             <div class="nav">
                 <ul>
-                    <li><a href="/games" class="header-link">Главная</a></li>
+                    <li ><a href="/games" class="header-link">Главная</a></li>
                     <li><a href="/games/collection" class="header-link">Моя коллекция</a></li>
-                    <li><a href="/games/add" class="header-link">Добавить игру</a></li>
+                    <li th:if="${#authorization.expression('hasRole(''EDITOR'')')}" ><a href="/games/add" class="header-link">Добавить игру вручную</a></li>
+                    <li th:if="${#authorization.expression('hasRole(''EDITOR'')')}" ><a href="/api/load" class="header-link">Добавить игру автоматически</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}" ><a href="/users" class="header-link">Профиль</a></li>
+                    <li th:unless="${#authorization.expression('isAuthenticated()')}"><a href="/login" class="header-link">Войти</a></li>
+                    <li th:if="${#authorization.expression('isAuthenticated()')}"><form  action="/logout" method="post"><button class="logout-button" type="submit">Выйти</button></form></li>
                 </ul>
             </div>
             <div class="clear"></div>
         </div>
     </div>
 </header>
-<div>
+<div class="container">
     <h1>Error</h1>
     <p th:text="${error}">An unexpected error occurred. Please try again later.</p>
 </div>
