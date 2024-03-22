@@ -9,6 +9,16 @@
     font-size: 14px;
 }
 
+.button-red {
+    margin: 5px 10px 5px 0px;
+    padding: 5px;
+    text-align: center;
+    background-color: red;
+    border: silver;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
 .logout-button{
     margin: 5px 10px 5px 0px;
     padding: 5px;
@@ -68,7 +78,10 @@
 }
 .wrap {
     margin: 0 auto;
-    width: 80%; /* отступы относительно окна браузера */
+    width: 100%; /* отступы относительно окна браузера */
+    position: fixed;
+    top: 0;
+    background-color: white;
 }
 
 .header {
@@ -86,6 +99,7 @@
 .nav {
     float: right; /* обтекание логотипа */
     margin-top: 0.82em;
+
 }
 
 .nav > ul > li {
@@ -132,7 +146,7 @@
 }
 .container {
     width: 80%;
-    margin: 60px auto 20px; /*60 для шапки*/
+    margin: 130px auto 20px; /*60 для шапки*/
     padding: 20px;
     background-color: royalblue;
     border-radius: 10px;

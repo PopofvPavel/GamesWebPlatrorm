@@ -189,6 +189,12 @@ public class GameServiceImpl implements GameService {
         return genreGames;
     }
 
+    @Override
+    public void deleteGame(int id) {
+        Game game = findById(id);
+        gamesRepository.delete(game);
+    }
+
     private void tryFindGamesByGenres(String query, List<Game> foundGames) {
         List<String> genreDescriptions = Arrays.asList(query.split("\\s*,\\s*"));
         genreDescriptions = genreDescriptions.stream()

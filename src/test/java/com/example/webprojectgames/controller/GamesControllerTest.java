@@ -175,7 +175,6 @@ class GamesControllerTest {
         List<Game> userGamesCollection = new ArrayList<>(); // Пустая коллекция игр
         when(gameService.getUserGamesCollection(anyInt())).thenReturn(userGamesCollection);
 
-
         mockMvc.perform(get("/games/collection"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("user-collection"))

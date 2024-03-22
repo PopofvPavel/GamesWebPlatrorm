@@ -22,4 +22,6 @@ public interface GameService {
     List<Game> searchGamesByGenre(Long genreId);
 
     List<Game> searchGamesByGenreAndQuery(String query, Long genreId);
+
+    void deleteGame(int id);
 }

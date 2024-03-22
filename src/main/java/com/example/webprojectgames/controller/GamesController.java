@@ -374,6 +374,15 @@ public class GamesController {
 
         return "edit-game";
     }
+    @PostMapping("/{id}/delete")
+    public String deleteGame(@PathVariable("id") int id, Model model) {
+        Game game = gameService.findById(id);
+        if (game == null) {
+            throw new GameNotFoundException("This game is not found in games list: " + id);
+        }
+        gameService.deleteGame(id);
+        return "redirect:/games";
+    }
 
     @PostMapping("/{id}/edit")
     public String editGame(@ModelAttribute("game") Game game, @PathVariable("id") int id,

@@ -88,6 +88,13 @@
     </div>
 </div>
 
+<div class="container">
+        <form method="post" th:action="@{/games/{id}/delete(id=${game.gameId})}">
+            <button type="submit" class="button-red">Delete game</button>
+        </form>
+
+</div>
+
 
 </body>
 </html>
