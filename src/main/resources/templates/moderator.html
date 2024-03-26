@@ -11,12 +11,13 @@
 <header>
     <div class="wrap">
         <div class="header">
-            <h1>Moderator Page</h1>
+
         </div>
     </div>
 </header>
 
 <div class="container">
+    <h1>Moderator Page</h1>
     <form th:action="@{/logout}" method="post">
         <button type="submit" class="button">Logout</button>
     </form>
@@ -39,8 +40,8 @@
             <td>
                 <form th:action="@{'/moderator/change-status'}" method="post">
                     <input type="hidden" name="userId" th:value="${user.userId}">
-                    <button type="submit" th:if="${user.enabled}">Block</button>
-                    <button type="submit" th:unless="${user.enabled}">Unblock</button>
+                    <button type="submit" class="button" th:if="${user.enabled}">Block</button>
+                    <button type="submit"  class="button" th:unless="${user.enabled}">Unblock</button>
                 </form>
             </td>
             <td>

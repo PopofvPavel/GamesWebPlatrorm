@@ -7,19 +7,20 @@
 </head>
 <body>
 
-<header>
+<!--<header>
     <div class="wrap">
         <div class="header">
             <h1>Login Form</h1>
         </div>
     </div>
-</header>
+</header>-->
 
 <div class="container">
+    <h1>Login Form</h1>
     <div>
         <div th:if="${param.error} != null">
             <div class="">
-                Invalid username and password of you have been blocked.
+                Invalid username and password or you have been blocked.
             </div>
         </div>
         <div th:if="${param.logout} != null">
